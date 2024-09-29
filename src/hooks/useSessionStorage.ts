@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 export type TUseSessionStorage<T> = [
   () => T | undefined,
   (value: T) => void,

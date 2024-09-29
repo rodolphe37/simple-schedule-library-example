@@ -54,8 +54,6 @@ export const rangebyFifteenMinutesUs = byFifteenMinutesitems.map((time) => {
   return formatterMinutesUS.format(forMinutesdate);
 });
 
-
-
 //  CODE FOR CONVERT HOURS/MINUTES FORMAT TO MINUTES FORMAT
 export function convertH2M(timeInHour: string) {
   const timeParts = timeInHour.split(":");

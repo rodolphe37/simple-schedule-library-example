@@ -12,14 +12,14 @@ const WeekPlanning = ({
   weekStartsOn,
   isInDarkMode,
   eventTypeData,
-  locale
+  locale,
 }: {
   scheduleIdentifier?: string;
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
   weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
-  isInDarkMode?:boolean;
+  isInDarkMode?: boolean;
   eventTypeData: TeventTypeData;
-  locale: string
+  locale: string;
 }) => {
   const [, setEventIdToDisplay] =
     useRecoilState<TEventToDisplay>(eventIdToDIsplayAtom);
@@ -40,11 +40,11 @@ const WeekPlanning = ({
         });
       }}
       className={`h-full pl-4 pr-4 pb-4 mx-auto ${
-        isInDarkMode  ? "bg-gray-900" : "bg-white"
+        isInDarkMode ? "bg-gray-900" : "bg-white"
       }`}
     >
       <Calendar
-      locale={locale}
+        locale={locale}
         eventTypeData={eventTypeData}
         isInDarkMode={isInDarkMode!}
         scheduleIdentifier={scheduleIdentifier!}

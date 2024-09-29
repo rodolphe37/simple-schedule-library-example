@@ -52,7 +52,7 @@ const useGetEventTypeController = (eventTypeData: TeventTypeData) => {
             eventWithNewNames.push({
               id: 0,
               key: intl.formatMessage({
-                id: eventInstructionNames.eventType_1 ,
+                id: eventInstructionNames.eventType_1,
               }),
               originalKey: res.key,
               value: res.value,

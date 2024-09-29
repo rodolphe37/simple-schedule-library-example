@@ -85,16 +85,15 @@ const HoursRangeIndicator = ({
                 eventIdToDisplay={eventIdToDisplay}
               />
             ))}
-       {locale === "fr" ? 
-        <div
-        className={`flex items-center justify-center -mt-3 ${
-          isInDarkMode ? "text-gray-200" : "text-gray-700"
-        } `}
-      >
-        00:00
-      </div>
-      :
-      null}
+        {locale === "fr" ? (
+          <div
+            className={`flex items-center justify-center -mt-3 ${
+              isInDarkMode ? "text-gray-200" : "text-gray-700"
+            } `}
+          >
+            00:00
+          </div>
+        ) : null}
       </div>
       {eventIdToDisplay.endTime === 1440 ? (
         <>

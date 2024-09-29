@@ -19,7 +19,7 @@ const CellEvent = ({
   eventIdToDisplay,
   isInDarkMode,
   setEventIdToDisplay,
-  eventTypeData
+  eventTypeData,
 }: CellEventProps) => {
   const ModalRef = useRef<HTMLDivElement>(null);
   const intl = useIntl();
@@ -93,11 +93,9 @@ const CellEvent = ({
               eventInstructionTextWithoutWhiteSpace,
               isInDarkMode!
             ),
-            color: textEventColorInCell(
-              eventInstructionTextWithoutWhiteSpace
-            ),
+            color: textEventColorInCell(eventInstructionTextWithoutWhiteSpace),
             fontSize:
-            eventInstructionTextWithoutWhiteSpace.length > 6
+              eventInstructionTextWithoutWhiteSpace.length > 6
                 ? "0.55rem"
                 : "0.7rem",
           }}

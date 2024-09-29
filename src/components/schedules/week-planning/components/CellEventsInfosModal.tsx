@@ -49,7 +49,11 @@ const CellEventsInfosModal = ({
           isInDarkMode ? "bg-gray-900" : "bg-gray-100"
         } border border-slate-300 rounded-lg flex flex-col  z-50 justify-center`}
       >
-        <header className={`min-h-6 px-4 rounded-t-md  w-full flex items-center justify-between ${isInDarkMode ? "bg-gray-400/80" : "bg-blue-500" } text-white`}>
+        <header
+          className={`min-h-6 px-4 rounded-t-md  w-full flex items-center justify-between ${
+            isInDarkMode ? "bg-gray-400/80" : "bg-blue-500"
+          } text-white`}
+        >
           <h1 className="text-center font-semibold mt-4 mb-4 ">
             {intl.formatMessage({
               id: "schedules.page.eventDetails.modal.title",

@@ -8,7 +8,6 @@ import { Loader } from "../../ui/components/Loader";
 import ErrorFallback from "../../ui/components/ErrorFallBack";
 import { RecoilRoot } from "recoil";
 
-
 export const SchedulesLayout = ({
   scheduleByEventPlace,
   weekStartsOn,
@@ -16,7 +15,7 @@ export const SchedulesLayout = ({
   withList,
   withLegend,
   eventTypeData,
-  locale
+  locale,
 }: {
   scheduleByEventPlace: {
     schedules: {
@@ -45,7 +44,7 @@ export const SchedulesLayout = ({
     eventType_6: number | string;
     eventType_7: number | string;
   };
-  locale: string
+  locale: string;
 }) => {
   useLayoutEffect(() => {
     window.scrollTo({
@@ -77,7 +76,7 @@ export const SchedulesLayout = ({
                   />
                 ) : (
                   <ScheduleViewWrapper
-                  locale={locale}
+                    locale={locale}
                     eventTypeData={eventTypeData}
                     withList={withList}
                     isInDarkMode={isInDarkMode}
@@ -104,7 +103,7 @@ export const SchedulesLayout = ({
             >
               <ErrorBoundary FallbackComponent={ErrorFallback}>
                 <ScheduleViewWrapper
-                locale={locale}
+                  locale={locale}
                   eventTypeData={eventTypeData}
                   withLegend={withLegend}
                   withList={withList}

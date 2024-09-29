@@ -39,9 +39,9 @@ const SelectBox = ({
       {icon && <div>{icon}</div>}
       <select
         aria-label="Schedule_list"
-        className={`${className} ${
-          styles.styledSelect
-        } ${isInDarkMode  ? "bg-gray-900" : "bg-gray-200" } selectList ${icon ? " indent-9" : ""}`}
+        className={`${className} ${styles.styledSelect} ${
+          isInDarkMode ? "bg-gray-900" : "bg-gray-200"
+        } selectList ${icon ? " indent-9" : ""}`}
         disabled={disabled}
         onChange={onChange}
         value={value}

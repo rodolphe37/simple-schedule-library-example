@@ -1,6 +1,5 @@
 import { Button } from "./Button";
 
-
 interface ErrorFallbakProps {
   error: {
     message: string;

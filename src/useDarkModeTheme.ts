@@ -1,13 +1,12 @@
-
-import useDarkMode from './hooks/useDarkMode';
-import useDarkModeTheme from './context/useDarkModeTheme';
+import useDarkMode from "./hooks/useDarkMode";
+import useDarkModeTheme from "./context/useDarkModeTheme";
 
 const useDarkModeExample = () => {
-    const { isDarkMode } = useDarkMode();
-    const { mode } = useDarkModeTheme();
-    const isInDarkMode =  isDarkMode || mode === "dark";
+  const { isDarkMode } = useDarkMode();
+  const { mode } = useDarkModeTheme();
+  const isInDarkMode = isDarkMode || mode === "dark";
 
-  return isInDarkMode
-}
+  return isInDarkMode;
+};
 
-export default useDarkModeExample
+export default useDarkModeExample;

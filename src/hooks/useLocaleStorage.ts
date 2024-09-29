@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 export type TUseLocalStorage<T> = [
   () => T | undefined,
   (value: T) => void,

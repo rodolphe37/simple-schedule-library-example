@@ -58,8 +58,7 @@ const useCalendarController = ({
   const dataForIsScrollingCondition = sortedEventsDaySlotArray
     ?.flatMap((res) => res.time_slot)
     .filter(
-      (re) =>
-        re.start === 0 && re.instruction === EventTypes.EVENT_TYPE_6
+      (re) => re.start === 0 && re.instruction === EventTypes.EVENT_TYPE_6
     );
   const NUMBER_OF_DAYS = 7;
 

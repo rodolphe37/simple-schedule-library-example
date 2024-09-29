@@ -23,7 +23,7 @@ const useGetIfPasswordIsStrong = (password: string) => {
     useState(0);
 
   const passwordIsStrong = useCallback(() => {
-   return getPasswordStrength(password) === 6
+    return getPasswordStrength(password) === 6
       ? setPasswordStrength("super strong")
       : getPasswordStrength(password) === 5
       ? setPasswordStrength("very strong")
@@ -37,7 +37,7 @@ const useGetIfPasswordIsStrong = (password: string) => {
   }, [password]);
 
   const colorByStrengthPassword = useCallback(() => {
-   return  getPasswordStrength(password) === 6
+    return getPasswordStrength(password) === 6
       ? setPasswordStrenghtColorIndicator(6)
       : getPasswordStrength(password) === 5
       ? setPasswordStrenghtColorIndicator(5)

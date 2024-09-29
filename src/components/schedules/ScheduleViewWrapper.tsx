@@ -19,7 +19,7 @@ const ScheduleViewWrapper = ({
   withList,
   withLegend,
   eventTypeData,
-  locale
+  locale,
 }: {
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
   weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
@@ -27,7 +27,7 @@ const ScheduleViewWrapper = ({
   withList?: boolean;
   withLegend?: boolean;
   eventTypeData: TeventTypeData;
-  locale: string
+  locale: string;
 }) => {
   const navigate = useNavigate();
 
@@ -96,7 +96,6 @@ const ScheduleViewWrapper = ({
     };
   }, [height, location, scheduleId]);
 
-
   return (
     <div className="pr-0 pl-2 w-full" style={{ padding: "4em" }}>
       <div>
@@ -120,7 +119,11 @@ const ScheduleViewWrapper = ({
           )}
         </button>
       </div>
-      <div className={`relative w-full shadow rounded-t-md rounded-b-none ${isInDarkMode ? "bg-gray-500/80" : "bg-blue-600"} z-[250]`}>
+      <div
+        className={`relative w-full shadow rounded-t-md rounded-b-none ${
+          isInDarkMode ? "bg-gray-500/80" : "bg-blue-600"
+        } z-[250]`}
+      >
         <CustomSelect
           isInDarkMode={isInDarkMode}
           strokeColor="stroke-white"
@@ -133,14 +136,19 @@ const ScheduleViewWrapper = ({
         />
       </div>
       <ScheduleView
-      locale={locale}
+        locale={locale}
         eventTypeData={eventTypeData}
         isInDarkMode={isInDarkMode!}
         weekStartsOn={weekStartsOn}
         scheduleByEventPlace={scheduleByEventPlace}
         scheduleId={scheduleId}
       />
-      {withLegend ? <ParametersDetails isInDarkMode={isInDarkMode} eventTypeData={eventTypeData} /> : null}
+      {withLegend ? (
+        <ParametersDetails
+          isInDarkMode={isInDarkMode}
+          eventTypeData={eventTypeData}
+        />
+      ) : null}
     </div>
   );
 };

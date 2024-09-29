@@ -15,9 +15,7 @@ const CalendarScrollToTopButton = ({
           block: "end",
         })
       }
-      className={` ${
-        isInDarkMode  ? "bg-gray-800" : "bg-white"
-      } cursor-pointer`}
+      className={` ${isInDarkMode ? "bg-gray-800" : "bg-white"} cursor-pointer`}
       id="topChevron"
       style={{
         width: "97%",

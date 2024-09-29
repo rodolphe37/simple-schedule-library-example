@@ -1,6 +1,5 @@
 import { useTheme } from "../context/useTheme";
 
-
 const useDarkMode = () => {
   const { theme } = useTheme();
 
