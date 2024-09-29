@@ -60,13 +60,21 @@ const ScheduleViewWrapper = ({
     });
   };
 
+  const isBadId =
+    scheduleId !== undefined &&
+    !schedulesList.flatMap((res) => res.id).includes(scheduleId);
+
   const firstElement = schedulesList.find((res) => res.id)?.id;
 
   useLayoutEffect(() => {
     if (!withList && scheduleId === undefined) {
       navigate(`/schedule/${firstElement}`);
     }
-  }, [navigate, schedulesList, withList, firstElement, scheduleId]);
+    if (isBadId) {
+      navigate("/");
+      window.location.reload();
+    }
+  }, [navigate, schedulesList, withList, firstElement, isBadId, scheduleId]);
 
   useEffect(() => {
     if (selectedScheduleId === scheduleId) {

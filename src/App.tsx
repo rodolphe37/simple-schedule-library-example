@@ -3,7 +3,7 @@ import "./App.css";
 import { bgGray200_700Color } from "./utils/style";
 // Per dependencies
 import { Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { IntlProvider } from "react-intl";
 
 // Import necessary for translation & language (fr or en)- (for the example)
@@ -58,6 +58,7 @@ function App() {
               </Suspense>
             }
           />
+          <Route path="*" element={<Navigate replace to="/" />} />
         </Routes>
       </IntlProvider>
     </div>
