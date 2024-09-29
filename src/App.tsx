@@ -17,6 +17,7 @@ import { scheduleByEventPlace, eventTypeData } from "./data";
 
 // IMPORT FROM NPM LIBRARY -  it will be = import {SchedulesLayout} from "react-simple-schedules-viewer"
 import { SchedulesLayout } from "./components/layout/SchedulesLayout";
+import TestButtons from "./testButtons";
 
 function App() {
   const { locale } = useLocale();
@@ -26,20 +27,20 @@ function App() {
   const [withLegend, setWithLegend] = useState(false);
   const [withList, setWithList] = useState(false);
 
+  const params = {
+    withList,
+    setWithList,
+    withLegend,
+    setWithLegend,
+    isDarkMode,
+    setIsDarkMode,
+    locale,
+  };
+
   return (
-    <div className="App flex-col pt-24 justify-between bg-gray-300 pb-24">
+    <div className="App flex-col pt-24 justify-evenly bg-gray-300 pb-24">
       {!location.pathname.includes("schedule") ? (
-        <div style={{width:"50%",display:"flex", alignItems: "center", justifyContent:"space-between"}}>
-          <button onClick={() => setWithList((prevState) => !prevState)}>
-            {withList ? "Without " : "With "}list example
-          </button>
-          <button onClick={() => setWithLegend((prevState) => !prevState)}>
-            {withLegend ? "Without " : "With "}legend example
-          </button>
-          <button onClick={() => setIsDarkMode((prevState) => !prevState)}>
-            {isDarkMode ? "Light " : "Dark "} mode example
-          </button>
-        </div>
+        <TestButtons {...params} />
       ) : null}
       <Routes>
         <Route path="/" element={<HomePage />} />
