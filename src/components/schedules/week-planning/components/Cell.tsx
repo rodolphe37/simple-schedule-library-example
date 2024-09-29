@@ -12,7 +12,7 @@ const Cell = ({
   scrollRef,
   sortedEventsDaySlotArray,
   isInDarkMode,
-  eventTypeData
+  eventTypeData,
 }: CellProps) => {
   const [eventIdToDisplay, setEventIdToDisplay] =
     useRecoilState<TEventToDisplay>(eventIdToDIsplayAtom);
@@ -53,7 +53,7 @@ const Cell = ({
                               : null}
                           </p>
                           <CellEvent
-                          eventTypeData={eventTypeData}
+                            eventTypeData={eventTypeData}
                             isInDarkMode={isInDarkMode}
                             eventIdToDisplay={eventIdToDisplay}
                             setEventIdToDisplay={setEventIdToDisplay}

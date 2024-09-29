@@ -19,7 +19,7 @@ interface ICalendarProps {
   events?: EventType[];
   scheduleIdentifier: string;
   isInDarkMode?: () => boolean;
-  eventTypeData?: TeventTypeData
+  eventTypeData?: TeventTypeData;
 }
 
 const Calendar = ({
@@ -27,7 +27,7 @@ const Calendar = ({
   events,
   scheduleIdentifier,
   isInDarkMode,
-  eventTypeData
+  eventTypeData,
 }: ICalendarProps) => {
   const intl = useIntl();
   const {
@@ -81,7 +81,7 @@ const Calendar = ({
               {sortedEventsDaySlotArray?.map((res, i) => (
                 <Fragment key={i}>
                   <Cell
-                  eventTypeData={eventTypeData}
+                    eventTypeData={eventTypeData}
                     isInDarkMode={isInDarkMode!}
                     scrollRef={scrollRef}
                     day={res.day}

@@ -18,14 +18,14 @@ const ScheduleViewWrapper = ({
   isInDarkMode,
   withList,
   withLegend,
-  eventTypeData
+  eventTypeData,
 }: {
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
   weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
   isInDarkMode?: () => boolean;
   withList?: boolean;
   withLegend?: boolean;
-  eventTypeData?:TeventTypeData
+  eventTypeData?: TeventTypeData;
 }) => {
   const navigate = useNavigate();
 
@@ -132,7 +132,7 @@ const ScheduleViewWrapper = ({
         />
       </div>
       <ScheduleView
-      eventTypeData={eventTypeData}
+        eventTypeData={eventTypeData}
         isInDarkMode={isInDarkMode!}
         weekStartsOn={weekStartsOn}
         scheduleByEventPlace={scheduleByEventPlace}

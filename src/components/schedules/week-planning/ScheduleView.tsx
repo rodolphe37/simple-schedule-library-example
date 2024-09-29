@@ -7,18 +7,18 @@ const ScheduleView = ({
   scheduleByEventPlace,
   weekStartsOn,
   isInDarkMode,
-  eventTypeData
+  eventTypeData,
 }: {
   scheduleId: string | undefined;
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
   weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
   isInDarkMode?: () => boolean;
-  eventTypeData?: TeventTypeData
+  eventTypeData?: TeventTypeData;
 }) => {
   return (
     <div className="w-full">
       <WeekPlanning
-      eventTypeData={eventTypeData}
+        eventTypeData={eventTypeData}
         isInDarkMode={isInDarkMode!}
         weekStartsOn={weekStartsOn}
         scheduleByEventPlace={scheduleByEventPlace}

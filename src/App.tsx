@@ -1,15 +1,27 @@
-import { Suspense } from "react";
+// APP DEMO IMPORT 
 import "./App.css";
+// Per dependencies
+import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import { Loader } from "./ui/components/Loader";
-import { SchedulesLayout } from "./components/layout/SchedulesLayout";
-import HomePage from "./HomePage";
-import { bgGray200_700Color } from "./utils/style";
 import { IntlProvider } from "react-intl";
+
+// Import necessary for translation, language (fr or en) & dark mode - (for the example)
 import { messages } from "./translations";
 import { useLocale } from "./context/useLocale";
-import { scheduleByEventPlace, eventTypeData } from "./data";
 import useDarkModeExample from "./useDarkModeTheme";
+import { bgGray200_700Color } from "./utils/style";
+// Import components
+import { Loader } from "./ui/components/Loader";
+import HomePage from "./HomePage";
+
+// Import Fake data for demo 
+import { scheduleByEventPlace, eventTypeData } from "./data";
+
+
+// IMPORT FROM NPM LIBRARY -  it will be = import {SchedulesLayout} from "react-simple-schedules-viewer"
+import { SchedulesLayout } from "./components/layout/SchedulesLayout";
+
+
 
 function App() {
   const { locale } = useLocale();
