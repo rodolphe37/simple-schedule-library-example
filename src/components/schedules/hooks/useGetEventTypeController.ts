@@ -1,4 +1,3 @@
-
 import { useMemo, useState } from "react";
 import { useIntl } from "react-intl";
 import { eventInstructionNames } from "../week-planning/utils/helpers";
@@ -20,9 +19,9 @@ type eventWithNewNamesProps = {
   value: number | string | null;
 }[];
 
-const useGetEventTypeController = (eventTypeData:TeventTypeData) => {
+const useGetEventTypeController = (eventTypeData: TeventTypeData) => {
   const error = eventTypeData === undefined;
-  console.log("DATA", eventTypeData);
+
   const intl = useIntl();
   const eventType: eventTypeArray = useMemo(() => [], []);
   let errorResponse: ErrorResponse = { error_code: null, message: "" };

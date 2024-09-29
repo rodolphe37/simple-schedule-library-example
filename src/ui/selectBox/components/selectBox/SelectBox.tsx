@@ -18,7 +18,7 @@ type Props = {
   onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
   icon?: ReactNode;
   withoutchevron?: boolean;
-  isInDarkMode?:() => boolean;
+  isInDarkMode?: boolean;
 };
 
 const SelectBox = ({
@@ -38,10 +38,10 @@ const SelectBox = ({
     <div className={`relative `}>
       {icon && <div>{icon}</div>}
       <select
-        aria-label="buildings_list"
+        aria-label="Schedule_list"
         className={`${className} ${
           styles.styledSelect
-        } ${isInDarkMode && isInDarkMode() ? "bg-gray-900" : "bg-gray-200" } selectList ${icon ? " indent-9" : ""}`}
+        } ${isInDarkMode  ? "bg-gray-900" : "bg-gray-200" } selectList ${icon ? " indent-9" : ""}`}
         disabled={disabled}
         onChange={onChange}
         value={value}
@@ -49,7 +49,7 @@ const SelectBox = ({
         style={
           !withoutchevron
             ? {
-                backgroundImage: isInDarkMode && isInDarkMode()
+                backgroundImage: isInDarkMode
                   ? `url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>")`
                   : `url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>")`,
               }

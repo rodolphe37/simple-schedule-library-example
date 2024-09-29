@@ -1,5 +1,3 @@
-import useDarkModeTheme from "../../context/useDarkModeTheme";
-import useDarkMode from "../../hooks/useDarkMode";
 import {
   colorCellByTemp,
   textEventColorInCell,
@@ -7,6 +5,7 @@ import {
 
 const InstructionsList = ({
   instruction,
+  isInDarkMode,
 }: {
   instruction: {
     id: number;
@@ -14,10 +13,8 @@ const InstructionsList = ({
     originalKey: string;
     value: string | number | null;
   };
+  isInDarkMode: boolean;
 }) => {
-  const { isDarkMode } = useDarkMode();
-  const { mode } = useDarkModeTheme();
-  const isInDarkMode = isDarkMode || mode === "dark";
   return (
     <div
       style={{ textAlign: "left" }}
@@ -27,7 +24,6 @@ const InstructionsList = ({
         <li
           className=" mb-2 text-sm flex justify-between items-center p-4 shadow-md rounded-md"
           style={{
-            
             backgroundColor: colorCellByTemp(
               instruction.originalKey,
               isInDarkMode

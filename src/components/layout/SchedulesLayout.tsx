@@ -8,6 +8,7 @@ import { Loader } from "../../ui/components/Loader";
 import ErrorFallback from "../../ui/components/ErrorFallBack";
 import { getSchedulesByEventPlaceIdResponse } from "../../entities/schedules";
 import { TeventTypeData } from "../schedules/types";
+import { RecoilRoot } from "recoil";
 
 export const SchedulesLayout = ({
   scheduleByEventPlace,
@@ -19,7 +20,7 @@ export const SchedulesLayout = ({
 }: {
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
   weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
-  isInDarkMode?: boolean;
+  isInDarkMode: boolean;
   withList?: boolean;
   withLegend?: boolean;
   eventTypeData: TeventTypeData;
@@ -32,63 +33,67 @@ export const SchedulesLayout = ({
   }, []);
 
   return (
-    <Routes>
-      <Route
-        path={`/`}
-        element={
-          <Suspense
-            fallback={
-              <div
-                className={`w-full flex flex-col justify-center items-center h-screen overflow-y-hidden ${bgGray200_700Color}`}
-                style={{ transform: "scale(3)" }}
-              >
-                <Loader />
-              </div>
-            }
-          >
-            <ErrorBoundary FallbackComponent={ErrorFallback}>
-              {withList ? (
-                <SchedulesDetails scheduleByEventPlace={scheduleByEventPlace} />
-              ) : (
+    <RecoilRoot>
+      <Routes>
+        <Route
+          path={`/`}
+          element={
+            <Suspense
+              fallback={
+                <div
+                  className={`w-full flex flex-col justify-center items-center h-screen overflow-y-hidden ${bgGray200_700Color}`}
+                  style={{ transform: "scale(3)" }}
+                >
+                  <Loader />
+                </div>
+              }
+            >
+              <ErrorBoundary FallbackComponent={ErrorFallback}>
+                {withList ? (
+                  <SchedulesDetails
+                    scheduleByEventPlace={scheduleByEventPlace}
+                  />
+                ) : (
+                  <ScheduleViewWrapper
+                    eventTypeData={eventTypeData}
+                    withList={withList}
+                    isInDarkMode={isInDarkMode}
+                    weekStartsOn={weekStartsOn}
+                    scheduleByEventPlace={scheduleByEventPlace}
+                  />
+                )}
+              </ErrorBoundary>
+            </Suspense>
+          }
+        />
+        <Route
+          path={`/:scheduleId`}
+          element={
+            <Suspense
+              fallback={
+                <div
+                  className={`w-full flex flex-col justify-center items-center h-screen overflow-y-hidden ${bgGray200_700Color}`}
+                  style={{ transform: "scale(3)" }}
+                >
+                  <Loader />
+                </div>
+              }
+            >
+              <ErrorBoundary FallbackComponent={ErrorFallback}>
                 <ScheduleViewWrapper
                   eventTypeData={eventTypeData}
+                  withLegend={withLegend}
                   withList={withList}
                   isInDarkMode={isInDarkMode}
                   weekStartsOn={weekStartsOn}
                   scheduleByEventPlace={scheduleByEventPlace}
                 />
-              )}
-            </ErrorBoundary>
-          </Suspense>
-        }
-      />
-      <Route
-        path={`/:scheduleId`}
-        element={
-          <Suspense
-            fallback={
-              <div
-                className={`w-full flex flex-col justify-center items-center h-screen overflow-y-hidden ${bgGray200_700Color}`}
-                style={{ transform: "scale(3)" }}
-              >
-                <Loader />
-              </div>
-            }
-          >
-            <ErrorBoundary FallbackComponent={ErrorFallback}>
-              <ScheduleViewWrapper
-                eventTypeData={eventTypeData}
-                withLegend={withLegend}
-                withList={withList}
-                isInDarkMode={isInDarkMode}
-                weekStartsOn={weekStartsOn}
-                scheduleByEventPlace={scheduleByEventPlace}
-              />
-            </ErrorBoundary>
-          </Suspense>
-        }
-      />
-      <Route path="*" element={<Navigate replace to="/" />} />
-    </Routes>
+              </ErrorBoundary>
+            </Suspense>
+          }
+        />
+        <Route path="*" element={<Navigate replace to="/" />} />
+      </Routes>
+    </RecoilRoot>
   );
 };

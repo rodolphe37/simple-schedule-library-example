@@ -38,7 +38,7 @@ export interface DaySlotSet {
 }
 
 export type TeventTypeData = {
-  building_id: string;
+  eventPlace_id: string;
   away: number;
   eco: number;
   frost_protection: number;

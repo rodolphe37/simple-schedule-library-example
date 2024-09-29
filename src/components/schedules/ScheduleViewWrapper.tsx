@@ -22,7 +22,7 @@ const ScheduleViewWrapper = ({
 }: {
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
   weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
-  isInDarkMode?: boolean;
+  isInDarkMode: boolean;
   withList?: boolean;
   withLegend?: boolean;
   eventTypeData: TeventTypeData;
@@ -94,7 +94,6 @@ const ScheduleViewWrapper = ({
     };
   }, [height, location, scheduleId]);
 
-  console.log("TEST", scheduleByEventPlace);
 
   return (
     <div className="pr-0 pl-2 w-full" style={{ padding: "4em" }}>
@@ -138,7 +137,7 @@ const ScheduleViewWrapper = ({
         scheduleByEventPlace={scheduleByEventPlace}
         scheduleId={scheduleId}
       />
-      {withLegend ? <ParametersDetails eventTypeData={eventTypeData} /> : null}
+      {withLegend ? <ParametersDetails isInDarkMode={isInDarkMode} eventTypeData={eventTypeData} /> : null}
     </div>
   );
 };

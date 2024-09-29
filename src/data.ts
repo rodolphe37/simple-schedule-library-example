@@ -575,7 +575,7 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
 };
 
 export const eventTypeData = {
-  building_id: "e2076d6a-9d6d-4b93-9ce0-a41f04c38c40",
+  eventPlace_id: "e2076d6a-9d6d-4b93-9ce0-a41f04c38c40",
   away: 17,
   eco: 18,
   frost_protection: 15,

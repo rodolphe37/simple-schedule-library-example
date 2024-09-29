@@ -51,7 +51,7 @@ function App() {
                 }
               >
                 <SchedulesLayout
-                  // withList
+                  withList
                   // withLegend
                   isInDarkMode={false}
                   eventTypeData={eventTypeData}

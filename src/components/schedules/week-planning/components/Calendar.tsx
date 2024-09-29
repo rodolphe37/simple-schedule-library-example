@@ -18,7 +18,7 @@ interface ICalendarProps {
   weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
   events?: EventType[];
   scheduleIdentifier: string;
-  isInDarkMode?: boolean;
+  isInDarkMode: boolean;
   eventTypeData: TeventTypeData;
 }
 
