@@ -17,7 +17,7 @@ import { scheduleByEventPlace, eventTypeData } from "./data";
 
 // IMPORT FROM NPM LIBRARY -  it will be = import {SchedulesLayout} from "react-simple-schedules-viewer"
 import { SchedulesLayout } from "./components/layout/SchedulesLayout";
-import TestButtons from "./testButtons";
+import TestButtons from "./TestButtons";
 
 function App() {
   const { locale } = useLocale();

@@ -27,10 +27,16 @@ const TestButtons = (props: params) => {
         >
           {props.withList ? "Without " : "With "}list example
         </button>
-        <button  style={{ background: props.withLegend ? "#aaaaaa" : "#f9f9f9" }} onClick={() => props.setWithLegend((prevState) => !prevState)}>
+        <button
+          style={{ background: props.withLegend ? "#aaaaaa" : "#f9f9f9" }}
+          onClick={() => props.setWithLegend((prevState) => !prevState)}
+        >
           {props.withLegend ? "Without " : "With "}legend example
         </button>
-        <button style={{ background: props.isDarkMode ? "#aaaaaa" : "#f9f9f9" }} onClick={() => props.setIsDarkMode((prevState) => !prevState)}>
+        <button
+          style={{ background: props.isDarkMode ? "#aaaaaa" : "#f9f9f9" }}
+          onClick={() => props.setIsDarkMode((prevState) => !prevState)}
+        >
           {props.isDarkMode ? "Light " : "Dark "} mode example
         </button>
       </div>
