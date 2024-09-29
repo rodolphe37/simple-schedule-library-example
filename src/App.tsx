@@ -39,7 +39,7 @@ function App() {
                 }
               >
                 <SchedulesLayout
-                  withList
+                  // withList
                   // withLegend
                   isInDarkMode={isInDarkMode}
                   weekStartsOn={weekStartsOn}
