@@ -114,32 +114,57 @@ export const textEventColorInCell = (event: TColorByEventProps) =>
     ? textFrost_protectionColor
     : "";
 
-export enum eventInstructionNames {
-  eventType_1 = "temperature.presence1.text",
-  eventType_2 = "temperature.presence2.text",
-  eventType_3 = "temperature.presence3.text",
-  eventType_4 = "temperature.presence4.text",
-  eventType_5 = "temperature.reduce.text",
-  eventType_6 = "temperature.away.text",
-  eventType_7 = "temperature.frost_protection.text",
+export enum eventInstructionNamesFr {
+  eventType_1 = "Présence 1",
+  eventType_2 = "Présence 2",
+  eventType_3 = "Présence 3",
+  eventType_4 = "Présence 4",
+  eventType_5 = "Éco",
+  eventType_6 = "Absence",
+  eventType_7 = "Hors gel",
 }
 
-export const eventInstructionName = (str: string) => {
-  return eventInstructionNames[str as keyof typeof eventInstructionNames];
+export const eventInstructionNameFr = (str: string) => {
+  return eventInstructionNamesFr[str as keyof typeof eventInstructionNamesFr];
+};
+export enum eventInstructionNamesUs {
+  eventType_1 = "Presence 1",
+  eventType_2 = "Presence 2",
+  eventType_3 = "Presence 3",
+  eventType_4 = "Presence4",
+  eventType_5 = "Reduce",
+  eventType_6 = "Away",
+  eventType_7 = "Frost protection",
+}
+
+export const eventInstructionNameUs = (str: string) => {
+  return eventInstructionNamesUs[str as keyof typeof eventInstructionNamesUs];
 };
 
-enum daysOfWeekNamesForTranslation {
-  Monday = "schedule.dayOfWeek.one",
-  Tuesday = "schedule.dayOfWeek.two",
-  Wednesday = "schedule.dayOfWeek.three",
-  Thursday = "schedule.dayOfWeek.four",
-  Friday = "schedule.dayOfWeek.five",
-  Saturday = "schedule.dayOfWeek.six",
-  Sunday = "schedule.dayOfWeek.seven",
+enum daysOfWeekNamesFr {
+  Monday = "Lundi",
+  Tuesday = "Mardi",
+  Wednesday = "Mercredi",
+  Thursday = "Jeudi",
+  Friday = "Vendredi",
+  Saturday = "Samedi",
+  Sunday = "Dimanche",
 }
 
-export const daysOfWeekNameTranslation = (str: string) => {
-  return daysOfWeekNamesForTranslation[
-    str as keyof typeof daysOfWeekNamesForTranslation
-  ];
+export const daysOfWeekNameFr = (str: string) => {
+  return daysOfWeekNamesFr[str as keyof typeof daysOfWeekNamesFr];
+};
+
+enum daysOfWeekNamesUs {
+  Monday = "Monday",
+  Tuesday = "Tuesday",
+  Wednesday = "Wednesday",
+  Thursday = "Thursday",
+  Friday = "Friday",
+  Saturday = "Saturday",
+  Sunday = "Sunday",
+}
+
+export const daysOfWeekNameUs = (str: string) => {
+  return daysOfWeekNamesUs[str as keyof typeof daysOfWeekNamesUs];
 };

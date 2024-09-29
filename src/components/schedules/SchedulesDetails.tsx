@@ -1,17 +1,16 @@
 import { useLayoutEffect, useState } from "react";
 import useWindowDimensions from "../../hooks/useGetWindowDimensions";
-import { useIntl } from "react-intl";
 import { Link, NavLink } from "react-router-dom";
 import { schedulesContainerStyle, textWhite_blue500 } from "../../utils/style";
-import FormattedMessageText from "../../utils/FormattedMessageText";
 import { getSchedulesByEventPlaceIdResponse } from "../../entities/schedules";
 
 const SchedulesDetails = ({
   scheduleByEventPlace,
+  locale,
 }: {
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
+  locale: string;
 }) => {
-  const intl = useIntl();
   const [openCardId, setOpenCardId] = useState<string>("");
   const { width } = useWindowDimensions();
 
@@ -45,7 +44,7 @@ const SchedulesDetails = ({
         Go to HomePage
       </Link>
       <div className="text-left pb-2 text-blue-600 dark:text-white font-semibold">
-        <FormattedMessageText id="schedules.page.title" />
+        <p>{locale === "fr" ? "Liste des plannings" : "List of schedules"}</p>
       </div>
       {scheduleByEventPlace && scheduleByEventPlace?.schedules?.length > 0 ? (
         <ul className="text-left schedulesCard ">
@@ -81,9 +80,9 @@ const SchedulesDetails = ({
       ) : (
         <div className="flex items-center ">
           <p className="card text-center max-w-md bg-white dark:bg-gray-700/90 p-8 shadow-md rounded-xl mb-8">
-            {intl.formatMessage({
-              id: "schedules.page.noSchedulesFoundMessage",
-            })}
+            {locale === "fr"
+              ? "Aucun - pas de plannings trouvés"
+              : "None — no schedules found"}
           </p>
         </div>
       )}

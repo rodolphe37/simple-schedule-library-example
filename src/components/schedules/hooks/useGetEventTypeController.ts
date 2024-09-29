@@ -1,6 +1,4 @@
 import { useMemo, useState } from "react";
-import { useIntl } from "react-intl";
-import { eventInstructionNames } from "../week-planning/utils/helpers";
 import { EventTypes, TeventTypeData } from "../types";
 
 type ErrorResponse = {
@@ -19,13 +17,15 @@ type eventWithNewNamesProps = {
   value: number | string | null;
 }[];
 
-const useGetEventTypeController = (eventTypeData: TeventTypeData) => {
+const useGetEventTypeController = (
+  eventTypeData: TeventTypeData,
+  locale: string
+) => {
   const error = eventTypeData === undefined;
 
-  const intl = useIntl();
   const eventType: eventTypeArray = useMemo(() => [], []);
   let errorResponse: ErrorResponse = { error_code: null, message: "" };
-
+console.log("LOCALE:", locale)
   if (!error && eventTypeData) {
     for (const [key, value] of Object.entries(eventTypeData!)) {
       if (value) {
@@ -35,9 +35,10 @@ const useGetEventTypeController = (eventTypeData: TeventTypeData) => {
   } else if (error) {
     errorResponse = {
       error_code: 404,
-      message: intl.formatMessage({
-        id: "noTemperatureInThisBuilding.error.text",
-      }),
+      message:
+        locale === "fr"
+          ? "Aucune bibliothèque de type d'évenements n'existe"
+          : "No library of event types exists",
     };
   }
 
@@ -51,9 +52,7 @@ const useGetEventTypeController = (eventTypeData: TeventTypeData) => {
           case EventTypes.EVENT_TYPE_1:
             eventWithNewNames.push({
               id: 0,
-              key: intl.formatMessage({
-                id: eventInstructionNames.eventType_1,
-              }),
+              key: locale === "fr" ? "Présence 1" : "Presence 1",
               originalKey: res.key,
               value: res.value,
             });
@@ -61,9 +60,7 @@ const useGetEventTypeController = (eventTypeData: TeventTypeData) => {
           case EventTypes.EVENT_TYPE_2:
             eventWithNewNames.push({
               id: 1,
-              key: intl.formatMessage({
-                id: eventInstructionNames.eventType_2,
-              }),
+              key: locale === "fr" ? "Présence 2" : "Presence 2",
               originalKey: res.key,
               value: res.value,
             });
@@ -71,9 +68,7 @@ const useGetEventTypeController = (eventTypeData: TeventTypeData) => {
           case EventTypes.EVENT_TYPE_3:
             eventWithNewNames.push({
               id: 2,
-              key: intl.formatMessage({
-                id: eventInstructionNames.eventType_3,
-              }),
+              key: locale === "fr" ? "Présence 3" : "Presence 3",
               originalKey: res.key,
               value: res.value,
             });
@@ -81,9 +76,7 @@ const useGetEventTypeController = (eventTypeData: TeventTypeData) => {
           case EventTypes.EVENT_TYPE_4:
             eventWithNewNames.push({
               id: 3,
-              key: intl.formatMessage({
-                id: eventInstructionNames.eventType_4,
-              }),
+              key: locale === "fr" ? "Présence 4" : "Presence 4",
               originalKey: res.key,
               value: res.value,
             });
@@ -91,9 +84,7 @@ const useGetEventTypeController = (eventTypeData: TeventTypeData) => {
           case EventTypes.EVENT_TYPE_5:
             eventWithNewNames.push({
               id: 4,
-              key: intl.formatMessage({
-                id: eventInstructionNames.eventType_5,
-              }),
+              key: locale === "fr" ? "Èco" : "Eco",
               originalKey: res.key,
               value: res.value,
             });
@@ -101,9 +92,7 @@ const useGetEventTypeController = (eventTypeData: TeventTypeData) => {
           case EventTypes.EVENT_TYPE_6:
             eventWithNewNames.push({
               id: 5,
-              key: intl.formatMessage({
-                id: eventInstructionNames.eventType_6,
-              }),
+              key: locale === "fr" ? "Asbence" : "Away",
               originalKey: res.key,
               value: res.value,
             });
@@ -111,9 +100,7 @@ const useGetEventTypeController = (eventTypeData: TeventTypeData) => {
           case EventTypes.EVENT_TYPE_7:
             eventWithNewNames.push({
               id: 6,
-              key: intl.formatMessage({
-                id: eventInstructionNames.eventType_7,
-              }),
+              key: locale === "fr" ? "Hors gel" : "frost protection",
               originalKey: res.key,
               value: res.value,
             });
@@ -128,7 +115,7 @@ const useGetEventTypeController = (eventTypeData: TeventTypeData) => {
         });
       });
     },
-    [eventType, eventWithNewNames, intl]
+    [eventType, eventWithNewNames, locale]
   );
 
   if (eventWithNewNames?.length < numberOfTemperatures) {

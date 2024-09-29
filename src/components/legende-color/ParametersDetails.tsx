@@ -7,13 +7,15 @@ import { TeventTypeData } from "../schedules/types";
 const ParametersDetails = ({
   eventTypeData,
   isInDarkMode,
+  locale
 }: {
   eventTypeData: TeventTypeData;
   isInDarkMode: boolean;
+  locale: string
 }) => {
   const { width } = useWindowDimensions();
   const { errorResponse, eventWithNewNames } = useGetEventTypeController(
-    eventTypeData!
+    eventTypeData!, locale
   );
 
   return (

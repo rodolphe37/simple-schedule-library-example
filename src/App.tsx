@@ -4,10 +4,8 @@ import { bgGray200_700Color } from "./utils/style";
 // Per dependencies
 import { Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { IntlProvider } from "react-intl";
 
 // Import necessary for translation & language (fr or en)- (for the example)
-import { messages } from "./translations";
 import { useLocale } from "./context/useLocale";
 
 // Import components
@@ -26,11 +24,6 @@ function App() {
 
   return (
     <div className="App bg-gray-300">
-      <IntlProvider
-        locale={locale}
-        messages={messages[locale]}
-        defaultLocale="fr"
-      >
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route
@@ -60,7 +53,6 @@ function App() {
           />
           <Route path="*" element={<Navigate replace to="/" />} />
         </Routes>
-      </IntlProvider>
     </div>
   );
 }

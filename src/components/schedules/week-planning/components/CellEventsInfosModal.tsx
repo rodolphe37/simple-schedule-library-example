@@ -1,10 +1,11 @@
-import { useIntl } from "react-intl";
 import { Days } from "../../types";
 import {
   capitalizeFirstLetter,
-  daysOfWeekNameTranslation,
   formatTime,
-  eventInstructionName,
+  daysOfWeekNameFr,
+  daysOfWeekNameUs,
+  eventInstructionNameFr,
+  eventInstructionNameUs,
 } from "../utils/helpers";
 import CrossIcon from "../../../../ui/icons/CrossIcon";
 
@@ -22,6 +23,7 @@ type TCellEventsInfoModalProps = {
   day: number;
   eventInstructionTextWithoutWhiteSpace: string;
   isInDarkMode?: boolean;
+  locale: string;
 };
 
 const CellEventsInfosModal = ({
@@ -33,9 +35,8 @@ const CellEventsInfosModal = ({
   day,
   eventInstructionTextWithoutWhiteSpace,
   isInDarkMode,
+  locale,
 }: TCellEventsInfoModalProps) => {
-  const intl = useIntl();
-
   const daySelected = capitalizeFirstLetter(Days[day]);
   return (
     <div
@@ -55,19 +56,13 @@ const CellEventsInfosModal = ({
           } text-white`}
         >
           <h1 className="text-center font-semibold mt-4 mb-4 ">
-            {intl.formatMessage({
-              id: "schedules.page.eventDetails.modal.title",
-            })}
+            {locale === "fr" ? "Détails de l'événement" : "Event details"}
           </h1>
           <div
             onClick={() => setIsModalOpen(false)}
             className="flex items-center cursor-pointer"
           >
-            <p className="mr-2">
-              {intl.formatMessage({
-                id: "cancel.button.text",
-              })}
-            </p>
+            <p className="mr-2">{locale === "fr" ? "Annuler" : "Cancel"}</p>
             <CrossIcon fill="currentColor" />
           </div>
         </header>
@@ -79,9 +74,9 @@ const CellEventsInfosModal = ({
                 isInDarkMode ? "text-white" : "text-black"
               }`}
             >
-              {intl.formatMessage({
-                id: eventInstructionName(eventInstructionTextWithoutWhiteSpace),
-              })}
+              {locale === "fr"
+                ? eventInstructionNameFr(eventInstructionTextWithoutWhiteSpace)
+                : eventInstructionNameUs(eventInstructionTextWithoutWhiteSpace)}
               :
             </h4>
             <p className={`${isInDarkMode ? "text-white" : "text-black"}`}>
@@ -95,9 +90,7 @@ const CellEventsInfosModal = ({
                 isInDarkMode ? "text-white" : "text-black"
               }`}
             >
-              {intl.formatMessage({
-                id: "schedules.page.eventDetails.modal.startTime.text",
-              })}
+              {locale === "fr" ? "Début :" : "Start time:"}
             </h4>
             <p className={`${isInDarkMode ? "text-white" : "text-black"}`}>
               {formatTime(startTime)}
@@ -109,9 +102,7 @@ const CellEventsInfosModal = ({
                 isInDarkMode ? "text-white" : "text-black"
               }`}
             >
-              {intl.formatMessage({
-                id: "schedules.page.eventDetails.modal.endTime.text",
-              })}
+              {locale === "fr" ? "Fin :" : "End time:"}
             </h4>
             <p className={`${isInDarkMode ? "text-white" : "text-black"}`}>
               {formatTime(endTime)}
@@ -123,14 +114,12 @@ const CellEventsInfosModal = ({
                 isInDarkMode ? "text-white" : "text-black"
               }`}
             >
-              {intl.formatMessage({
-                id: "schedules.page.eventDetails.modal.day.text",
-              })}
+              {locale === "fr" ? "Jour :" : "Day:"}
             </h4>
             <div className={`${isInDarkMode ? "text-white" : "text-black"}`}>
-              {intl.formatMessage({
-                id: daysOfWeekNameTranslation(daySelected),
-              })}
+              {locale === "fr"
+                ? daysOfWeekNameFr(daySelected)
+                : daysOfWeekNameUs(daySelected)}
             </div>
           </div>
         </div>

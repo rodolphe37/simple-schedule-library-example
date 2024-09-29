@@ -1,7 +1,8 @@
 import { Fragment } from "react";
 import Cell from "./Cell";
 import {
-  daysOfWeekNameTranslation,
+  daysOfWeekNameFr,
+  daysOfWeekNameUs,
   rangebyFifteenMinutes,
 } from "../utils/helpers";
 import { EventType } from "../models/models";
@@ -9,7 +10,6 @@ import { ScrollProvider } from "../hooks/useScrollContextCustomHook";
 import useCalendarController from "../hooks/useCalendarController";
 import CalendarScrollToTopButton from "./CalendarScrollToTopButton";
 import CalendarScrollToBottomButton from "./CalendarScrollToBottomButton";
-import { useIntl } from "react-intl";
 import useWindowDimensions from "../../../../hooks/useGetWindowDimensions";
 import HoursRangeIndicator from "./HoursRangeIndicator";
 import { TeventTypeData } from "../../types";
@@ -31,7 +31,6 @@ const Calendar = ({
   eventTypeData,
   locale,
 }: ICalendarProps) => {
-  const intl = useIntl();
   const {
     updateScroll,
     scrollRef,
@@ -63,9 +62,9 @@ const Calendar = ({
                   key={day}
                   className={`p-2 text-xs truncate md:text-base text-blue-600 dark:text-white -ml-6`}
                 >
-                  {intl.formatMessage({
-                    id: daysOfWeekNameTranslation(day),
-                  })}
+                  {locale === "fr"
+                    ? daysOfWeekNameFr(day)
+                    : daysOfWeekNameUs(day)}
                 </div>
               ))}
             </div>
@@ -84,6 +83,7 @@ const Calendar = ({
               {sortedEventsDaySlotArray?.map((res, i) => (
                 <Fragment key={i}>
                   <Cell
+                    locale={locale}
                     eventTypeData={eventTypeData}
                     isInDarkMode={isInDarkMode}
                     scrollRef={scrollRef}

@@ -13,6 +13,7 @@ const Cell = ({
   sortedEventsDaySlotArray,
   isInDarkMode,
   eventTypeData,
+  locale,
 }: CellProps) => {
   const [eventIdToDisplay, setEventIdToDisplay] =
     useRecoilState<TEventToDisplay>(eventIdToDIsplayAtom);
@@ -53,6 +54,7 @@ const Cell = ({
                               : null}
                           </p>
                           <CellEvent
+                            locale={locale}
                             eventTypeData={eventTypeData}
                             isInDarkMode={isInDarkMode}
                             eventIdToDisplay={eventIdToDisplay}

@@ -3,11 +3,11 @@ import useClickOutside from "../hooks/useClickOutside";
 import {
   colorCellByTemp,
   textEventColorInCell,
-  eventInstructionName,
+  eventInstructionNameFr,
+  eventInstructionNameUs,
 } from "../utils/helpers";
 import { CellEventProps } from "../models/models";
 import CellEventsInfosModal from "./CellEventsInfosModal";
-import { useIntl } from "react-intl";
 import useGetEventTypeController from "../../hooks/useGetEventTypeController";
 
 const CellEvent = ({
@@ -20,13 +20,13 @@ const CellEvent = ({
   isInDarkMode,
   setEventIdToDisplay,
   eventTypeData,
+  locale,
 }: CellEventProps) => {
   const ModalRef = useRef<HTMLDivElement>(null);
-  const intl = useIntl();
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>();
 
-  const { eventType } = useGetEventTypeController(eventTypeData!);
+  const { eventType } = useGetEventTypeController(eventTypeData!, locale);
 
   const eventInstructionTextWithoutWhiteSpace = event.instruction.trim();
 
@@ -71,6 +71,7 @@ const CellEvent = ({
     <>
       {isModalOpen && (
         <CellEventsInfosModal
+          locale={locale}
           isInDarkMode={isInDarkMode}
           ModalRef={ModalRef}
           setIsModalOpen={setIsModalOpen}
@@ -111,11 +112,13 @@ const CellEvent = ({
                 {currentEventType?.value}°C
               </p>
               <p style={{ fontSize: "14px" }}>
-                {intl.formatMessage({
-                  id: eventInstructionName(
-                    eventInstructionTextWithoutWhiteSpace
-                  ),
-                })}
+                {locale === "fr"
+                  ? eventInstructionNameFr(
+                      eventInstructionTextWithoutWhiteSpace
+                    )
+                  : eventInstructionNameUs(
+                      eventInstructionTextWithoutWhiteSpace
+                    )}
               </p>
             </span>
           </div>

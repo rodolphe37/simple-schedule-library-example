@@ -72,6 +72,7 @@ export const SchedulesLayout = ({
               <ErrorBoundary FallbackComponent={ErrorFallback}>
                 {withList ? (
                   <SchedulesDetails
+                    locale={locale}
                     scheduleByEventPlace={scheduleByEventPlace}
                   />
                 ) : (

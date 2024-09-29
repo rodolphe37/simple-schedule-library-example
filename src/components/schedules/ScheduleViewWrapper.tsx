@@ -1,10 +1,8 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import ScheduleView from "./week-planning/ScheduleView";
 import { useEffect, useLayoutEffect, useMemo, useState } from "react";
-
 import { SelectOption } from "../../ui/selectBox";
 import useWindowDimensions from "../../hooks/useGetWindowDimensions";
-import { useIntl } from "react-intl";
 import BackArrowIcon from "../../ui/icons/BackArrowIcon";
 import CustomSelect from "../../ui/customSelectComponent/CustomSelect";
 import { TSelectedValueProps } from "../../ui/customSelectComponent/types";
@@ -33,7 +31,6 @@ const ScheduleViewWrapper = ({
 
   const { scheduleId } = useParams<"scheduleId">();
   const location = useLocation();
-  const intl = useIntl();
   const schedulesList = useMemo(
     () => (scheduleByEventPlace ? scheduleByEventPlace?.schedules : []),
     [scheduleByEventPlace]
@@ -114,15 +111,11 @@ const ScheduleViewWrapper = ({
           <BackArrowIcon />
           {withList ? (
             <p className="ml-2">
-              {intl.formatMessage({
-                id: "schedule.view.returnButton.text",
-              })}
+              {locale === "fr" ? "Retour à la liste" : "Back to the list"}
             </p>
           ) : (
             <p className="ml-2">
-              {intl.formatMessage({
-                id: "schedule.view.returnHomeButton.text",
-              })}
+              {locale === "fr" ? "Retour à l'accueil" : "Back to the home page"}
             </p>
           )}
         </button>
@@ -153,6 +146,7 @@ const ScheduleViewWrapper = ({
       />
       {withLegend ? (
         <ParametersDetails
+          locale={locale}
           isInDarkMode={isInDarkMode}
           eventTypeData={eventTypeData}
         />
