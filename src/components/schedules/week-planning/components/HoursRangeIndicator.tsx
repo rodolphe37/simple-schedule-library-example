@@ -1,0 +1,86 @@
+import { TEventToDisplay } from "../models/models";
+import { convertH2M, formatTime } from "../utils/helpers";
+import HoursCell from "./HoursCell";
+
+type THoursRangeIndicatorProps = {
+  rangebyFifteenMinutes: string[];
+  eventIdToDisplay: TEventToDisplay;
+};
+
+const HoursRangeIndicator = ({
+  rangebyFifteenMinutes,
+  eventIdToDisplay,
+}: THoursRangeIndicatorProps) => {
+  return (
+    <div className=" relative  border-r border-slate-600 ">
+      <div className=" absolute w-full">
+        {rangebyFifteenMinutes.map((minute, i) => (
+          <div style={{ lineHeight: "0.746em" }} key={i}>
+            <p style={{ fontSize: "0.6rem", opacity: 0 }}>{minute}</p>
+            <div>
+              {!minute.includes(":00") &&
+              (eventIdToDisplay.endTime === convertH2M(minute) ||
+                eventIdToDisplay.startTime === convertH2M(minute)) ? (
+                <>
+                  <p
+                    className={
+                      !minute.includes(":00") &&
+                      (eventIdToDisplay.endTime === convertH2M(minute) ||
+                        eventIdToDisplay.startTime === convertH2M(minute))
+                        ? "opacity-1 text-blue-600 font-semibold  "
+                        : " opacity-[0]"
+                    }
+                    style={{ fontSize: "0.6rem", textAlign: "left" }}
+                  >
+                    {minute}
+                  </p>
+                  <span
+                    className="-mt-[1.2rem]"
+                    style={{
+                      width: "100%",
+                      height: "2px",
+                      backgroundColor: "#4E80EE",
+                      display: "block",
+                    }}
+                  />
+                </>
+              ) : null}
+            </div>
+          </div>
+        ))}
+        {eventIdToDisplay.endTime === 1440 ? (
+          <p
+            className="text-blue-600 font-semibold text-left"
+            style={{ fontSize: "0.6rem", marginTop: "-0.3rem" }}
+          >
+            {formatTime(1440)}
+          </p>
+        ) : null}
+      </div>
+
+      <div>
+        {rangebyFifteenMinutes.map((hour, i) => (
+          <HoursCell key={i} hour={hour} eventIdToDisplay={eventIdToDisplay} />
+        ))}
+        <div className="flex items-center justify-center -mt-3 text-gray-700 dark:text-gray-200">
+          00:00
+        </div>
+      </div>
+      {eventIdToDisplay.endTime === 1440 ? (
+        <>
+          <span
+            style={{
+              width: "100%",
+              height: "2px",
+              backgroundColor: "#4E80EE",
+              display: "block",
+              marginTop: "-0.7rem",
+            }}
+          />
+        </>
+      ) : null}
+    </div>
+  );
+};
+
+export default HoursRangeIndicator;
