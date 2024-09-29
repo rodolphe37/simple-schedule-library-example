@@ -4,7 +4,7 @@ import HoursGuidelines from "./HoursGuidelines";
 import { CellProps, TEventToDisplay } from "../models/models";
 import { useRecoilState } from "recoil";
 import eventIdToDIsplayAtom from "../../../../globalStates/atoms/eventIdToDisplayAtom";
-import { TemperatureTypes } from "../../types";
+import { EventTypes } from "../../types";
 
 const Cell = ({
   day,
@@ -12,6 +12,7 @@ const Cell = ({
   scrollRef,
   sortedEventsDaySlotArray,
   isInDarkMode,
+  eventTypeData
 }: CellProps) => {
   const [eventIdToDisplay, setEventIdToDisplay] =
     useRecoilState<TEventToDisplay>(eventIdToDIsplayAtom);
@@ -38,7 +39,7 @@ const Cell = ({
                           ref={
                             idx === 1 ||
                             (idx === 0 &&
-                              timeEvent.instruction !== TemperatureTypes.AWAY)
+                              timeEvent.instruction !== EventTypes.AWAY)
                               ? scrollRef
                               : null
                           }
@@ -47,11 +48,12 @@ const Cell = ({
                         >
                           <p>
                             {idx === 1 &&
-                            timeEvent.instruction !== TemperatureTypes.AWAY
+                            timeEvent.instruction !== EventTypes.AWAY
                               ? "it's a ref"
                               : null}
                           </p>
                           <CellEvent
+                          eventTypeData={eventTypeData}
                             isInDarkMode={isInDarkMode}
                             eventIdToDisplay={eventIdToDisplay}
                             setEventIdToDisplay={setEventIdToDisplay}

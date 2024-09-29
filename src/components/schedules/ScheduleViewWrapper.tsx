@@ -10,6 +10,7 @@ import CustomSelect from "../../ui/customSelectComponent/CustomSelect";
 import { TSelectedValueProps } from "../../ui/customSelectComponent/types";
 import { getSchedulesByEventPlaceIdResponse } from "../../entities/schedules";
 import ParametersDetails from "../legende-color/ParametersDetails";
+import { TeventTypeData } from "./types";
 
 const ScheduleViewWrapper = ({
   scheduleByEventPlace,
@@ -17,12 +18,14 @@ const ScheduleViewWrapper = ({
   isInDarkMode,
   withList,
   withLegend,
+  eventTypeData
 }: {
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
   weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
   isInDarkMode?: () => boolean;
   withList?: boolean;
   withLegend?: boolean;
+  eventTypeData?:TeventTypeData
 }) => {
   const navigate = useNavigate();
 
@@ -129,12 +132,13 @@ const ScheduleViewWrapper = ({
         />
       </div>
       <ScheduleView
+      eventTypeData={eventTypeData}
         isInDarkMode={isInDarkMode!}
         weekStartsOn={weekStartsOn}
         scheduleByEventPlace={scheduleByEventPlace}
         scheduleId={scheduleId}
       />
-      {withLegend ? <ParametersDetails /> : null}
+      {withLegend ? <ParametersDetails eventTypeData={eventTypeData} /> : null}
     </div>
   );
 };

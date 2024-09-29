@@ -4,14 +4,14 @@ import {
   capitalizeFirstLetter,
   daysOfWeekNameTranslation,
   formatTime,
-  tempInstructionName,
+  eventInstructionName,
 } from "../utils/helpers";
 import CrossIcon from "../../../../ui/icons/CrossIcon";
 
 type TCellEventsInfoModalProps = {
   ModalRef: React.RefObject<HTMLDivElement>;
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean | undefined>>;
-  currentDegresTemperature:
+  currentEventType:
     | {
         key: string;
         value: string | number | null;
@@ -20,18 +20,18 @@ type TCellEventsInfoModalProps = {
   startTime: number;
   endTime: number;
   day: number;
-  temperatureInstructionTextWithoutWhiteSpace: string;
+  eventInstructionTextWithoutWhiteSpace: string;
   isInDarkMode?: () => boolean;
 };
 
 const CellEventsInfosModal = ({
   ModalRef,
   setIsModalOpen,
-  currentDegresTemperature,
+  currentEventType,
   startTime,
   endTime,
   day,
-  temperatureInstructionTextWithoutWhiteSpace,
+  eventInstructionTextWithoutWhiteSpace,
   isInDarkMode,
 }: TCellEventsInfoModalProps) => {
   const intl = useIntl();
@@ -76,8 +76,8 @@ const CellEventsInfosModal = ({
               }`}
             >
               {intl.formatMessage({
-                id: tempInstructionName(
-                  temperatureInstructionTextWithoutWhiteSpace
+                id: eventInstructionName(
+                  eventInstructionTextWithoutWhiteSpace
                 ),
               })}
               :
@@ -88,7 +88,7 @@ const CellEventsInfosModal = ({
               }`}
             >
               {" "}
-              {currentDegresTemperature?.value}°C
+              {currentEventType?.value}°C
             </p>
           </div>
           <div className="flex flex-row gap-4 items-center w-[50%] justify-between">

@@ -12,12 +12,14 @@ import CalendarScrollToBottomButton from "./CalendarScrollToBottomButton";
 import { useIntl } from "react-intl";
 import useWindowDimensions from "../../../../hooks/useGetWindowDimensions";
 import HoursRangeIndicator from "./HoursRangeIndicator";
+import { TeventTypeData } from "../../types";
 
 interface ICalendarProps {
   weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
   events?: EventType[];
   scheduleIdentifier: string;
   isInDarkMode?: () => boolean;
+  eventTypeData?: TeventTypeData
 }
 
 const Calendar = ({
@@ -25,6 +27,7 @@ const Calendar = ({
   events,
   scheduleIdentifier,
   isInDarkMode,
+  eventTypeData
 }: ICalendarProps) => {
   const intl = useIntl();
   const {
@@ -78,6 +81,7 @@ const Calendar = ({
               {sortedEventsDaySlotArray?.map((res, i) => (
                 <Fragment key={i}>
                   <Cell
+                  eventTypeData={eventTypeData}
                     isInDarkMode={isInDarkMode!}
                     scrollRef={scrollRef}
                     day={res.day}

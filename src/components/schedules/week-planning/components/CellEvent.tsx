@@ -3,12 +3,12 @@ import useClickOutside from "../hooks/useClickOutside";
 import {
   colorCellByTemp,
   textEventColorInCell,
-  tempInstructionName,
+  eventInstructionName,
 } from "../utils/helpers";
 import { CellEventProps } from "../models/models";
 import CellEventsInfosModal from "./CellEventsInfosModal";
 import { useIntl } from "react-intl";
-import useGetTemperaturesController from "../../hooks/useGetTemperaturesController";
+import useGetEventTypeController from "../../hooks/useGetEventTypeController";
 
 const CellEvent = ({
   timeEvent: event,
@@ -19,18 +19,19 @@ const CellEvent = ({
   eventIdToDisplay,
   isInDarkMode,
   setEventIdToDisplay,
+  eventTypeData
 }: CellEventProps) => {
   const ModalRef = useRef<HTMLDivElement>(null);
   const intl = useIntl();
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>();
 
-  const { temperatures } = useGetTemperaturesController();
+  const { eventType } = useGetEventTypeController(eventTypeData!);
 
-  const temperatureInstructionTextWithoutWhiteSpace = event.instruction.trim();
+  const eventInstructionTextWithoutWhiteSpace = event.instruction.trim();
 
-  const currentDegresTemperature = temperatures.find(
-    (el) => el.key === temperatureInstructionTextWithoutWhiteSpace
+  const currentEventType = eventType.find(
+    (el) => el.key === eventInstructionTextWithoutWhiteSpace
   );
 
   const endTime =
@@ -73,12 +74,12 @@ const CellEvent = ({
           isInDarkMode={isInDarkMode}
           ModalRef={ModalRef}
           setIsModalOpen={setIsModalOpen}
-          currentDegresTemperature={currentDegresTemperature}
+          currentEventType={currentEventType}
           startTime={startTime}
           endTime={endTime}
           day={day}
-          temperatureInstructionTextWithoutWhiteSpace={
-            temperatureInstructionTextWithoutWhiteSpace
+          eventInstructionTextWithoutWhiteSpace={
+            eventInstructionTextWithoutWhiteSpace
           }
         />
       )}
@@ -89,14 +90,14 @@ const CellEvent = ({
           style={{
             height: heightSize(),
             backgroundColor: colorCellByTemp(
-              temperatureInstructionTextWithoutWhiteSpace,
+              eventInstructionTextWithoutWhiteSpace,
               isInDarkMode!
             ),
             color: textEventColorInCell(
-              temperatureInstructionTextWithoutWhiteSpace
+              eventInstructionTextWithoutWhiteSpace
             ),
             fontSize:
-              temperatureInstructionTextWithoutWhiteSpace.length > 6
+            eventInstructionTextWithoutWhiteSpace.length > 6
                 ? "0.55rem"
                 : "0.7rem",
           }}
@@ -109,12 +110,12 @@ const CellEvent = ({
                 className="flex flex-row justify-start items-start w-full"
                 style={{ fontSize: "16px" }}
               >
-                {currentDegresTemperature?.value}°C
+                {currentEventType?.value}°C
               </p>
               <p style={{ fontSize: "14px" }}>
                 {intl.formatMessage({
-                  id: tempInstructionName(
-                    temperatureInstructionTextWithoutWhiteSpace
+                  id: eventInstructionName(
+                    eventInstructionTextWithoutWhiteSpace
                   ),
                 })}
               </p>

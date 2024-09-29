@@ -1,4 +1,4 @@
-export type TemperatureInstruction =
+export type EventInstruction =
   | "presence_1"
   | "presence_2"
   | "presence_3"
@@ -9,7 +9,7 @@ export type TemperatureInstruction =
 
 export interface TimeSlot {
   start: number;
-  instruction: TemperatureInstruction;
+  instruction: EventInstruction;
 }
 
 export enum Days {
@@ -22,7 +22,7 @@ export enum Days {
   SUNDAY,
 }
 
-export enum TemperatureTypes {
+export enum EventTypes {
   ECO = "eco",
   AWAY = "away",
   FROST_PROTECTION = "frost_protection",
@@ -37,3 +37,13 @@ export interface DaySlotSet {
   time_slot: Array<TimeSlot>;
 }
 
+export type TeventTypeData = {
+  building_id: string;
+  away: number;
+  eco: number;
+  frost_protection: number;
+  comfort_1: number;
+  comfort_2: number;
+  comfort_3: number;
+  comfort_4: number;
+};

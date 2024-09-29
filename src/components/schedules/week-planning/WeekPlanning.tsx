@@ -4,17 +4,20 @@ import Calendar from "./components/Calendar";
 import eventIdToDIsplayAtom from "../../../globalStates/atoms/eventIdToDisplayAtom";
 import { useRecoilState } from "recoil";
 import { getSchedulesByEventPlaceIdResponse } from "../../../entities/schedules";
+import { TeventTypeData } from "../types";
 
 const WeekPlanning = ({
   scheduleIdentifier,
   scheduleByEventPlace,
   weekStartsOn,
   isInDarkMode,
+  eventTypeData
 }: {
   scheduleIdentifier?: string;
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
   weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
   isInDarkMode?: () => boolean;
+  eventTypeData?: TeventTypeData
 }) => {
   const [, setEventIdToDisplay] =
     useRecoilState<TEventToDisplay>(eventIdToDIsplayAtom);
@@ -39,6 +42,7 @@ const WeekPlanning = ({
       }`}
     >
       <Calendar
+      eventTypeData={eventTypeData}
         isInDarkMode={isInDarkMode!}
         scheduleIdentifier={scheduleIdentifier!}
         weekStartsOn={weekStartsOn}

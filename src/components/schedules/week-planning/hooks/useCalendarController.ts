@@ -4,7 +4,7 @@ import useScroll from "./useScrollContextCustomHook";
 import eventIdToDIsplayAtom from "../../../../globalStates/atoms/eventIdToDisplayAtom";
 import { useRecoilState } from "recoil";
 import { EventType, TEventToDisplay } from "../models/models";
-import { TemperatureTypes } from "../../types";
+import { EventTypes } from "../../types";
 
 type TuseCalendarControllerProps = {
   weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
@@ -59,7 +59,7 @@ const useCalendarController = ({
     ?.flatMap((res) => res.time_slot)
     .filter(
       (re) =>
-        re.start === 0 && re.instruction === TemperatureTypes.AWAY
+        re.start === 0 && re.instruction === EventTypes.AWAY
     );
   const NUMBER_OF_DAYS = 7;
 

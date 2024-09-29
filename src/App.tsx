@@ -8,7 +8,7 @@ import { bgGray200_700Color } from "./utils/style";
 import { IntlProvider } from "react-intl";
 import { messages } from "./translations";
 import { useLocale } from "./context/useLocale";
-import { scheduleByEventPlace } from "./data";
+import { scheduleByEventPlace, eventTypeData } from "./data";
 import useDarkModeExample from "./useDarkModeTheme";
 
 function App() {
@@ -39,9 +39,10 @@ function App() {
                 }
               >
                 <SchedulesLayout
-                  // withList
+                  withList
                   // withLegend
                   isInDarkMode={isInDarkMode}
+                  eventTypeData={eventTypeData}
                   weekStartsOn={weekStartsOn}
                   scheduleByEventPlace={scheduleByEventPlace}
                 />

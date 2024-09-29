@@ -1,4 +1,4 @@
-import { TemperatureTypes } from "../../types";
+import { EventTypes } from "../../types";
 import {
   bgComfort_1Color,
   bgComfort_2Color,
@@ -60,56 +60,48 @@ export const capitalizeFirstLetter = (str: string) => {
   return `${str.charAt(0).toUpperCase()}${str.slice(1).toLowerCase()}`;
 };
 
-type TColorByTemperatureProps = string;
+type TColorByEventProps = string;
 
 export const colorCellByTemp = (
-  event: TColorByTemperatureProps,
-  isInDarkMode:() => boolean
+  event: TColorByEventProps,
+  isInDarkMode: () => boolean
 ) =>
-  event === TemperatureTypes.COMFORT_1
+  event === EventTypes.COMFORT_1
     ? bgComfort_1Color
-    : event === TemperatureTypes.COMFORT_2
+    : event === EventTypes.COMFORT_2
     ? bgComfort_2Color
-    : event === TemperatureTypes.COMFORT_3
+    : event === EventTypes.COMFORT_3
     ? bgComfort_3Color
-    : event === TemperatureTypes.COMFORT_4
+    : event === EventTypes.COMFORT_4
     ? bgComfort_4Color
-    : event === TemperatureTypes.ECO
+    : event === EventTypes.ECO
     ? bgEcoColor
-    : event === TemperatureTypes.AWAY
+    : event === EventTypes.AWAY
     ? isInDarkMode()
       ? bgAwayColorDark
       : bgAwayColorLight
-    : event === TemperatureTypes.FROST_PROTECTION
+    : event === EventTypes.FROST_PROTECTION
     ? bgFrost_protectionColor
     : "";
 
-export const textEventColorInCell = (event: TColorByTemperatureProps) =>
-  event === TemperatureTypes.COMFORT_1
+export const textEventColorInCell = (event: TColorByEventProps) =>
+  event === EventTypes.COMFORT_1
     ? textComfort_1Color
-    : event === TemperatureTypes.COMFORT_2
+    : event === EventTypes.COMFORT_2
     ? textComfort_2Color
-    : event === TemperatureTypes.COMFORT_3
+    : event === EventTypes.COMFORT_3
     ? textComfort_3Color
-    : event === TemperatureTypes.COMFORT_4
+    : event === EventTypes.COMFORT_4
     ? textComfort_4Color
-    : event === TemperatureTypes.AWAY
+    : event === EventTypes.AWAY
     ? textAwayColor
-    : event === TemperatureTypes.ECO
+    : event === EventTypes.ECO
     ? textEcoColor
-    : event === TemperatureTypes.FROST_PROTECTION
+    : event === EventTypes.FROST_PROTECTION
     ? textFrost_protectionColor
     : "";
 
-// export const useGetCurrentTime = () => {
-//   const dateForCurrentTime = new Date();
-//   const hour = dateForCurrentTime.getHours();
-//   const min = dateForCurrentTime.getMinutes();
-
-//   return { hour, min };
-// };
-
-export enum tempInstructionNames {
+export enum eventInstructionNames {
   comfort_1 = "temperature.presence1.text",
   comfort_2 = "temperature.presence2.text",
   comfort_3 = "temperature.presence3.text",
@@ -119,8 +111,8 @@ export enum tempInstructionNames {
   frost_protection = "temperature.frost_protection.text",
 }
 
-export const tempInstructionName = (str: string) => {
-  return tempInstructionNames[str as keyof typeof tempInstructionNames];
+export const eventInstructionName = (str: string) => {
+  return eventInstructionNames[str as keyof typeof eventInstructionNames];
 };
 
 enum daysOfWeekNamesForTranslation {

@@ -1,36 +1,36 @@
-import { temperatures as data } from "../../../data";
+
 import { useMemo, useState } from "react";
 import { useIntl } from "react-intl";
-import { tempInstructionNames } from "../../schedules/week-planning/utils/helpers";
-import { TemperatureTypes } from "../../schedules/types";
+import { eventInstructionNames } from "../week-planning/utils/helpers";
+import { EventTypes, TeventTypeData } from "../types";
 
 type ErrorResponse = {
   error_code: number | null;
   message: string;
 };
-export type temperatureArray = {
+export type eventTypeArray = {
   key: string;
   value: string | number | null;
 }[];
 
-type tempWithNewNamesProps = {
+type eventWithNewNamesProps = {
   id: number;
   key: string;
   originalKey: string;
   value: number | string | null;
 }[];
 
-const useGetTemperaturesController = () => {
-  const error = data === undefined;
-  console.log("DATA", data);
+const useGetEventTypeController = (eventTypeData:TeventTypeData) => {
+  const error = eventTypeData === undefined;
+  console.log("DATA", eventTypeData);
   const intl = useIntl();
-  const temperatures: temperatureArray = useMemo(() => [], []);
+  const eventType: eventTypeArray = useMemo(() => [], []);
   let errorResponse: ErrorResponse = { error_code: null, message: "" };
 
-  if (!error && data) {
-    for (const [key, value] of Object.entries(data!)) {
+  if (!error && eventTypeData) {
+    for (const [key, value] of Object.entries(eventTypeData!)) {
       if (value) {
-        temperatures.push({ key: key, value: value === null ? `_` : value });
+        eventType.push({ key: key, value: value === null ? `_` : value });
       }
     }
   } else if (error) {
@@ -42,78 +42,78 @@ const useGetTemperaturesController = () => {
     };
   }
 
-  const [tempWithNewNames] = useState<tempWithNewNamesProps>([]);
+  const [eventWithNewNames] = useState<eventWithNewNamesProps>([]);
   const numberOfTemperatures = 7;
 
   const orderedTemperatures = useMemo(
     () => () => {
-      temperatures.filter((res) => {
+      eventType.filter((res) => {
         switch (res.key) {
-          case TemperatureTypes.COMFORT_1:
-            tempWithNewNames.push({
+          case EventTypes.COMFORT_1:
+            eventWithNewNames.push({
               id: 0,
               key: intl.formatMessage({
-                id: tempInstructionNames.comfort_1,
+                id: eventInstructionNames.comfort_1,
               }),
               originalKey: res.key,
               value: res.value,
             });
             break;
-          case TemperatureTypes.COMFORT_2:
-            tempWithNewNames.push({
+          case EventTypes.COMFORT_2:
+            eventWithNewNames.push({
               id: 1,
               key: intl.formatMessage({
-                id: tempInstructionNames.comfort_2,
+                id: eventInstructionNames.comfort_2,
               }),
               originalKey: res.key,
               value: res.value,
             });
             break;
-          case TemperatureTypes.COMFORT_3:
-            tempWithNewNames.push({
+          case EventTypes.COMFORT_3:
+            eventWithNewNames.push({
               id: 2,
               key: intl.formatMessage({
-                id: tempInstructionNames.comfort_3,
+                id: eventInstructionNames.comfort_3,
               }),
               originalKey: res.key,
               value: res.value,
             });
             break;
-          case TemperatureTypes.COMFORT_4:
-            tempWithNewNames.push({
+          case EventTypes.COMFORT_4:
+            eventWithNewNames.push({
               id: 3,
               key: intl.formatMessage({
-                id: tempInstructionNames.comfort_4,
+                id: eventInstructionNames.comfort_4,
               }),
               originalKey: res.key,
               value: res.value,
             });
             break;
-          case TemperatureTypes.ECO:
-            tempWithNewNames.push({
+          case EventTypes.ECO:
+            eventWithNewNames.push({
               id: 4,
               key: intl.formatMessage({
-                id: tempInstructionNames.eco,
+                id: eventInstructionNames.eco,
               }),
               originalKey: res.key,
               value: res.value,
             });
             break;
-          case TemperatureTypes.AWAY:
-            tempWithNewNames.push({
+          case EventTypes.AWAY:
+            eventWithNewNames.push({
               id: 5,
               key: intl.formatMessage({
-                id: tempInstructionNames.away,
+                id: eventInstructionNames.away,
               }),
               originalKey: res.key,
               value: res.value,
             });
             break;
-          case TemperatureTypes.FROST_PROTECTION:
-            tempWithNewNames.push({
+          case EventTypes.FROST_PROTECTION:
+            eventWithNewNames.push({
               id: 6,
               key: intl.formatMessage({
-                id: tempInstructionNames.frost_protection,
+                id: eventInstructionNames.frost_protection,
               }),
               originalKey: res.key,
               value: res.value,
@@ -124,24 +124,24 @@ const useGetTemperaturesController = () => {
             break;
         }
 
-        return tempWithNewNames.sort(function (a, b) {
+        return eventWithNewNames.sort(function (a, b) {
           return a.id - b.id;
         });
       });
     },
-    [temperatures, tempWithNewNames, intl]
+    [eventType, eventWithNewNames, intl]
   );
 
-  if (tempWithNewNames?.length < numberOfTemperatures) {
+  if (eventWithNewNames?.length < numberOfTemperatures) {
     orderedTemperatures();
   }
 
   return {
     errorResponse,
-    temperatures,
+    eventType,
     error,
-    tempWithNewNames,
+    eventWithNewNames,
   };
 };
 
-export default useGetTemperaturesController;
+export default useGetEventTypeController;

@@ -7,6 +7,7 @@ import { ErrorBoundary } from "react-error-boundary";
 import { Loader } from "../../ui/components/Loader";
 import ErrorFallback from "../../ui/components/ErrorFallBack";
 import { getSchedulesByEventPlaceIdResponse } from "../../entities/schedules";
+import { TeventTypeData } from "../schedules/types";
 
 export const SchedulesLayout = ({
   scheduleByEventPlace,
@@ -14,12 +15,14 @@ export const SchedulesLayout = ({
   isInDarkMode,
   withList,
   withLegend,
+  eventTypeData,
 }: {
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
   weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
   isInDarkMode?: () => boolean;
   withList?: boolean;
   withLegend?: boolean;
+  eventTypeData?: TeventTypeData;
 }) => {
   useLayoutEffect(() => {
     window.scrollTo({
@@ -48,6 +51,7 @@ export const SchedulesLayout = ({
                 <SchedulesDetails scheduleByEventPlace={scheduleByEventPlace} />
               ) : (
                 <ScheduleViewWrapper
+                  eventTypeData={eventTypeData}
                   withList={withList}
                   isInDarkMode={isInDarkMode!}
                   weekStartsOn={weekStartsOn}
@@ -73,6 +77,7 @@ export const SchedulesLayout = ({
           >
             <ErrorBoundary FallbackComponent={ErrorFallback}>
               <ScheduleViewWrapper
+                eventTypeData={eventTypeData}
                 withLegend={withLegend}
                 withList={withList}
                 isInDarkMode={isInDarkMode!}
