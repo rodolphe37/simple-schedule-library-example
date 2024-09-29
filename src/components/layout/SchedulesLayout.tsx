@@ -13,10 +13,14 @@ export const SchedulesLayout = ({
   scheduleByEventPlace,
   weekStartsOn,
   isInDarkMode,
+  withList,
+  withLegend
 }: {
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
   weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
   isInDarkMode?: () => boolean;
+  withList?: boolean;
+  withLegend?: boolean
 }) => {
   useLayoutEffect(() => {
     window.scrollTo({
@@ -42,7 +46,18 @@ export const SchedulesLayout = ({
               }
             >
               <ErrorBoundary FallbackComponent={ErrorFallback}>
-                <SchedulesDetails scheduleByEventPlace={scheduleByEventPlace} />
+                {withList ? (
+                  <SchedulesDetails
+                    scheduleByEventPlace={scheduleByEventPlace}
+                  />
+                ) : (
+                  <ScheduleViewWrapper
+                    withList={withList}
+                    isInDarkMode={isInDarkMode!}
+                    weekStartsOn={weekStartsOn}
+                    scheduleByEventPlace={scheduleByEventPlace}
+                  />
+                )}
               </ErrorBoundary>
             </Suspense>
           }
@@ -62,6 +77,8 @@ export const SchedulesLayout = ({
             >
               <ErrorBoundary FallbackComponent={ErrorFallback}>
                 <ScheduleViewWrapper
+                  withLegend={withLegend}
+                  withList={withList}
                   isInDarkMode={isInDarkMode!}
                   weekStartsOn={weekStartsOn}
                   scheduleByEventPlace={scheduleByEventPlace}

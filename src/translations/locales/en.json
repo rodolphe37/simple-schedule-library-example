@@ -44,6 +44,7 @@
     "schedule.dayOfWeek.three": "Wednesday",
     "schedule.dayOfWeek.two": "Tuesday",
     "schedule.view.returnButton.text": "Back to the list",
+    "schedule.view.returnHomeButton.text": "Back to the home page",
     "schedules.page.eventDetails.modal.day.text": "Day:",
     "schedules.page.eventDetails.modal.endTime.text": "End time:",
     "schedules.page.eventDetails.modal.startTime.text": "Start time:",

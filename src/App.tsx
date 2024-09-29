@@ -38,6 +38,8 @@ function App() {
               }
             >
               <SchedulesLayout
+                withList
+                // withLegend
                 isInDarkMode={isInDarkMode}
                 weekStartsOn={weekStartsOn}
                 scheduleByEventPlace={scheduleByEventPlace}

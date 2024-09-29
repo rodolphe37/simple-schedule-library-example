@@ -1,6 +1,6 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import ScheduleView from "./week-planning/ScheduleView";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useState } from "react";
 
 import { SelectOption } from "../../ui/selectBox";
 import useWindowDimensions from "../../hooks/useGetWindowDimensions";
@@ -9,24 +9,30 @@ import BackArrowIcon from "../../ui/icons/BackArrowIcon";
 import CustomSelect from "../../ui/customSelectComponent/CustomSelect";
 import { TSelectedValueProps } from "../../ui/customSelectComponent/types";
 import { getSchedulesByEventPlaceIdResponse } from "../../entities/schedules";
+import ParametersDetails from "../legende-color/ParametersDetails";
 
 const ScheduleViewWrapper = ({
   scheduleByEventPlace,
   weekStartsOn,
   isInDarkMode,
+  withList,
+  withLegend
 }: {
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
   weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
   isInDarkMode?: () => boolean;
+  withList?: boolean;
+  withLegend?: boolean
 }) => {
   const navigate = useNavigate();
 
   const { scheduleId } = useParams<"scheduleId">();
   const location = useLocation();
   const intl = useIntl();
-  const schedulesList = scheduleByEventPlace
-    ? scheduleByEventPlace?.schedules
-    : [];
+  const schedulesList = useMemo(
+    () => (scheduleByEventPlace ? scheduleByEventPlace?.schedules : []),
+    [scheduleByEventPlace]
+  );
   const { height } = useWindowDimensions();
   const options: SelectOption[] = [
     ...schedulesList.map((sch) => ({ label: sch.title, value: sch.id })),
@@ -48,6 +54,14 @@ const ScheduleViewWrapper = ({
       replace: true,
     });
   };
+
+  const firstElement = schedulesList.find((res) => res.id)?.id;
+
+  useLayoutEffect(() => {
+    if (!withList && scheduleId === undefined) {
+      navigate(`/schedule/${firstElement}`);
+    }
+  }, [navigate, schedulesList, withList, firstElement, scheduleId]);
 
   useEffect(() => {
     if (selectedScheduleId === scheduleId) {
@@ -83,12 +97,22 @@ const ScheduleViewWrapper = ({
       <div>
         <button
           className="flex text-blue-600 hover:text-blue-800 dark:text-white p-2 mb-2 mt-1 appearance-none outline-none focus:outline-none border-none active:border-none focus:border-none hover:border-none"
-          onClick={() => navigate(-1)}
+          onClick={() => (withList ? navigate(-1) : navigate("/"))}
         >
           <BackArrowIcon />
-          <p className="ml-2">
-            {intl.formatMessage({ id: "schedule.view.returnButton.text" })}
-          </p>
+          {withList ? (
+            <p className="ml-2">
+              {intl.formatMessage({
+                id: "schedule.view.returnButton.text",
+              })}
+            </p>
+          ) : (
+            <p className="ml-2">
+              {intl.formatMessage({
+                id: "schedule.view.returnHomeButton.text",
+              })}
+            </p>
+          )}
         </button>
       </div>
       <div className=" relative w-full shadow rounded-t-md rounded-b-none bg-blue-600 dark:bg-gray-700 z-[250]">
@@ -109,6 +133,7 @@ const ScheduleViewWrapper = ({
         scheduleByEventPlace={scheduleByEventPlace}
         scheduleId={scheduleId}
       />
+    {withLegend ?   <ParametersDetails /> : null}
     </div>
   );
 };
