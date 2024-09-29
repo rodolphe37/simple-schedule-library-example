@@ -4,16 +4,24 @@ import { convertH2M, formatTime } from "../utils/helpers";
 const HoursCell = ({
   hour,
   eventIdToDisplay,
+  isInDarkMode,
 }: {
   hour: string;
   eventIdToDisplay: TEventToDisplay;
+  isInDarkMode?: () => boolean;
 }) => {
   return (
     <div
       style={hour.includes(":00") ? {} : { display: "none" }}
       className=" hours-column relative border-t w-full items-center justify-start border-slate-300 flex flex-col gap-1 "
     >
-      <p className=" text-gray-700 dark:text-gray-200">{hour}</p>
+      <p
+        className={` ${
+          isInDarkMode && isInDarkMode() ? "text-gray-200" : "text-gray-700"
+        }`}
+      >
+        {hour}
+      </p>
       <div>
         {eventIdToDisplay.startTime === convertH2M(hour) ? (
           <>

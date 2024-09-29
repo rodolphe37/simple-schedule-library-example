@@ -48,7 +48,10 @@ const Calendar = ({
           >
             <div className="grid grid-cols-8 grid-rows-1 font-bold text-center text-black dark:text-white  rounded-t-xl ">
               <div className="p-2 relative -mt-[14px]">
-                <CalendarScrollToTopButton isInDarkMode={isInDarkMode} scrollRef={scrollRef} />
+                <CalendarScrollToTopButton
+                  isInDarkMode={isInDarkMode}
+                  scrollRef={scrollRef}
+                />
               </div>
               {calendarData.weekDayNames.map((day) => (
                 <div
@@ -68,6 +71,7 @@ const Calendar = ({
               className="grid flex-1 grid-cols-8 overflow-hidden border-t border-gray-400"
             >
               <HoursRangeIndicator
+                isInDarkMode={isInDarkMode}
                 rangebyFifteenMinutes={rangebyFifteenMinutes}
                 eventIdToDisplay={eventIdToDisplay}
               />
@@ -85,7 +89,10 @@ const Calendar = ({
             </div>
           </div>
           <div>
-            <CalendarScrollToBottomButton isInDarkMode={isInDarkMode} scrollToBottom={scrollToBottom} />
+            <CalendarScrollToBottomButton
+              isInDarkMode={isInDarkMode}
+              scrollToBottom={scrollToBottom}
+            />
           </div>
         </div>
       }
