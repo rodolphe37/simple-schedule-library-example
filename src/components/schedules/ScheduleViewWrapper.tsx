@@ -22,7 +22,7 @@ const ScheduleViewWrapper = ({
 }: {
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
   weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
-  isInDarkMode?: () => boolean;
+  isInDarkMode?: boolean;
   withList?: boolean;
   withLegend?: boolean;
   eventTypeData: TeventTypeData;
@@ -119,7 +119,7 @@ const ScheduleViewWrapper = ({
           )}
         </button>
       </div>
-      <div className=" relative w-full shadow rounded-t-md rounded-b-none bg-blue-600 dark:bg-gray-700 z-[250]">
+      <div className={`relative w-full shadow rounded-t-md rounded-b-none ${isInDarkMode ? "bg-gray-500/80" : "bg-blue-600"} z-[250]`}>
         <CustomSelect
           isInDarkMode={isInDarkMode}
           strokeColor="stroke-white"

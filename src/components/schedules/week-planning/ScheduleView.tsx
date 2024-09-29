@@ -12,7 +12,7 @@ const ScheduleView = ({
   scheduleId: string | undefined;
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
   weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
-  isInDarkMode?: () => boolean;
+  isInDarkMode?: boolean;
   eventTypeData: TeventTypeData;
 }) => {
   return (

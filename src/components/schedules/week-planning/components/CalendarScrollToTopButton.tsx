@@ -5,7 +5,7 @@ const CalendarScrollToTopButton = ({
   isInDarkMode,
 }: {
   scrollRef: React.MutableRefObject<HTMLDivElement | null>;
-  isInDarkMode?: () => boolean;
+  isInDarkMode?: boolean;
 }) => {
   return (
     <div
@@ -16,7 +16,7 @@ const CalendarScrollToTopButton = ({
         })
       }
       className={` ${
-        isInDarkMode && isInDarkMode() ? "bg-gray-800" : "bg-white"
+        isInDarkMode  ? "bg-gray-800" : "bg-white"
       } cursor-pointer`}
       id="topChevron"
       style={{

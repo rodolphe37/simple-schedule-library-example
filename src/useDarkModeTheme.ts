@@ -5,7 +5,7 @@ import useDarkModeTheme from './context/useDarkModeTheme';
 const useDarkModeExample = () => {
     const { isDarkMode } = useDarkMode();
     const { mode } = useDarkModeTheme();
-    const isInDarkMode = () => isDarkMode || mode === "dark";
+    const isInDarkMode =  isDarkMode || mode === "dark";
 
   return isInDarkMode
 }

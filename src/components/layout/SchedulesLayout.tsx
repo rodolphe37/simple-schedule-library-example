@@ -19,7 +19,7 @@ export const SchedulesLayout = ({
 }: {
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
   weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
-  isInDarkMode?: () => boolean;
+  isInDarkMode?: boolean;
   withList?: boolean;
   withLegend?: boolean;
   eventTypeData: TeventTypeData;
@@ -53,7 +53,7 @@ export const SchedulesLayout = ({
                 <ScheduleViewWrapper
                   eventTypeData={eventTypeData}
                   withList={withList}
-                  isInDarkMode={isInDarkMode!}
+                  isInDarkMode={isInDarkMode}
                   weekStartsOn={weekStartsOn}
                   scheduleByEventPlace={scheduleByEventPlace}
                 />
@@ -80,7 +80,7 @@ export const SchedulesLayout = ({
                 eventTypeData={eventTypeData}
                 withLegend={withLegend}
                 withList={withList}
-                isInDarkMode={isInDarkMode!}
+                isInDarkMode={isInDarkMode}
                 weekStartsOn={weekStartsOn}
                 scheduleByEventPlace={scheduleByEventPlace}
               />

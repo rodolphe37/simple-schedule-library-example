@@ -29,7 +29,7 @@ export interface CellEventProps {
   day: number;
   eventIdToDisplay: TEventToDisplay;
   setEventIdToDisplay: SetterOrUpdater<TEventToDisplay>;
-  isInDarkMode?: () => boolean;
+  isInDarkMode?: boolean;
   eventTypeData: TeventTypeData;
 }
 
@@ -46,7 +46,7 @@ export interface CellProps {
         }[];
       }[]
     | undefined;
-  isInDarkMode?: () => boolean;
+  isInDarkMode?: boolean;
   eventTypeData: TeventTypeData;
 }
 

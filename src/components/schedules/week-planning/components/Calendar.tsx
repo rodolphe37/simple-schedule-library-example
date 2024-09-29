@@ -18,7 +18,7 @@ interface ICalendarProps {
   weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
   events?: EventType[];
   scheduleIdentifier: string;
-  isInDarkMode?: () => boolean;
+  isInDarkMode?: boolean;
   eventTypeData: TeventTypeData;
 }
 
@@ -82,7 +82,7 @@ const Calendar = ({
                 <Fragment key={i}>
                   <Cell
                     eventTypeData={eventTypeData}
-                    isInDarkMode={isInDarkMode!}
+                    isInDarkMode={isInDarkMode}
                     scrollRef={scrollRef}
                     day={res.day}
                     className={i !== 7 ? "p-1 " : ""}

@@ -5,13 +5,13 @@ const CalendarScrollToBottomButton = ({
   isInDarkMode,
 }: {
   scrollToBottom: () => void;
-  isInDarkMode?: () => boolean;
+  isInDarkMode?: boolean;
 }) => {
   return (
     <div
       onClick={() => scrollToBottom()}
       className={` ${
-        isInDarkMode && isInDarkMode() ? "bg-gray-800" : "bg-white"
+        isInDarkMode  ? "bg-gray-800" : "bg-white"
       } cursor-pointer`}
       id="bottomChevron"
       style={{

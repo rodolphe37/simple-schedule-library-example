@@ -21,7 +21,7 @@ type TCellEventsInfoModalProps = {
   endTime: number;
   day: number;
   eventInstructionTextWithoutWhiteSpace: string;
-  isInDarkMode?: () => boolean;
+  isInDarkMode?: boolean;
 };
 
 const CellEventsInfosModal = ({
@@ -40,16 +40,16 @@ const CellEventsInfosModal = ({
   return (
     <div
       className={`fixed w-screen h-screen top-0 left-0 z-[9999] flex items-center justify-center ${
-        isInDarkMode && isInDarkMode() ? "bg-gray-700/90" : "bg-gray-400/80"
+        isInDarkMode ? "bg-gray-700/90" : "bg-gray-400/80"
       } bg-opacity-50 backdrop-blur-sm  transition-all overflow-y-auto`}
     >
       <div
         ref={ModalRef}
         className={`absolute mx-5 w-full md:max-w-[380px] ${
-          isInDarkMode && isInDarkMode() ? "bg-gray-900" : "bg-gray-100"
+          isInDarkMode ? "bg-gray-900" : "bg-gray-100"
         } border border-slate-300 rounded-lg flex flex-col  z-50 justify-center`}
       >
-        <header className="min-h-6 px-4 rounded-t-md  w-full flex items-center justify-between bg-blue-500 text-white">
+        <header className={`min-h-6 px-4 rounded-t-md  w-full flex items-center justify-between ${isInDarkMode ? "bg-gray-400/80" : "bg-blue-500" } text-white`}>
           <h1 className="text-center font-semibold mt-4 mb-4 ">
             {intl.formatMessage({
               id: "schedules.page.eventDetails.modal.title",
@@ -72,21 +72,15 @@ const CellEventsInfosModal = ({
           <div className="flex flex-row gap-4 items-center w-[50%] justify-between">
             <h4
               className={`text-left font-medium ${
-                isInDarkMode && isInDarkMode() ? "text-white" : "text-black"
+                isInDarkMode ? "text-white" : "text-black"
               }`}
             >
               {intl.formatMessage({
-                id: eventInstructionName(
-                  eventInstructionTextWithoutWhiteSpace
-                ),
+                id: eventInstructionName(eventInstructionTextWithoutWhiteSpace),
               })}
               :
             </h4>
-            <p
-              className={`${
-                isInDarkMode && isInDarkMode() ? "text-white" : "text-black"
-              }`}
-            >
+            <p className={`${isInDarkMode ? "text-white" : "text-black"}`}>
               {" "}
               {currentEventType?.value}°C
             </p>
@@ -94,54 +88,42 @@ const CellEventsInfosModal = ({
           <div className="flex flex-row gap-4 items-center w-[50%] justify-between">
             <h4
               className={`text-left font-medium ${
-                isInDarkMode && isInDarkMode() ? "text-white" : "text-black"
+                isInDarkMode ? "text-white" : "text-black"
               }`}
             >
               {intl.formatMessage({
                 id: "schedules.page.eventDetails.modal.startTime.text",
               })}
             </h4>
-            <p
-              className={`${
-                isInDarkMode && isInDarkMode() ? "text-white" : "text-black"
-              }`}
-            >
+            <p className={`${isInDarkMode ? "text-white" : "text-black"}`}>
               {formatTime(startTime)}
             </p>
           </div>
           <div className="flex flex-row gap-4 items-center w-[50%] justify-between">
             <h4
               className={`text-left font-medium ${
-                isInDarkMode && isInDarkMode() ? "text-white" : "text-black"
+                isInDarkMode ? "text-white" : "text-black"
               }`}
             >
               {intl.formatMessage({
                 id: "schedules.page.eventDetails.modal.endTime.text",
               })}
             </h4>
-            <p
-              className={`${
-                isInDarkMode && isInDarkMode() ? "text-white" : "text-black"
-              }`}
-            >
+            <p className={`${isInDarkMode ? "text-white" : "text-black"}`}>
               {formatTime(endTime)}
             </p>
           </div>
           <div className="flex flex-row gap-4 items-center w-[50%] justify-between">
             <h4
               className={`text-left font-medium ${
-                isInDarkMode && isInDarkMode() ? "text-white" : "text-black"
+                isInDarkMode ? "text-white" : "text-black"
               }`}
             >
               {intl.formatMessage({
                 id: "schedules.page.eventDetails.modal.day.text",
               })}
             </h4>
-            <div
-              className={`${
-                isInDarkMode && isInDarkMode() ? "text-white" : "text-black"
-              }`}
-            >
+            <div className={`${isInDarkMode ? "text-white" : "text-black"}`}>
               {intl.formatMessage({
                 id: daysOfWeekNameTranslation(daySelected),
               })}

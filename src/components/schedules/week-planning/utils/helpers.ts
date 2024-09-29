@@ -64,7 +64,7 @@ type TColorByEventProps = string;
 
 export const colorCellByTemp = (
   event: TColorByEventProps,
-  isInDarkMode: () => boolean
+  isInDarkMode: boolean
 ) =>
   event === EventTypes.COMFORT_1
     ? bgComfort_1Color
@@ -77,7 +77,7 @@ export const colorCellByTemp = (
     : event === EventTypes.ECO
     ? bgEcoColor
     : event === EventTypes.AWAY
-    ? isInDarkMode()
+    ? isInDarkMode
       ? bgAwayColorDark
       : bgAwayColorLight
     : event === EventTypes.FROST_PROTECTION

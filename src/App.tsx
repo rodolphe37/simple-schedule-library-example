@@ -8,7 +8,7 @@ import { IntlProvider } from "react-intl";
 // Import necessary for translation, language (fr or en) & dark mode - (for the example)
 import { messages } from "./translations";
 import { useLocale } from "./context/useLocale";
-import useDarkModeExample from "./useDarkModeTheme";
+// import useDarkModeExample from "./useDarkModeTheme";
 import { bgGray200_700Color } from "./utils/style";
 // Import components
 import { Loader } from "./ui/components/Loader";
@@ -25,7 +25,7 @@ import { SchedulesLayout } from "./components/layout/SchedulesLayout";
 
 function App() {
   const { locale } = useLocale();
-  const isInDarkMode = useDarkModeExample();
+  // const isInDarkMode = useDarkModeExample();
   const weekStartsOn = 0;
 
   return (
@@ -51,9 +51,9 @@ function App() {
                 }
               >
                 <SchedulesLayout
-                  withList
+                  // withList
                   // withLegend
-                  isInDarkMode={isInDarkMode}
+                  isInDarkMode={false}
                   eventTypeData={eventTypeData}
                   weekStartsOn={weekStartsOn}
                   scheduleByEventPlace={scheduleByEventPlace}

@@ -5,7 +5,7 @@ import HoursCell from "./HoursCell";
 type THoursRangeIndicatorProps = {
   rangebyFifteenMinutes: string[];
   eventIdToDisplay: TEventToDisplay;
-  isInDarkMode?: () => boolean;
+  isInDarkMode?: boolean;
 };
 
 const HoursRangeIndicator = ({
@@ -66,7 +66,7 @@ const HoursRangeIndicator = ({
         ))}
         <div
           className={`flex items-center justify-center -mt-3 ${
-            isInDarkMode && isInDarkMode() ? "text-gray-200" : "text-gray-700"
+            isInDarkMode  ? "text-gray-200" : "text-gray-700"
           } `}
         >
           00:00

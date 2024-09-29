@@ -53,7 +53,7 @@ const CustomSelect = ({
   className?: string;
   icon?: JSX.Element;
   strokeColor?: string;
-  isInDarkMode?: () => boolean;
+  isInDarkMode?: boolean;
 }) => {
   const [showMenu, setShowMenu] = useState(false);
   const inputRef = useRef<HTMLDivElement | null>(null);
@@ -109,7 +109,14 @@ const CustomSelect = ({
       </div>
 
       {showMenu && (
-        <div className={`dropdown-menu alignment--${align || "auto"} w-full `}>
+        <div
+          style={
+            isInDarkMode
+              ? { backgroundColor: "#2d3648" }
+              : { backgroundColor: "#edf0f7" }
+          }
+          className={`dropdown-menu alignment--${align || "auto"} w-full `}
+        >
           {getOptions().map((option) => (
             <div
               onClick={() => {
@@ -118,9 +125,7 @@ const CustomSelect = ({
               }}
               key={option.value}
               className={`dropdown-item text-left ${
-                isInDarkMode !== undefined && isInDarkMode()
-                  ? "text-white"
-                  : "text-black"
+                isInDarkMode ? "text-white" : "text-black"
               } ${isSelected(option) && "selected"}`}
             >
               {option.label}

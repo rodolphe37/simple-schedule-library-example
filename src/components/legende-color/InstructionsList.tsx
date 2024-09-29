@@ -17,7 +17,7 @@ const InstructionsList = ({
 }) => {
   const { isDarkMode } = useDarkMode();
   const { mode } = useDarkModeTheme();
-  const isInDarkMode = () => isDarkMode || mode === "dark";
+  const isInDarkMode = isDarkMode || mode === "dark";
   return (
     <div
       style={{ textAlign: "left" }}

@@ -16,7 +16,7 @@ const WeekPlanning = ({
   scheduleIdentifier?: string;
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
   weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
-  isInDarkMode?: () => boolean;
+  isInDarkMode?:boolean;
   eventTypeData: TeventTypeData;
 }) => {
   const [, setEventIdToDisplay] =
@@ -38,7 +38,7 @@ const WeekPlanning = ({
         });
       }}
       className={`h-full pl-4 pr-4 pb-4 mx-auto ${
-        isInDarkMode && isInDarkMode() ? "bg-gray-900" : "bg-white"
+        isInDarkMode  ? "bg-gray-900" : "bg-white"
       }`}
     >
       <Calendar

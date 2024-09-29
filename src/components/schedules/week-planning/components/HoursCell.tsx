@@ -8,7 +8,7 @@ const HoursCell = ({
 }: {
   hour: string;
   eventIdToDisplay: TEventToDisplay;
-  isInDarkMode?: () => boolean;
+  isInDarkMode?: boolean;
 }) => {
   return (
     <div
@@ -17,7 +17,7 @@ const HoursCell = ({
     >
       <p
         className={` ${
-          isInDarkMode && isInDarkMode() ? "text-gray-200" : "text-gray-700"
+          isInDarkMode  ? "text-gray-200" : "text-gray-700"
         }`}
       >
         {hour}
