@@ -11,23 +11,23 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
-              instruction: "away",
+              instruction: "eventType_6",
             },
             {
               start: 360,
-              instruction: "eco",
+              instruction: "eventType_5",
             },
             {
               start: 720,
-              instruction: "comfort_1",
+              instruction: "eventType_1",
             },
             {
               start: 900,
-              instruction: "comfort_2",
+              instruction: "eventType_2",
             },
             {
               start: 1020,
-              instruction: "comfort_3",
+              instruction: "eventType_3",
             },
           ],
         },
@@ -36,11 +36,11 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
-              instruction: "comfort_4",
+              instruction: "eventType_4",
             },
             {
               start: 600,
-              instruction: "frost_protection",
+              instruction: "eventType_7",
             },
           ],
         },
@@ -55,23 +55,23 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
-              instruction: "away",
+              instruction: "eventType_6",
             },
             {
               start: 360,
-              instruction: "eco",
+              instruction: "eventType_5",
             },
             {
               start: 600,
-              instruction: "comfort_1",
+              instruction: "eventType_1",
             },
             {
               start: 720,
-              instruction: "comfort_2",
+              instruction: "eventType_2",
             },
             {
               start: 960,
-              instruction: "comfort_3",
+              instruction: "eventType_3",
             },
           ],
         },
@@ -80,11 +80,11 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
-              instruction: "away",
+              instruction: "eventType_6",
             },
             {
               start: 360,
-              instruction: "comfort_4",
+              instruction: "eventType_4",
             },
           ],
         },
@@ -99,23 +99,23 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
-              instruction: "away",
+              instruction: "eventType_6",
             },
             {
               start: 390,
-              instruction: "comfort_2",
+              instruction: "eventType_2",
             },
             {
               start: 720,
-              instruction: "eco",
+              instruction: "eventType_5",
             },
             {
               start: 810,
-              instruction: "comfort_2",
+              instruction: "eventType_2",
             },
             {
               start: 990,
-              instruction: "away",
+              instruction: "eventType_6",
             },
           ],
         },
@@ -124,15 +124,15 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
-              instruction: "away",
+              instruction: "eventType_6",
             },
             {
               start: 390,
-              instruction: "comfort_2",
+              instruction: "eventType_2",
             },
             {
               start: 720,
-              instruction: "away",
+              instruction: "eventType_6",
             },
           ],
         },
@@ -141,7 +141,7 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
-              instruction: "away",
+              instruction: "eventType_6",
             },
           ],
         },
@@ -156,23 +156,23 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
-              instruction: "away",
+              instruction: "eventType_6",
             },
             {
               start: 450,
-              instruction: "comfort_2",
+              instruction: "eventType_2",
             },
             {
               start: 720,
-              instruction: "eco",
+              instruction: "eventType_5",
             },
             {
               start: 810,
-              instruction: "comfort_2",
+              instruction: "eventType_2",
             },
             {
               start: 990,
-              instruction: "away",
+              instruction: "eventType_6",
             },
           ],
         },
@@ -181,15 +181,15 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
-              instruction: "away",
+              instruction: "eventType_6",
             },
             {
               start: 450,
-              instruction: "comfort_2",
+              instruction: "eventType_2",
             },
             {
               start: 720,
-              instruction: "away",
+              instruction: "eventType_6",
             },
           ],
         },
@@ -198,7 +198,7 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
-              instruction: "away",
+              instruction: "eventType_6",
             },
           ],
         },
@@ -213,23 +213,23 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
-              instruction: "away",
+              instruction: "eventType_6",
             },
             {
               start: 390,
-              instruction: "comfort_2",
+              instruction: "eventType_2",
             },
             {
               start: 720,
-              instruction: "eco",
+              instruction: "eventType_5",
             },
             {
               start: 810,
-              instruction: "comfort_2",
+              instruction: "eventType_2",
             },
             {
               start: 1125,
-              instruction: "away",
+              instruction: "eventType_6",
             },
           ],
         },
@@ -238,7 +238,7 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
-              instruction: "away",
+              instruction: "eventType_6",
             },
           ],
         },
@@ -253,23 +253,23 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
-              instruction: "away",
+              instruction: "eventType_6",
             },
             {
               start: 390,
-              instruction: "comfort_2",
+              instruction: "eventType_2",
             },
             {
               start: 720,
-              instruction: "eco",
+              instruction: "eventType_5",
             },
             {
               start: 810,
-              instruction: "comfort_2",
+              instruction: "eventType_2",
             },
             {
               start: 990,
-              instruction: "away",
+              instruction: "eventType_6",
             },
           ],
         },
@@ -278,19 +278,19 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
-              instruction: "away",
+              instruction: "eventType_6",
             },
             {
               start: 390,
-              instruction: "comfort_2",
+              instruction: "eventType_2",
             },
             {
               start: 720,
-              instruction: "eco",
+              instruction: "eventType_5",
             },
             {
               start: 1125,
-              instruction: "away",
+              instruction: "eventType_6",
             },
           ],
         },
@@ -299,7 +299,7 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
-              instruction: "away",
+              instruction: "eventType_6",
             },
           ],
         },
@@ -314,23 +314,23 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
-              instruction: "away",
+              instruction: "eventType_6",
             },
             {
               start: 390,
-              instruction: "comfort_2",
+              instruction: "eventType_2",
             },
             {
               start: 720,
-              instruction: "eco",
+              instruction: "eventType_5",
             },
             {
               start: 810,
-              instruction: "comfort_2",
+              instruction: "eventType_2",
             },
             {
               start: 1125,
-              instruction: "away",
+              instruction: "eventType_6",
             },
           ],
         },
@@ -339,15 +339,15 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
-              instruction: "away",
+              instruction: "eventType_6",
             },
             {
               start: 390,
-              instruction: "comfort_2",
+              instruction: "eventType_2",
             },
             {
               start: 720,
-              instruction: "away",
+              instruction: "eventType_6",
             },
           ],
         },
@@ -356,7 +356,7 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
-              instruction: "away",
+              instruction: "eventType_6",
             },
           ],
         },
@@ -371,23 +371,23 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
-              instruction: "away",
+              instruction: "eventType_6",
             },
             {
               start: 450,
-              instruction: "comfort_2",
+              instruction: "eventType_2",
             },
             {
               start: 720,
-              instruction: "eco",
+              instruction: "eventType_5",
             },
             {
               start: 810,
-              instruction: "comfort_2",
+              instruction: "eventType_2",
             },
             {
               start: 1125,
-              instruction: "away",
+              instruction: "eventType_6",
             },
           ],
         },
@@ -396,7 +396,7 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
-              instruction: "away",
+              instruction: "eventType_6",
             },
           ],
         },
@@ -411,23 +411,23 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
-              instruction: "away",
+              instruction: "eventType_6",
             },
             {
               start: 450,
-              instruction: "comfort_2",
+              instruction: "eventType_2",
             },
             {
               start: 720,
-              instruction: "eco",
+              instruction: "eventType_5",
             },
             {
               start: 810,
-              instruction: "comfort_2",
+              instruction: "eventType_2",
             },
             {
               start: 990,
-              instruction: "away",
+              instruction: "eventType_6",
             },
           ],
         },
@@ -436,15 +436,15 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
-              instruction: "away",
+              instruction: "eventType_6",
             },
             {
               start: 450,
-              instruction: "comfort_2",
+              instruction: "eventType_2",
             },
             {
               start: 720,
-              instruction: "away",
+              instruction: "eventType_6",
             },
           ],
         },
@@ -453,7 +453,7 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
-              instruction: "away",
+              instruction: "eventType_6",
             },
           ],
         },
@@ -468,23 +468,23 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
-              instruction: "away",
+              instruction: "eventType_6",
             },
             {
               start: 450,
-              instruction: "comfort_2",
+              instruction: "eventType_2",
             },
             {
               start: 720,
-              instruction: "eco",
+              instruction: "eventType_5",
             },
             {
               start: 810,
-              instruction: "comfort_2",
+              instruction: "eventType_2",
             },
             {
               start: 1125,
-              instruction: "away",
+              instruction: "eventType_6",
             },
           ],
         },
@@ -493,15 +493,15 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
-              instruction: "away",
+              instruction: "eventType_6",
             },
             {
               start: 450,
-              instruction: "comfort_2",
+              instruction: "eventType_2",
             },
             {
               start: 720,
-              instruction: "away",
+              instruction: "eventType_6",
             },
           ],
         },
@@ -510,7 +510,7 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
-              instruction: "away",
+              instruction: "eventType_6",
             },
           ],
         },
@@ -525,7 +525,7 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
-              instruction: "frost_protection",
+              instruction: "eventType_7",
             },
           ],
         },
@@ -540,23 +540,23 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
-              instruction: "away",
+              instruction: "eventType_6",
             },
             {
               start: 390,
-              instruction: "comfort_2",
+              instruction: "eventType_2",
             },
             {
               start: 720,
-              instruction: "eco",
+              instruction: "eventType_5",
             },
             {
               start: 810,
-              instruction: "comfort_2",
+              instruction: "eventType_2",
             },
             {
               start: 1125,
-              instruction: "away",
+              instruction: "eventType_6",
             },
           ],
         },
@@ -565,7 +565,7 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
-              instruction: "away",
+              instruction: "eventType_6",
             },
           ],
         },
@@ -576,11 +576,12 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
 
 export const eventTypeData = {
   eventPlace_id: "e2076d6a-9d6d-4b93-9ce0-a41f04c38c40",
-  away: 17,
-  eco: 18,
-  frost_protection: 15,
-  comfort_1: 19,
-  comfort_2: 20,
-  comfort_3: 21,
-  comfort_4: 22,
+  eventType_1: 19,
+  eventType_2: 20,
+  eventType_3: 21,
+  eventType_4: 22,
+  eventType_5: 18,
+  eventType_6: 17,
+  eventType_7: 15,
+ 
 };

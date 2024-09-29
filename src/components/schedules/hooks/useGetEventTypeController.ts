@@ -48,71 +48,71 @@ const useGetEventTypeController = (eventTypeData: TeventTypeData) => {
     () => () => {
       eventType.filter((res) => {
         switch (res.key) {
-          case EventTypes.COMFORT_1:
+          case EventTypes.EVENT_TYPE_1:
             eventWithNewNames.push({
               id: 0,
               key: intl.formatMessage({
-                id: eventInstructionNames.comfort_1,
+                id: eventInstructionNames.eventType_1 ,
               }),
               originalKey: res.key,
               value: res.value,
             });
             break;
-          case EventTypes.COMFORT_2:
+          case EventTypes.EVENT_TYPE_2:
             eventWithNewNames.push({
               id: 1,
               key: intl.formatMessage({
-                id: eventInstructionNames.comfort_2,
+                id: eventInstructionNames.eventType_2,
               }),
               originalKey: res.key,
               value: res.value,
             });
             break;
-          case EventTypes.COMFORT_3:
+          case EventTypes.EVENT_TYPE_3:
             eventWithNewNames.push({
               id: 2,
               key: intl.formatMessage({
-                id: eventInstructionNames.comfort_3,
+                id: eventInstructionNames.eventType_3,
               }),
               originalKey: res.key,
               value: res.value,
             });
             break;
-          case EventTypes.COMFORT_4:
+          case EventTypes.EVENT_TYPE_4:
             eventWithNewNames.push({
               id: 3,
               key: intl.formatMessage({
-                id: eventInstructionNames.comfort_4,
+                id: eventInstructionNames.eventType_4,
               }),
               originalKey: res.key,
               value: res.value,
             });
             break;
-          case EventTypes.ECO:
+          case EventTypes.EVENT_TYPE_5:
             eventWithNewNames.push({
               id: 4,
               key: intl.formatMessage({
-                id: eventInstructionNames.eco,
+                id: eventInstructionNames.eventType_5,
               }),
               originalKey: res.key,
               value: res.value,
             });
             break;
-          case EventTypes.AWAY:
+          case EventTypes.EVENT_TYPE_6:
             eventWithNewNames.push({
               id: 5,
               key: intl.formatMessage({
-                id: eventInstructionNames.away,
+                id: eventInstructionNames.eventType_6,
               }),
               originalKey: res.key,
               value: res.value,
             });
             break;
-          case EventTypes.FROST_PROTECTION:
+          case EventTypes.EVENT_TYPE_7:
             eventWithNewNames.push({
               id: 6,
               key: intl.formatMessage({
-                id: eventInstructionNames.frost_protection,
+                id: eventInstructionNames.eventType_7,
               }),
               originalKey: res.key,
               value: res.value,

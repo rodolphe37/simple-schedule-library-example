@@ -6,9 +6,8 @@ import ScheduleViewWrapper from "../schedules/ScheduleViewWrapper";
 import { ErrorBoundary } from "react-error-boundary";
 import { Loader } from "../../ui/components/Loader";
 import ErrorFallback from "../../ui/components/ErrorFallBack";
-import { getSchedulesByEventPlaceIdResponse } from "../../entities/schedules";
-import { TeventTypeData } from "../schedules/types";
 import { RecoilRoot } from "recoil";
+
 
 export const SchedulesLayout = ({
   scheduleByEventPlace,
@@ -17,13 +16,36 @@ export const SchedulesLayout = ({
   withList,
   withLegend,
   eventTypeData,
+  locale
 }: {
-  scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
+  scheduleByEventPlace: {
+    schedules: {
+      id: string;
+      title: string;
+      day_slot_set: {
+        days: number[];
+        time_slot: {
+          start: number;
+          instruction: string;
+        }[];
+      }[];
+    }[];
+  };
   weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
   isInDarkMode: boolean;
   withList?: boolean;
   withLegend?: boolean;
-  eventTypeData: TeventTypeData;
+  eventTypeData: {
+    eventPlace_id: string;
+    eventType_1: number | string;
+    eventType_2: number | string;
+    eventType_3: number | string;
+    eventType_4: number | string;
+    eventType_5: number | string;
+    eventType_6: number | string;
+    eventType_7: number | string;
+  };
+  locale: string
 }) => {
   useLayoutEffect(() => {
     window.scrollTo({
@@ -55,6 +77,7 @@ export const SchedulesLayout = ({
                   />
                 ) : (
                   <ScheduleViewWrapper
+                  locale={locale}
                     eventTypeData={eventTypeData}
                     withList={withList}
                     isInDarkMode={isInDarkMode}
@@ -81,6 +104,7 @@ export const SchedulesLayout = ({
             >
               <ErrorBoundary FallbackComponent={ErrorFallback}>
                 <ScheduleViewWrapper
+                locale={locale}
                   eventTypeData={eventTypeData}
                   withLegend={withLegend}
                   withList={withList}

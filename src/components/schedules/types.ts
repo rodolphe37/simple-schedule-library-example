@@ -23,13 +23,13 @@ export enum Days {
 }
 
 export enum EventTypes {
-  ECO = "eco",
-  AWAY = "away",
-  FROST_PROTECTION = "frost_protection",
-  COMFORT_1 = "comfort_1",
-  COMFORT_2 = "comfort_2",
-  COMFORT_3 = "comfort_3",
-  COMFORT_4 = "comfort_4",
+  EVENT_TYPE_1 = "eventType_1",
+  EVENT_TYPE_2 = "eventType_2",
+  EVENT_TYPE_3 = "eventType_3",
+  EVENT_TYPE_4 = "eventType_4",
+  EVENT_TYPE_5 = "eventType_5",
+  EVENT_TYPE_6 = "eventType_6",
+  EVENT_TYPE_7 = "eventType_7",
 }
 
 export interface DaySlotSet {
@@ -39,11 +39,11 @@ export interface DaySlotSet {
 
 export type TeventTypeData = {
   eventPlace_id: string;
-  away: number;
-  eco: number;
-  frost_protection: number;
-  comfort_1: number;
-  comfort_2: number;
-  comfort_3: number;
-  comfort_4: number;
+  eventType_1: number | string;
+  eventType_2: number | string;
+  eventType_3: number | string;
+  eventType_4: number | string;
+  eventType_5: number | string;
+  eventType_6: number | string;
+  eventType_7: number | string;
 };

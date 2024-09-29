@@ -20,6 +20,7 @@ interface ICalendarProps {
   scheduleIdentifier: string;
   isInDarkMode: boolean;
   eventTypeData: TeventTypeData;
+  locale: string;
 }
 
 const Calendar = ({
@@ -28,6 +29,7 @@ const Calendar = ({
   scheduleIdentifier,
   isInDarkMode,
   eventTypeData,
+  locale,
 }: ICalendarProps) => {
   const intl = useIntl();
   const {
@@ -74,6 +76,7 @@ const Calendar = ({
               className="grid flex-1 grid-cols-8 overflow-hidden border-t border-gray-400"
             >
               <HoursRangeIndicator
+                locale={locale}
                 isInDarkMode={isInDarkMode}
                 rangebyFifteenMinutes={rangebyFifteenMinutes}
                 eventIdToDisplay={eventIdToDisplay}

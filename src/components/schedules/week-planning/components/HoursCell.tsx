@@ -15,11 +15,7 @@ const HoursCell = ({
       style={hour.includes(":00") ? {} : { display: "none" }}
       className=" hours-column relative border-t w-full items-center justify-start border-slate-300 flex flex-col gap-1 "
     >
-      <p
-        className={` ${
-          isInDarkMode  ? "text-gray-200" : "text-gray-700"
-        }`}
-      >
+      <p className={` ${isInDarkMode ? "text-gray-200" : "text-gray-700"}`}>
         {hour}
       </p>
       <div>

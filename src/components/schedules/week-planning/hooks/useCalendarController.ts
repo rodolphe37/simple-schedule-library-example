@@ -59,7 +59,7 @@ const useCalendarController = ({
     ?.flatMap((res) => res.time_slot)
     .filter(
       (re) =>
-        re.start === 0 && re.instruction === EventTypes.AWAY
+        re.start === 0 && re.instruction === EventTypes.EVENT_TYPE_6
     );
   const NUMBER_OF_DAYS = 7;
 

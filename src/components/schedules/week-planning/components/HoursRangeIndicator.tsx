@@ -1,17 +1,24 @@
+import { LanguageKeys } from "../../../../translations/enum";
 import { TEventToDisplay } from "../models/models";
-import { convertH2M, formatTime } from "../utils/helpers";
+import {
+  convertH2M,
+  formatTime,
+  rangebyFifteenMinutesUs,
+} from "../utils/helpers";
 import HoursCell from "./HoursCell";
 
 type THoursRangeIndicatorProps = {
   rangebyFifteenMinutes: string[];
   eventIdToDisplay: TEventToDisplay;
   isInDarkMode?: boolean;
+  locale: string;
 };
 
 const HoursRangeIndicator = ({
   rangebyFifteenMinutes,
   eventIdToDisplay,
   isInDarkMode,
+  locale,
 }: THoursRangeIndicatorProps) => {
   return (
     <div className=" relative  border-r border-slate-600 ">
@@ -61,12 +68,26 @@ const HoursRangeIndicator = ({
       </div>
 
       <div>
-        {rangebyFifteenMinutes.map((hour, i) => (
-          <HoursCell isInDarkMode={isInDarkMode} key={i} hour={hour} eventIdToDisplay={eventIdToDisplay} />
-        ))}
+        {locale === LanguageKeys.fr
+          ? rangebyFifteenMinutes.map((hour, i) => (
+              <HoursCell
+                isInDarkMode={isInDarkMode}
+                key={i}
+                hour={hour}
+                eventIdToDisplay={eventIdToDisplay}
+              />
+            ))
+          : rangebyFifteenMinutesUs.map((hour, i) => (
+              <HoursCell
+                isInDarkMode={isInDarkMode}
+                key={i}
+                hour={hour}
+                eventIdToDisplay={eventIdToDisplay}
+              />
+            ))}
         <div
           className={`flex items-center justify-center -mt-3 ${
-            isInDarkMode  ? "text-gray-200" : "text-gray-700"
+            isInDarkMode ? "text-gray-200" : "text-gray-700"
           } `}
         >
           00:00

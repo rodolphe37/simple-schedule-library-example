@@ -32,7 +32,6 @@ const formatterMinutes = new Intl.DateTimeFormat("fr-FR", {
   minute: "numeric",
   hour12: false,
 });
-
 export const rangebyFifteenMinutes = byFifteenMinutesitems.map((time) => {
   const [hour, minute] = time;
   forMinutesdate.setHours(hour);
@@ -40,6 +39,22 @@ export const rangebyFifteenMinutes = byFifteenMinutesitems.map((time) => {
 
   return formatterMinutes.format(forMinutesdate);
 });
+
+const formatterMinutesUS = new Intl.DateTimeFormat("us-US", {
+  hour: "numeric",
+  minute: "numeric",
+  hour12: true,
+});
+
+export const rangebyFifteenMinutesUs = byFifteenMinutesitems.map((time) => {
+  const [hour, minute] = time;
+  forMinutesdate.setHours(hour);
+  forMinutesdate.setMinutes(minute);
+
+  return formatterMinutesUS.format(forMinutesdate);
+});
+
+
 
 //  CODE FOR CONVERT HOURS/MINUTES FORMAT TO MINUTES FORMAT
 export function convertH2M(timeInHour: string) {
@@ -66,49 +81,49 @@ export const colorCellByTemp = (
   event: TColorByEventProps,
   isInDarkMode: boolean
 ) =>
-  event === EventTypes.COMFORT_1
+  event === EventTypes.EVENT_TYPE_1
     ? bgComfort_1Color
-    : event === EventTypes.COMFORT_2
+    : event === EventTypes.EVENT_TYPE_2
     ? bgComfort_2Color
-    : event === EventTypes.COMFORT_3
+    : event === EventTypes.EVENT_TYPE_3
     ? bgComfort_3Color
-    : event === EventTypes.COMFORT_4
+    : event === EventTypes.EVENT_TYPE_4
     ? bgComfort_4Color
-    : event === EventTypes.ECO
+    : event === EventTypes.EVENT_TYPE_5
     ? bgEcoColor
-    : event === EventTypes.AWAY
+    : event === EventTypes.EVENT_TYPE_6
     ? isInDarkMode
       ? bgAwayColorDark
       : bgAwayColorLight
-    : event === EventTypes.FROST_PROTECTION
+    : event === EventTypes.EVENT_TYPE_7
     ? bgFrost_protectionColor
     : "";
 
 export const textEventColorInCell = (event: TColorByEventProps) =>
-  event === EventTypes.COMFORT_1
+  event === EventTypes.EVENT_TYPE_1
     ? textComfort_1Color
-    : event === EventTypes.COMFORT_2
+    : event === EventTypes.EVENT_TYPE_2
     ? textComfort_2Color
-    : event === EventTypes.COMFORT_3
+    : event === EventTypes.EVENT_TYPE_3
     ? textComfort_3Color
-    : event === EventTypes.COMFORT_4
+    : event === EventTypes.EVENT_TYPE_4
     ? textComfort_4Color
-    : event === EventTypes.AWAY
+    : event === EventTypes.EVENT_TYPE_6
     ? textAwayColor
-    : event === EventTypes.ECO
+    : event === EventTypes.EVENT_TYPE_5
     ? textEcoColor
-    : event === EventTypes.FROST_PROTECTION
+    : event === EventTypes.EVENT_TYPE_7
     ? textFrost_protectionColor
     : "";
 
 export enum eventInstructionNames {
-  comfort_1 = "temperature.presence1.text",
-  comfort_2 = "temperature.presence2.text",
-  comfort_3 = "temperature.presence3.text",
-  comfort_4 = "temperature.presence4.text",
-  eco = "temperature.reduce.text",
-  away = "temperature.away.text",
-  frost_protection = "temperature.frost_protection.text",
+  eventType_1 = "temperature.presence1.text",
+  eventType_2 = "temperature.presence2.text",
+  eventType_3 = "temperature.presence3.text",
+  eventType_4 = "temperature.presence4.text",
+  eventType_5 = "temperature.reduce.text",
+  eventType_6 = "temperature.away.text",
+  eventType_7 = "temperature.frost_protection.text",
 }
 
 export const eventInstructionName = (str: string) => {

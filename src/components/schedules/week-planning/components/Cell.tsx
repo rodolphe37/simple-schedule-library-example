@@ -39,7 +39,7 @@ const Cell = ({
                           ref={
                             idx === 1 ||
                             (idx === 0 &&
-                              timeEvent.instruction !== EventTypes.AWAY)
+                              timeEvent.instruction !== EventTypes.EVENT_TYPE_6)
                               ? scrollRef
                               : null
                           }
@@ -48,7 +48,7 @@ const Cell = ({
                         >
                           <p>
                             {idx === 1 &&
-                            timeEvent.instruction !== EventTypes.AWAY
+                            timeEvent.instruction !== EventTypes.EVENT_TYPE_6
                               ? "it's a ref"
                               : null}
                           </p>

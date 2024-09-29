@@ -12,12 +12,14 @@ const WeekPlanning = ({
   weekStartsOn,
   isInDarkMode,
   eventTypeData,
+  locale
 }: {
   scheduleIdentifier?: string;
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
   weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
   isInDarkMode?:boolean;
   eventTypeData: TeventTypeData;
+  locale: string
 }) => {
   const [, setEventIdToDisplay] =
     useRecoilState<TEventToDisplay>(eventIdToDIsplayAtom);
@@ -42,6 +44,7 @@ const WeekPlanning = ({
       }`}
     >
       <Calendar
+      locale={locale}
         eventTypeData={eventTypeData}
         isInDarkMode={isInDarkMode!}
         scheduleIdentifier={scheduleIdentifier!}
