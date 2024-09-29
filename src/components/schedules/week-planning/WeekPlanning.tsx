@@ -17,7 +17,7 @@ const WeekPlanning = ({
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
   weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
   isInDarkMode?: () => boolean;
-  eventTypeData?: TeventTypeData;
+  eventTypeData: TeventTypeData;
 }) => {
   const [, setEventIdToDisplay] =
     useRecoilState<TEventToDisplay>(eventIdToDIsplayAtom);

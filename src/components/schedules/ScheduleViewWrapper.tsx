@@ -25,7 +25,7 @@ const ScheduleViewWrapper = ({
   isInDarkMode?: () => boolean;
   withList?: boolean;
   withLegend?: boolean;
-  eventTypeData?: TeventTypeData;
+  eventTypeData: TeventTypeData;
 }) => {
   const navigate = useNavigate();
 

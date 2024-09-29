@@ -30,7 +30,7 @@ export interface CellEventProps {
   eventIdToDisplay: TEventToDisplay;
   setEventIdToDisplay: SetterOrUpdater<TEventToDisplay>;
   isInDarkMode?: () => boolean;
-  eventTypeData?: TeventTypeData;
+  eventTypeData: TeventTypeData;
 }
 
 export interface CellProps {
@@ -47,7 +47,7 @@ export interface CellProps {
       }[]
     | undefined;
   isInDarkMode?: () => boolean;
-  eventTypeData?: TeventTypeData;
+  eventTypeData: TeventTypeData;
 }
 
 export type TEventToDisplay = {

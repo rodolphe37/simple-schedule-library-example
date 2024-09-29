@@ -4,7 +4,7 @@ import useGetEventTypeController from "../schedules/hooks/useGetEventTypeControl
 import InstructionsList from "./InstructionsList";
 import { TeventTypeData } from "../schedules/types";
 
-const ParametersDetails = ({eventTypeData}:{eventTypeData?:TeventTypeData}) => {
+const ParametersDetails = ({eventTypeData}:{eventTypeData:TeventTypeData}) => {
   const { width } = useWindowDimensions();
   const { errorResponse, eventWithNewNames } = useGetEventTypeController(eventTypeData!);
 

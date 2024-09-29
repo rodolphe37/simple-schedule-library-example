@@ -19,7 +19,7 @@ interface ICalendarProps {
   events?: EventType[];
   scheduleIdentifier: string;
   isInDarkMode?: () => boolean;
-  eventTypeData?: TeventTypeData;
+  eventTypeData: TeventTypeData;
 }
 
 const Calendar = ({

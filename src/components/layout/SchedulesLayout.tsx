@@ -22,7 +22,7 @@ export const SchedulesLayout = ({
   isInDarkMode?: () => boolean;
   withList?: boolean;
   withLegend?: boolean;
-  eventTypeData?: TeventTypeData;
+  eventTypeData: TeventTypeData;
 }) => {
   useLayoutEffect(() => {
     window.scrollTo({
