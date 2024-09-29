@@ -63,12 +63,12 @@ export const programmationContainerStyle = (width: number) =>
 
 export const schedulesContainerStyle = (width: number) =>
   width < breakpoints.xs
-    ? { marginTop: "1rem", padding: "0 6em" }
+    ? { marginTop: "1rem", padding: "4em 6em" }
     : width < breakpoints.sm
-    ? { marginTop: "1rem", padding: "0 6em" }
+    ? { marginTop: "1rem", padding: "4em 6em" }
     : width > breakpoints.md
-    ? { marginTop: "1rem", padding: "0 6em" }
-    : { marginTop: "2rem", padding: "0 6em" };
+    ? { marginTop: "1rem", padding: "4em 6em" }
+    : { marginTop: "2rem", padding: "4em' 6em" };
 
 export const housingContainerStyle = (width: number) =>
   width > breakpoints.xs && width < breakpoints.sm

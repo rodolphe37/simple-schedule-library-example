@@ -35,7 +35,7 @@ const SchedulesDetails = ({
     <div
       data-testid="schedulesCard"
       style={schedulesContainerStyle(width)}
-      className=" w-full min-w-80  min-h-28 mr-10 pr-8"
+      className={" w-full min-w-80  min-h-28 mr-10 pr-8 "}
     >
       <Link
         data-testid="forget-password"
@@ -48,7 +48,7 @@ const SchedulesDetails = ({
         <FormattedMessageText id="schedules.page.title" />
       </div>
       {scheduleByEventPlace && scheduleByEventPlace?.schedules?.length > 0 ? (
-        <ul className="text-left">
+        <ul className="text-left schedulesCard ">
           {scheduleByEventPlace?.schedules.map((result) => {
             return (
               <div

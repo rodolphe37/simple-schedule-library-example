@@ -16,13 +16,13 @@ const ScheduleViewWrapper = ({
   weekStartsOn,
   isInDarkMode,
   withList,
-  withLegend
+  withLegend,
 }: {
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
   weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
   isInDarkMode?: () => boolean;
   withList?: boolean;
-  withLegend?: boolean
+  withLegend?: boolean;
 }) => {
   const navigate = useNavigate();
 
@@ -77,11 +77,12 @@ const ScheduleViewWrapper = ({
 
   useEffect(() => {
     const body = document.getElementsByTagName("body")[0];
+
     if (scheduleId && location.pathname.includes(scheduleId)) {
       body.style.overflowY = "hidden";
       body.style.position = "fixed";
     } else {
-      body.style.overflowY = "inherit";
+      body.style.overflowY = "scroll";
       body.style.position = "inherit";
     }
     return () => {
@@ -93,7 +94,7 @@ const ScheduleViewWrapper = ({
   console.log("TEST", scheduleByEventPlace);
 
   return (
-    <div className="pr-0 pl-2" style={{ padding: "4em" }}>
+    <div className="pr-0 pl-2 w-full" style={{ padding: "4em" }}>
       <div>
         <button
           className="flex text-blue-600 hover:text-blue-800 dark:text-white p-2 mb-2 mt-1 appearance-none outline-none focus:outline-none border-none active:border-none focus:border-none hover:border-none"
@@ -133,7 +134,7 @@ const ScheduleViewWrapper = ({
         scheduleByEventPlace={scheduleByEventPlace}
         scheduleId={scheduleId}
       />
-    {withLegend ?   <ParametersDetails /> : null}
+      {withLegend ? <ParametersDetails /> : null}
     </div>
   );
 };

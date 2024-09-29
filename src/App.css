@@ -12,10 +12,17 @@ body {
   overflow-y: auto;
   @apply dark:text-white;
 }
+
+.App {
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content:center;
+  display: flex;
+}
 input {
   @apply dark:text-black;
 }
-
 
 .day-button-selected {
   background: gray !important;
