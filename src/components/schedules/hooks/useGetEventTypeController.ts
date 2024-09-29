@@ -25,7 +25,7 @@ const useGetEventTypeController = (
 
   const eventType: eventTypeArray = useMemo(() => [], []);
   let errorResponse: ErrorResponse = { error_code: null, message: "" };
-console.log("LOCALE:", locale)
+
   if (!error && eventTypeData) {
     for (const [key, value] of Object.entries(eventTypeData!)) {
       if (value) {

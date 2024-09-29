@@ -2,7 +2,7 @@
 
 ![First render](demo/demo.png)
 
-- [Link example](https://dreamy-palmier-0a425e.netlify.app/)
+- [Link to live demo](https://bespoke-cassata-2183d5.netlify.app/)
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
