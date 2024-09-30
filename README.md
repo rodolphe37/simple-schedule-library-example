@@ -2,6 +2,17 @@
 
 ![First render](demo/demo.png)
 
+## Component with event type
+![First render](demo/event-calendar-1.png)
+### event details
+![First render](demo/event-calendar-2.png)
+
+## Component with calendar type
+![First render](demo/temp-calendar-1.png)
+### calendar details
+![First render](demo/temp-calendar-2.png)
+
+# Live demo
 - [Link to live demo](https://dainty-eclair-9e5c39.netlify.app/)
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
