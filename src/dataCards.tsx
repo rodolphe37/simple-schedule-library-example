@@ -75,7 +75,7 @@ export const contentForModal = [
       contentModal: (
         <Fragment>
           <h1 style={{ fontWeight: "bold", padding: 10 }}>
-            Event du lundi à 17:00 info
+            Event du lundi à 12:00 info
           </h1>
           <FoodCard />
         </Fragment>

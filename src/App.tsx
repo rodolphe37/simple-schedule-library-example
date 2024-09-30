@@ -24,7 +24,7 @@ function App() {
   const { locale } = useLocale();
   const location = useLocation();
   const weekStartsOn = 0;
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
   const [withLegend, setWithLegend] = useState(false);
   const [withList, setWithList] = useState(false);
 
