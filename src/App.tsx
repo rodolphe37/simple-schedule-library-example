@@ -18,6 +18,7 @@ import { scheduleByEventPlace, eventTypeData } from "./data";
 // IMPORT FROM NPM LIBRARY -  it will be = import {SchedulesLayout} from "react-simple-schedules-viewer"
 import { SchedulesLayout } from "./components/layout/SchedulesLayout";
 import TestButtons from "./TestButtons";
+import EventCard from "./appComponents/EventCard";
 
 function App() {
   const { locale } = useLocale();
@@ -65,6 +66,12 @@ function App() {
                 eventTypeData={eventTypeData}
                 weekStartsOn={weekStartsOn}
                 scheduleByEventPlace={scheduleByEventPlace}
+                modalContent={
+                 <div>
+                  <h1>Event info et réservation</h1>
+                   <EventCard />
+                 </div>
+                }
               />
             </Suspense>
           }

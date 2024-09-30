@@ -14,6 +14,7 @@ const Cell = ({
   isInDarkMode,
   eventTypeData,
   locale,
+  modalContent,
 }: CellProps) => {
   const [eventIdToDisplay, setEventIdToDisplay] =
     useRecoilState<TEventToDisplay>(eventIdToDIsplayAtom);
@@ -54,6 +55,7 @@ const Cell = ({
                               : null}
                           </p>
                           <CellEvent
+                            modalContent={modalContent}
                             locale={locale}
                             eventTypeData={eventTypeData}
                             isInDarkMode={isInDarkMode}

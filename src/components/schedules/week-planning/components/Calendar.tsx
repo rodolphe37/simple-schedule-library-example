@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, ReactNode } from "react";
 import Cell from "./Cell";
 import {
   daysOfWeekNameFr,
@@ -21,6 +21,7 @@ interface ICalendarProps {
   isInDarkMode: boolean;
   eventTypeData: TeventTypeData;
   locale: string;
+  modalContent?: ReactNode;
 }
 
 const Calendar = ({
@@ -30,6 +31,7 @@ const Calendar = ({
   isInDarkMode,
   eventTypeData,
   locale,
+  modalContent,
 }: ICalendarProps) => {
   const {
     updateScroll,
@@ -83,6 +85,7 @@ const Calendar = ({
               {sortedEventsDaySlotArray?.map((res, i) => (
                 <Fragment key={i}>
                   <Cell
+                    modalContent={modalContent}
                     locale={locale}
                     eventTypeData={eventTypeData}
                     isInDarkMode={isInDarkMode}

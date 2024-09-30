@@ -21,6 +21,7 @@ const CellEvent = ({
   setEventIdToDisplay,
   eventTypeData,
   locale,
+  modalContent,
 }: CellEventProps) => {
   const ModalRef = useRef<HTMLDivElement>(null);
 
@@ -71,6 +72,7 @@ const CellEvent = ({
     <>
       {isModalOpen && (
         <CellEventsInfosModal
+          modalContent={modalContent}
           locale={locale}
           isInDarkMode={isInDarkMode}
           ModalRef={ModalRef}

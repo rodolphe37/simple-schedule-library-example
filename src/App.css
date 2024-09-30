@@ -17,7 +17,7 @@ body {
   width: 100%;
   min-height: 100vh;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
   display: flex;
 }
 input {
@@ -473,4 +473,13 @@ button:focus-visible {
 
 .Toastify__close-button {
   display: none;
+}
+
+.event-content-modal {
+  padding-top: 1vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #e4e4e4;
 }

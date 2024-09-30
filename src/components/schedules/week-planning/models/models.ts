@@ -1,5 +1,6 @@
 import { SetterOrUpdater } from "recoil";
 import { TeventTypeData } from "../../types";
+import { ReactNode } from "react";
 
 export interface EventType {
   id: string;
@@ -31,7 +32,8 @@ export interface CellEventProps {
   setEventIdToDisplay: SetterOrUpdater<TEventToDisplay>;
   isInDarkMode?: boolean;
   eventTypeData: TeventTypeData;
-  locale: string
+  locale: string;
+  modalContent?: ReactNode;
 }
 
 export interface CellProps {
@@ -49,7 +51,8 @@ export interface CellProps {
     | undefined;
   isInDarkMode?: boolean;
   eventTypeData: TeventTypeData;
-  locale: string
+  locale: string;
+  modalContent?: ReactNode;
 }
 
 export type TEventToDisplay = {

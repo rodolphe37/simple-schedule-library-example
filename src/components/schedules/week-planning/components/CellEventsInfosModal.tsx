@@ -8,6 +8,7 @@ import {
   eventInstructionNameUs,
 } from "../utils/helpers";
 import CrossIcon from "../../../../ui/icons/CrossIcon";
+import { ReactNode } from "react";
 
 type TCellEventsInfoModalProps = {
   ModalRef: React.RefObject<HTMLDivElement>;
@@ -24,6 +25,7 @@ type TCellEventsInfoModalProps = {
   eventInstructionTextWithoutWhiteSpace: string;
   isInDarkMode?: boolean;
   locale: string;
+  modalContent?: ReactNode;
 };
 
 const CellEventsInfosModal = ({
@@ -36,8 +38,11 @@ const CellEventsInfosModal = ({
   eventInstructionTextWithoutWhiteSpace,
   isInDarkMode,
   locale,
+  modalContent,
 }: TCellEventsInfoModalProps) => {
   const daySelected = capitalizeFirstLetter(Days[day]);
+
+  console.log("MODAL CONTENT", modalContent);
   return (
     <div
       className={`fixed w-screen h-screen top-0 left-0 z-[9999] flex items-center justify-center ${
@@ -46,7 +51,7 @@ const CellEventsInfosModal = ({
     >
       <div
         ref={ModalRef}
-        className={`absolute mx-5 w-full md:max-w-[380px] ${
+        className={`absolute mx-5 w-full md:max-w-[450px] ${
           isInDarkMode ? "bg-gray-900" : "bg-gray-100"
         } border border-slate-300 rounded-lg flex flex-col  z-50 justify-center`}
       >
@@ -122,6 +127,9 @@ const CellEventsInfosModal = ({
                 : daysOfWeekNameUs(daySelected)}
             </div>
           </div>
+          {modalContent && (
+            <div className="event-content-modal">{modalContent}</div>
+          )}
         </div>
       </div>
     </div>

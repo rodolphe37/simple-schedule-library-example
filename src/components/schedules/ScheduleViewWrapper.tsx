@@ -1,6 +1,12 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import ScheduleView from "./week-planning/ScheduleView";
-import { useEffect, useLayoutEffect, useMemo, useState } from "react";
+import {
+  ReactNode,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useState,
+} from "react";
 import { SelectOption } from "../../ui/selectBox";
 import useWindowDimensions from "../../hooks/useGetWindowDimensions";
 import BackArrowIcon from "../../ui/icons/BackArrowIcon";
@@ -18,6 +24,7 @@ const ScheduleViewWrapper = ({
   withLegend,
   eventTypeData,
   locale,
+  modalContent,
 }: {
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
   weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
@@ -26,6 +33,7 @@ const ScheduleViewWrapper = ({
   withLegend?: boolean;
   eventTypeData: TeventTypeData;
   locale: string;
+  modalContent?: ReactNode;
 }) => {
   const navigate = useNavigate();
 
@@ -143,6 +151,7 @@ const ScheduleViewWrapper = ({
         weekStartsOn={weekStartsOn}
         scheduleByEventPlace={scheduleByEventPlace}
         scheduleId={scheduleId}
+        modalContent={modalContent}
       />
       {withLegend ? (
         <ParametersDetails

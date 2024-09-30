@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import SchedulesDetails from "../../components/schedules/SchedulesDetails";
-import { Suspense, useLayoutEffect } from "react";
+import { ReactNode, Suspense, useLayoutEffect } from "react";
 import { bgGray200_700Color } from "../../utils/style";
 import ScheduleViewWrapper from "../schedules/ScheduleViewWrapper";
 import { ErrorBoundary } from "react-error-boundary";
@@ -16,6 +16,7 @@ export const SchedulesLayout = ({
   withLegend,
   eventTypeData,
   locale,
+  modalContent,
 }: {
   scheduleByEventPlace: {
     schedules: {
@@ -45,6 +46,7 @@ export const SchedulesLayout = ({
     eventType_7: number | string;
   };
   locale: string;
+  modalContent?: ReactNode;
 }) => {
   useLayoutEffect(() => {
     window.scrollTo({
@@ -83,6 +85,7 @@ export const SchedulesLayout = ({
                     isInDarkMode={isInDarkMode}
                     weekStartsOn={weekStartsOn}
                     scheduleByEventPlace={scheduleByEventPlace}
+                    modalContent={modalContent}
                   />
                 )}
               </ErrorBoundary>
@@ -111,6 +114,7 @@ export const SchedulesLayout = ({
                   isInDarkMode={isInDarkMode}
                   weekStartsOn={weekStartsOn}
                   scheduleByEventPlace={scheduleByEventPlace}
+                  modalContent={modalContent}
                 />
               </ErrorBoundary>
             </Suspense>
