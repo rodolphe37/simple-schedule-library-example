@@ -31,7 +31,6 @@
 ![First render](demo/calendar-dark-1.png)
 
 ### event details
-- you can add custom element in the modal...
 - ![First render](demo/calendar-dark-2.png)
 
 
