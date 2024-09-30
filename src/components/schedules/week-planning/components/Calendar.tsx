@@ -43,8 +43,6 @@ const Calendar = ({
   } = useCalendarController({ weekStartsOn, scheduleIdentifier, events });
   const { height } = useWindowDimensions();
 
-  console.log("events", events);
-  console.log("scheduleIdentifier", scheduleIdentifier);
 
   return (
     <ScrollProvider
