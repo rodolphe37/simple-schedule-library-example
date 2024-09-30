@@ -44,10 +44,27 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           ],
         },
         {
-          days: [2, 3],
+          days: [2],
           time_slot: [
             {
               start: 0,
+              instruction: "eventType_6",
+            },
+          ],
+        },
+        {
+          days: [3],
+          time_slot: [
+            {
+              start: 0,
+              instruction: "eventType_6",
+            },
+            {
+              start: 450,
+              instruction: "eventType_2",
+            },
+            {
+              start: 900,
               instruction: "eventType_6",
             },
           ],
