@@ -1,7 +1,6 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import ScheduleView from "./week-planning/ScheduleView";
 import {
-  ReactNode,
   useEffect,
   useLayoutEffect,
   useMemo,
@@ -14,7 +13,7 @@ import CustomSelect from "../../ui/customSelectComponent/CustomSelect";
 import { TSelectedValueProps } from "../../ui/customSelectComponent/types";
 import { getSchedulesByEventPlaceIdResponse } from "../../entities/schedules";
 import ParametersDetails from "../legende-color/ParametersDetails";
-import { TeventTypeData } from "./types";
+import { TContentForModal, TeventTypeData } from "./types";
 
 const ScheduleViewWrapper = ({
   scheduleByEventPlace,
@@ -33,7 +32,7 @@ const ScheduleViewWrapper = ({
   withLegend?: boolean;
   eventTypeData: TeventTypeData;
   locale: string;
-  modalContent?: ReactNode;
+  modalContent?: TContentForModal
 }) => {
   const navigate = useNavigate();
 

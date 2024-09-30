@@ -1,12 +1,13 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import SchedulesDetails from "../../components/schedules/SchedulesDetails";
-import { ReactNode, Suspense, useLayoutEffect } from "react";
+import {  Suspense, useLayoutEffect } from "react";
 import { bgGray200_700Color } from "../../utils/style";
 import ScheduleViewWrapper from "../schedules/ScheduleViewWrapper";
 import { ErrorBoundary } from "react-error-boundary";
 import { Loader } from "../../ui/components/Loader";
 import ErrorFallback from "../../ui/components/ErrorFallBack";
 import { RecoilRoot } from "recoil";
+import { TContentForModal } from "../schedules/types";
 
 export const SchedulesLayout = ({
   scheduleByEventPlace,
@@ -22,6 +23,7 @@ export const SchedulesLayout = ({
     schedules: {
       id: string;
       title: string;
+      type: string;
       day_slot_set: {
         days: number[];
         time_slot: {
@@ -46,7 +48,7 @@ export const SchedulesLayout = ({
     eventType_7: number | string;
   };
   locale: string;
-  modalContent?: ReactNode;
+  modalContent?: TContentForModal;
 }) => {
   useLayoutEffect(() => {
     window.scrollTo({

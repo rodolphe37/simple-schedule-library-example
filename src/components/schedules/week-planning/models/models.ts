@@ -1,10 +1,10 @@
 import { SetterOrUpdater } from "recoil";
-import { TeventTypeData } from "../../types";
-import { ReactNode } from "react";
+import { TContentForModal, TeventTypeData } from "../../types";
 
 export interface EventType {
   id: string;
   title: string;
+  type: string;
   day_slot_set: {
     days: number[];
     time_slot: { start: number; instruction: string }[];
@@ -33,7 +33,9 @@ export interface CellEventProps {
   isInDarkMode?: boolean;
   eventTypeData: TeventTypeData;
   locale: string;
-  modalContent?: ReactNode;
+  modalContent?: TContentForModal
+  scheduleIdentifier: string
+  eventArray: EventType[] | undefined
 }
 
 export interface CellProps {
@@ -52,7 +54,9 @@ export interface CellProps {
   isInDarkMode?: boolean;
   eventTypeData: TeventTypeData;
   locale: string;
-  modalContent?: ReactNode;
+  modalContent?: TContentForModal
+  scheduleIdentifier: string
+  events: EventType[] | undefined
 }
 
 export type TEventToDisplay = {

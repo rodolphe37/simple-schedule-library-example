@@ -8,7 +8,6 @@ import {
   eventInstructionNameUs,
 } from "../utils/helpers";
 import CrossIcon from "../../../../ui/icons/CrossIcon";
-import { ReactNode } from "react";
 
 type TCellEventsInfoModalProps = {
   ModalRef: React.RefObject<HTMLDivElement>;
@@ -25,7 +24,17 @@ type TCellEventsInfoModalProps = {
   eventInstructionTextWithoutWhiteSpace: string;
   isInDarkMode?: boolean;
   locale: string;
-  modalContent?: ReactNode;
+  modalContentForDisplaying:
+    | {
+        id: string;
+        day: number;
+        eventType: string;
+        startTime: number;
+        eventTitle: string;
+        contentModal: JSX.Element;
+      }
+    | undefined;
+  eventByEventType: string | undefined;
 };
 
 const CellEventsInfosModal = ({
@@ -38,11 +47,11 @@ const CellEventsInfosModal = ({
   eventInstructionTextWithoutWhiteSpace,
   isInDarkMode,
   locale,
-  modalContent,
+  modalContentForDisplaying,
+  eventByEventType,
 }: TCellEventsInfoModalProps) => {
   const daySelected = capitalizeFirstLetter(Days[day]);
 
-  console.log("MODAL CONTENT", modalContent);
   return (
     <div
       className={`fixed w-screen h-screen top-0 left-0 z-[9999] flex items-center justify-center ${
@@ -73,23 +82,26 @@ const CellEventsInfosModal = ({
         </header>
 
         <div className="flex flex-col items-center justify-start p-4">
-          <div className="flex flex-row gap-4 items-center w-[50%] justify-between">
+          <div className="flex flex-row gap-4 items-center w-[65%] justify-between">
             <h4
               className={`text-left font-medium ${
                 isInDarkMode ? "text-white" : "text-black"
               }`}
             >
-              {locale === "fr"
+              {eventByEventType === "event"
+                ? modalContentForDisplaying?.eventTitle
+                : locale === "fr"
                 ? eventInstructionNameFr(eventInstructionTextWithoutWhiteSpace)
                 : eventInstructionNameUs(eventInstructionTextWithoutWhiteSpace)}
               :
             </h4>
             <p className={`${isInDarkMode ? "text-white" : "text-black"}`}>
-              {" "}
-              {currentEventType?.value}°C
+              {eventByEventType === "event"
+                ? currentEventType?.value + ` Euros`
+                : currentEventType?.value + `°C`}
             </p>
           </div>
-          <div className="flex flex-row gap-4 items-center w-[50%] justify-between">
+          <div className="flex flex-row gap-4 items-center w-[65%] justify-between">
             <h4
               className={`text-left font-medium ${
                 isInDarkMode ? "text-white" : "text-black"
@@ -101,7 +113,7 @@ const CellEventsInfosModal = ({
               {formatTime(startTime)}
             </p>
           </div>
-          <div className="flex flex-row gap-4 items-center w-[50%] justify-between">
+          <div className="flex flex-row gap-4 items-center w-[65%] justify-between">
             <h4
               className={`text-left font-medium ${
                 isInDarkMode ? "text-white" : "text-black"
@@ -113,7 +125,7 @@ const CellEventsInfosModal = ({
               {formatTime(endTime)}
             </p>
           </div>
-          <div className="flex flex-row gap-4 items-center w-[50%] justify-between">
+          <div className="flex flex-row gap-4 items-center w-[65%] justify-between">
             <h4
               className={`text-left font-medium ${
                 isInDarkMode ? "text-white" : "text-black"
@@ -127,9 +139,15 @@ const CellEventsInfosModal = ({
                 : daysOfWeekNameUs(daySelected)}
             </div>
           </div>
-          {modalContent && (
-            <div className="event-content-modal">{modalContent}</div>
-          )}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "column",
+            }}
+          ></div>
+          {modalContentForDisplaying?.contentModal}
         </div>
       </div>
     </div>

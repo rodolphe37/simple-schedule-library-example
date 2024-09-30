@@ -47,3 +47,12 @@ export type TeventTypeData = {
   eventType_6: number | string;
   eventType_7: number | string;
 };
+
+export type TContentForModal = {
+  id: string;
+  day: number;
+  eventType: string;
+  startTime: number;
+  eventTitle: string;
+  contentModal: JSX.Element;
+}[];

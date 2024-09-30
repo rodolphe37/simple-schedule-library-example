@@ -22,6 +22,8 @@ const CellEvent = ({
   eventTypeData,
   locale,
   modalContent,
+  scheduleIdentifier,
+  eventArray,
 }: CellEventProps) => {
   const ModalRef = useRef<HTMLDivElement>(null);
 
@@ -51,6 +53,19 @@ const CellEvent = ({
     );
   };
 
+  const modalContentByScheduleId = modalContent?.filter(
+    (res) => res.id === scheduleIdentifier
+  );
+
+  const modalContentForDisplaying = modalContentByScheduleId?.find(
+    (res) =>
+      res.day === day &&
+      res.eventType === currentEventType?.key &&
+      res.startTime === startTime
+  );
+
+  const eventByEventType = eventArray?.flatMap((res) => res.type).toString();
+
   useClickOutside(ModalRef, () => setIsModalOpen(false));
 
   const HandleEventInfoOnMouseEnter = () => {
@@ -72,7 +87,8 @@ const CellEvent = ({
     <>
       {isModalOpen && (
         <CellEventsInfosModal
-          modalContent={modalContent}
+          eventByEventType={eventByEventType}
+          modalContentForDisplaying={modalContentForDisplaying}
           locale={locale}
           isInDarkMode={isInDarkMode}
           ModalRef={ModalRef}
@@ -111,10 +127,28 @@ const CellEvent = ({
                 className="flex flex-row justify-start items-start w-full"
                 style={{ fontSize: "16px" }}
               >
-                {currentEventType?.value}°C
+                {eventByEventType === "event" &&
+                modalContentForDisplaying?.eventTitle &&
+                modalContentForDisplaying.eventTitle.length > 0
+                  ? currentEventType?.value + ` Euros`
+                  : null}
+                {eventByEventType === "calendar"
+                  ? currentEventType?.value + ` °C`
+                  : null}
               </p>
-              <p style={{ fontSize: "14px" }}>
-                {locale === "fr"
+              <p
+                style={
+                  modalContentForDisplaying?.eventTitle &&
+                  modalContentForDisplaying.eventTitle.length > 0
+                    ? { fontSize: "12px" }
+                    : { fontSize: "14px" }
+                }
+              >
+                {modalContentForDisplaying?.day === day &&
+                modalContentForDisplaying?.eventTitle &&
+                modalContentForDisplaying.eventTitle.length > 0
+                  ? modalContentForDisplaying.eventTitle
+                  : locale === "fr"
                   ? eventInstructionNameFr(
                       eventInstructionTextWithoutWhiteSpace
                     )

@@ -1,4 +1,4 @@
-import { Fragment, ReactNode } from "react";
+import { Fragment } from "react";
 import Cell from "./Cell";
 import {
   daysOfWeekNameFr,
@@ -12,7 +12,7 @@ import CalendarScrollToTopButton from "./CalendarScrollToTopButton";
 import CalendarScrollToBottomButton from "./CalendarScrollToBottomButton";
 import useWindowDimensions from "../../../../hooks/useGetWindowDimensions";
 import HoursRangeIndicator from "./HoursRangeIndicator";
-import { TeventTypeData } from "../../types";
+import { TContentForModal, TeventTypeData } from "../../types";
 
 interface ICalendarProps {
   weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
@@ -21,7 +21,7 @@ interface ICalendarProps {
   isInDarkMode: boolean;
   eventTypeData: TeventTypeData;
   locale: string;
-  modalContent?: ReactNode;
+  modalContent?: TContentForModal;
 }
 
 const Calendar = ({
@@ -42,6 +42,9 @@ const Calendar = ({
     sortedEventsDaySlotArray,
   } = useCalendarController({ weekStartsOn, scheduleIdentifier, events });
   const { height } = useWindowDimensions();
+
+  console.log("events", events);
+  console.log("scheduleIdentifier", scheduleIdentifier);
 
   return (
     <ScrollProvider
@@ -85,6 +88,8 @@ const Calendar = ({
               {sortedEventsDaySlotArray?.map((res, i) => (
                 <Fragment key={i}>
                   <Cell
+                    events={events}
+                    scheduleIdentifier={scheduleIdentifier}
                     modalContent={modalContent}
                     locale={locale}
                     eventTypeData={eventTypeData}

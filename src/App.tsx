@@ -2,7 +2,7 @@
 import "./App.css";
 import { bgGray200_700Color } from "./utils/style";
 // Per dependencies
-import { Suspense, useState } from "react";
+import {  Suspense, useState } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 
 // Import necessary for translation & language (fr or en)- (for the example)
@@ -18,7 +18,7 @@ import { scheduleByEventPlace, eventTypeData } from "./data";
 // IMPORT FROM NPM LIBRARY -  it will be = import {SchedulesLayout} from "react-simple-schedules-viewer"
 import { SchedulesLayout } from "./components/layout/SchedulesLayout";
 import TestButtons from "./TestButtons";
-import EventCard from "./appComponents/EventCard";
+import { contentForModal } from "./dataCards";
 
 function App() {
   const { locale } = useLocale();
@@ -66,12 +66,7 @@ function App() {
                 eventTypeData={eventTypeData}
                 weekStartsOn={weekStartsOn}
                 scheduleByEventPlace={scheduleByEventPlace}
-                modalContent={
-                 <div>
-                  <h1>Event info et réservation</h1>
-                   <EventCard />
-                 </div>
-                }
+                modalContent={contentForModal}
               />
             </Suspense>
           }

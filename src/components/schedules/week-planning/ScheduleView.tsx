@@ -1,6 +1,5 @@
-import { ReactNode } from "react";
 import { getSchedulesByEventPlaceIdResponse } from "../../../entities/schedules";
-import { TeventTypeData } from "../types";
+import { TContentForModal, TeventTypeData } from "../types";
 import WeekPlanning from "./WeekPlanning";
 
 const ScheduleView = ({
@@ -18,7 +17,7 @@ const ScheduleView = ({
   isInDarkMode?: boolean;
   eventTypeData: TeventTypeData;
   locale: string;
-  modalContent?:  ReactNode;
+  modalContent?: TContentForModal;
 }) => {
   return (
     <div className="w-full">

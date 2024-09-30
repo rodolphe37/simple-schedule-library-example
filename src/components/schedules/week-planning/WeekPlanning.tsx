@@ -1,10 +1,10 @@
-import { ReactNode, useState } from "react";
+import { useState } from "react";
 import { EventType, TEventToDisplay } from "./models/models";
 import Calendar from "./components/Calendar";
 import eventIdToDIsplayAtom from "../../../globalStates/atoms/eventIdToDisplayAtom";
 import { useRecoilState } from "recoil";
 import { getSchedulesByEventPlaceIdResponse } from "../../../entities/schedules";
-import { TeventTypeData } from "../types";
+import { TContentForModal, TeventTypeData } from "../types";
 
 const WeekPlanning = ({
   scheduleIdentifier,
@@ -21,7 +21,7 @@ const WeekPlanning = ({
   isInDarkMode?: boolean;
   eventTypeData: TeventTypeData;
   locale: string;
-  modalContent?: ReactNode;
+  modalContent?: TContentForModal
 }) => {
   const [, setEventIdToDisplay] =
     useRecoilState<TEventToDisplay>(eventIdToDIsplayAtom);
