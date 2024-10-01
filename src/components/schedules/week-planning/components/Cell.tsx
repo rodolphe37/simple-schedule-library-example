@@ -28,7 +28,7 @@ const Cell = ({
 
  
   return (
-    <div
+    <div 
       className={`  flex flex-col gap-1 min-h-[120px] ${className} relative`}
     >
       <div>

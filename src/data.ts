@@ -14,13 +14,24 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
               start: 0,
               instruction: "eventType_6",
             },
-
+            {
+              start: 600,
+              instruction: "eventType_5",
+            },
             {
               start: 720,
               instruction: "eventType_1",
             },
             {
               start: 900,
+              instruction: "eventType_4",
+            },
+            {
+              start: 1230,
+              instruction: "eventType_2",
+            },
+            {
+              start: 1380,
               instruction: "eventType_6",
             },
           ],
@@ -32,13 +43,25 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
               start: 0,
               instruction: "eventType_6",
             },
-
+            {
+              start: 600,
+              instruction: "eventType_5",
+            },
+            {
+              start: 720,
+              instruction: "eventType_1",
+            },
             {
               start: 900,
-              instruction: "eventType_2",
+              instruction: "eventType_3",
             },
             {
               start: 1020,
+              instruction: "eventType_2",
+            },
+
+            {
+              start: 1380,
               instruction: "eventType_6",
             },
           ],
@@ -48,6 +71,22 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
+              instruction: "eventType_6",
+            },
+            {
+              start: 495,
+              instruction: "eventType_4",
+            },
+            {
+              start: 720,
+              instruction: "eventType_1",
+            },
+            {
+              start: 900,
+              instruction: "eventType_4",
+            },
+            {
+              start: 1215,
               instruction: "eventType_6",
             },
           ],
@@ -78,8 +117,12 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
             },
 
             {
-              start: 1020,
+              start: 480,
               instruction: "eventType_3",
+            },
+            {
+              start: 1380,
+              instruction: "eventType_6",
             },
           ],
         },
@@ -88,10 +131,14 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
+              instruction: "eventType_6",
+            },
+            {
+              start: 450,
               instruction: "eventType_4",
             },
             {
-              start: 600,
+              start: 1020,
               instruction: "eventType_6",
             },
           ],
@@ -147,324 +194,6 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
             {
               start: 360,
               instruction: "eventType_4",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: "3b2d0394-38e6-437f-a844-4d1743e1a6de",
-      title: "Salles d’activités – période scolaire – avec péri matin",
-      type: "calendar",
-      day_slot_set: [
-        {
-          days: [0, 1, 3, 4],
-          time_slot: [
-            {
-              start: 0,
-              instruction: "eventType_6",
-            },
-            {
-              start: 390,
-              instruction: "eventType_2",
-            },
-            {
-              start: 720,
-              instruction: "eventType_5",
-            },
-            {
-              start: 810,
-              instruction: "eventType_2",
-            },
-            {
-              start: 990,
-              instruction: "eventType_6",
-            },
-          ],
-        },
-        {
-          days: [2],
-          time_slot: [
-            {
-              start: 0,
-              instruction: "eventType_6",
-            },
-            {
-              start: 390,
-              instruction: "eventType_2",
-            },
-            {
-              start: 720,
-              instruction: "eventType_6",
-            },
-          ],
-        },
-        {
-          days: [5, 6],
-          time_slot: [
-            {
-              start: 0,
-              instruction: "eventType_6",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: "996ed6f8-8d43-4fd0-9d82-264cec7070d8",
-      title: "Salles d’activités – période scolaire – pas de péri",
-      type: "calendar",
-      day_slot_set: [
-        {
-          days: [0, 1, 3, 4],
-          time_slot: [
-            {
-              start: 0,
-              instruction: "eventType_6",
-            },
-            {
-              start: 450,
-              instruction: "eventType_2",
-            },
-            {
-              start: 720,
-              instruction: "eventType_5",
-            },
-            {
-              start: 810,
-              instruction: "eventType_2",
-            },
-            {
-              start: 990,
-              instruction: "eventType_6",
-            },
-          ],
-        },
-        {
-          days: [2],
-          time_slot: [
-            {
-              start: 0,
-              instruction: "eventType_6",
-            },
-            {
-              start: 450,
-              instruction: "eventType_2",
-            },
-            {
-              start: 720,
-              instruction: "eventType_6",
-            },
-          ],
-        },
-        {
-          days: [5, 6],
-          time_slot: [
-            {
-              start: 0,
-              instruction: "eventType_6",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: "b112e8c6-8a03-420e-ba97-05aa41015f2c",
-      title: "Salles d’activités – scolaire – péri + loisirs",
-      type: "calendar",
-      day_slot_set: [
-        {
-          days: [0, 1, 2, 3, 4],
-          time_slot: [
-            {
-              start: 0,
-              instruction: "eventType_6",
-            },
-            {
-              start: 390,
-              instruction: "eventType_2",
-            },
-            {
-              start: 720,
-              instruction: "eventType_5",
-            },
-            {
-              start: 810,
-              instruction: "eventType_2",
-            },
-            {
-              start: 1125,
-              instruction: "eventType_6",
-            },
-          ],
-        },
-        {
-          days: [5, 6],
-          time_slot: [
-            {
-              start: 0,
-              instruction: "eventType_6",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: "1ee897ab-db32-4baf-b359-2e651590b778",
-      title: "Salles d’activités – scolaire – péri matin + loisirs",
-      type: "calendar",
-      day_slot_set: [
-        {
-          days: [0, 1, 3, 4],
-          time_slot: [
-            {
-              start: 0,
-              instruction: "eventType_6",
-            },
-            {
-              start: 390,
-              instruction: "eventType_2",
-            },
-            {
-              start: 720,
-              instruction: "eventType_5",
-            },
-            {
-              start: 810,
-              instruction: "eventType_2",
-            },
-            {
-              start: 990,
-              instruction: "eventType_6",
-            },
-          ],
-        },
-        {
-          days: [2],
-          time_slot: [
-            {
-              start: 0,
-              instruction: "eventType_6",
-            },
-            {
-              start: 390,
-              instruction: "eventType_2",
-            },
-            {
-              start: 720,
-              instruction: "eventType_5",
-            },
-            {
-              start: 1125,
-              instruction: "eventType_6",
-            },
-          ],
-        },
-        {
-          days: [5, 6],
-          time_slot: [
-            {
-              start: 0,
-              instruction: "eventType_6",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: "d0adcc85-f8ab-4193-bc0b-f2b3966b4a28",
-      title: "Salles d’activités – scolaire – péri matin + soir",
-      type: "calendar",
-      day_slot_set: [
-        {
-          days: [0, 1, 3, 4],
-          time_slot: [
-            {
-              start: 0,
-              instruction: "eventType_6",
-            },
-            {
-              start: 390,
-              instruction: "eventType_2",
-            },
-            {
-              start: 720,
-              instruction: "eventType_5",
-            },
-            {
-              start: 810,
-              instruction: "eventType_2",
-            },
-            {
-              start: 1125,
-              instruction: "eventType_6",
-            },
-          ],
-        },
-        {
-          days: [2],
-          time_slot: [
-            {
-              start: 0,
-              instruction: "eventType_6",
-            },
-            {
-              start: 390,
-              instruction: "eventType_2",
-            },
-            {
-              start: 720,
-              instruction: "eventType_6",
-            },
-          ],
-        },
-        {
-          days: [5, 6],
-          time_slot: [
-            {
-              start: 0,
-              instruction: "eventType_6",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: "86ed18a5-8fc7-444a-b645-4aac7b57e581",
-      title: "Salles d’activités – scolaire – péri soir + loisirs",
-      type: "calendar",
-      day_slot_set: [
-        {
-          days: [0, 1, 2, 3, 4],
-          time_slot: [
-            {
-              start: 0,
-              instruction: "eventType_6",
-            },
-            {
-              start: 450,
-              instruction: "eventType_2",
-            },
-            {
-              start: 720,
-              instruction: "eventType_5",
-            },
-            {
-              start: 810,
-              instruction: "eventType_2",
-            },
-            {
-              start: 1125,
-              instruction: "eventType_6",
-            },
-          ],
-        },
-        {
-          days: [5, 6],
-          time_slot: [
-            {
-              start: 0,
-              instruction: "eventType_6",
             },
           ],
         },
@@ -648,11 +377,11 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
 
 export const eventTypeData = {
   eventPlace_id: "e2076d6a-9d6d-4b93-9ce0-a41f04c38c40",
-  eventType_1: 19,
+  eventType_1: 12.5,
   eventType_2: 20,
   eventType_3: 21,
   eventType_4: 10,
-  eventType_5: 18,
+  eventType_5: 6.5,
   eventType_6: 17,
   eventType_7: 15,
 };
