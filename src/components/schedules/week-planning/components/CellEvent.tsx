@@ -9,6 +9,7 @@ import {
 import { CellEventProps } from "../models/models";
 import CellEventsInfosModal from "./CellEventsInfosModal";
 import useGetEventTypeController from "../../hooks/useGetEventTypeController";
+import { EventTypes } from "../../types";
 
 const CellEvent = ({
   timeEvent: event,
@@ -83,25 +84,29 @@ const CellEvent = ({
     }
   };
 
+
   return (
     <>
-      {isModalOpen && (
-        <CellEventsInfosModal
-          eventByEventType={eventByEventType}
-          modalContentForDisplaying={modalContentForDisplaying}
-          locale={locale}
-          isInDarkMode={isInDarkMode}
-          ModalRef={ModalRef}
-          setIsModalOpen={setIsModalOpen}
-          currentEventType={currentEventType}
-          startTime={startTime}
-          endTime={endTime}
-          day={day}
-          eventInstructionTextWithoutWhiteSpace={
-            eventInstructionTextWithoutWhiteSpace
-          }
-        />
-      )}
+      {currentEventType?.key === EventTypes.EVENT_TYPE_6 &&
+      eventByEventType === "event"
+        ? null
+        : isModalOpen && (
+            <CellEventsInfosModal
+              eventByEventType={eventByEventType}
+              modalContentForDisplaying={modalContentForDisplaying}
+              locale={locale}
+              isInDarkMode={isInDarkMode}
+              ModalRef={ModalRef}
+              setIsModalOpen={setIsModalOpen}
+              currentEventType={currentEventType}
+              startTime={startTime}
+              endTime={endTime}
+              day={day}
+              eventInstructionTextWithoutWhiteSpace={
+                eventInstructionTextWithoutWhiteSpace
+              }
+            />
+          )}
 
       <Fragment>
         <div
@@ -136,26 +141,33 @@ const CellEvent = ({
                   ? currentEventType?.value + ` °C`
                   : null}
               </p>
-              <p
-                style={
+              {currentEventType?.key === EventTypes.EVENT_TYPE_6 &&
+              eventByEventType === "event" ? (
+                <p style={{ fontSize: "14px" }}>
+                  {locale === "fr" ? "Pas d'évennement" : "No events"}
+                </p>
+              ) : (
+                <p
+                  style={
+                    modalContentForDisplaying?.eventTitle &&
+                    modalContentForDisplaying.eventTitle.length > 0
+                      ? { fontSize: "12px" }
+                      : { fontSize: "14px" }
+                  }
+                >
+                  {modalContentForDisplaying?.day === day &&
                   modalContentForDisplaying?.eventTitle &&
                   modalContentForDisplaying.eventTitle.length > 0
-                    ? { fontSize: "12px" }
-                    : { fontSize: "14px" }
-                }
-              >
-                {modalContentForDisplaying?.day === day &&
-                modalContentForDisplaying?.eventTitle &&
-                modalContentForDisplaying.eventTitle.length > 0
-                  ? modalContentForDisplaying.eventTitle
-                  : locale === "fr"
-                  ? eventInstructionNameFr(
-                      eventInstructionTextWithoutWhiteSpace
-                    )
-                  : eventInstructionNameUs(
-                      eventInstructionTextWithoutWhiteSpace
-                    )}
-              </p>
+                    ? modalContentForDisplaying.eventTitle
+                    : locale === "fr"
+                    ? eventInstructionNameFr(
+                        eventInstructionTextWithoutWhiteSpace
+                      )
+                    : eventInstructionNameUs(
+                        eventInstructionTextWithoutWhiteSpace
+                      )}
+                </p>
+              )}
             </span>
           </div>
         </div>
