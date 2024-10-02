@@ -25,3 +25,8 @@ export type TeventTypeData = {
 export type TcolorCellByEvents = string[];
 
 export type TeventsTextColor = string[];
+
+export enum LanguageKeys {
+    en = "en",
+    fr = "fr",
+  }

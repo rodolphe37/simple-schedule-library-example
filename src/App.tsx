@@ -2,11 +2,11 @@
 import "./App.css";
 import { bgGray200_700Color } from "./utils/style";
 // Per dependencies
-import { Suspense, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 
 // Import necessary for language (fr or en)- (for the example)
-import { useLocale } from "./context/useLocale";
+import { useLocale } from "./appComponents/context/useLocale";
 
 // Import components
 import { Loader } from "./appComponents/Loader";
@@ -22,16 +22,31 @@ import { TcolorCellByEvents, TeventsTextColor } from "./dataTypes";
 
 // IMPORT FROM NPM LIBRARY -  it will be = import {SchedulesLayout} from "react-simple-schedules-viewer"
 import { SchedulesLayout } from "./components/layout/SchedulesLayout";
+import { useTheme } from "./appComponents/context/useTheme";
 
 
 function App() {
-  const { locale } = useLocale();
+  const { locale, setLocale } = useLocale();
   const location = useLocation();
   const weekStartsOn = 0;
-  const [isDarkMode, setIsDarkMode] = useState(false);
+
   const [withLegend, setWithLegend] = useState(false);
   const [withList, setWithList] = useState(false);
   const [withDays, setWithDays] = useState(false);
+
+  const { theme ,setTheme} = useTheme();
+
+  const [isDarkMode, setIsDarkMode] =useState(theme ==="dark" ? true : false)
+
+  useEffect(()=> {
+    if(isDarkMode){
+      setTheme("dark")
+    }
+    else if( !isDarkMode){
+      setTheme("light")
+    }
+  })
+
 
   // the default order of colors in the array is: [eventType_1, eventType_2 , eventType_3", eventType_4",
   //  eventType_5, eventType_6, eventType_7]
@@ -64,6 +79,7 @@ function App() {
     isDarkMode,
     setIsDarkMode,
     locale,
+    setLocale,
     withDays,
     setWithDays,
   };

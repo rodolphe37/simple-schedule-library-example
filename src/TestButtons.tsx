@@ -1,4 +1,6 @@
 import React, { Fragment } from "react";
+import { LanguageKeys } from "./dataTypes";
+
 
 type params = {
   withList: boolean;
@@ -8,12 +10,21 @@ type params = {
   isDarkMode: boolean;
   setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
   locale: string;
+  setLocale: React.Dispatch<React.SetStateAction<LanguageKeys>>
   withDays: boolean;
   setWithDays:React.Dispatch<React.SetStateAction<boolean>>
 };
 
 const TestButtons = (props: params) => {
 
+  const handleChangeLocale = () => {
+    if(props.locale === "fr"){
+      props.setLocale(LanguageKeys.en)
+    }
+    else if(props.locale === "en"){
+      props.setLocale(LanguageKeys.fr)
+    }
+  }
 
   return (
     <Fragment>
@@ -50,6 +61,12 @@ const TestButtons = (props: params) => {
           onClick={() => props.setIsDarkMode((prevState) => !prevState)}
         >
           {props.isDarkMode ? "Light " : "Dark "} mode example
+        </button>
+        <button className={`${props.locale === "en" ? "bg-gray-600" : "bg-gray-300"}`}
+          style={{ background: props.locale === "en" ? "#aaaaaa" : "#f9f9f9", color:"#000"}}
+          onClick={() => handleChangeLocale()}
+        >
+          {props.locale === "fr" ? "in French " : "in English "} example
         </button>
       </div>
       <p>

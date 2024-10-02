@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { messages } from "../translations";
-import { LanguageKeys } from "../translations/enum";
+import { messages } from "../../translations";
+import { LanguageKeys } from "../../translations/enum";
 
 export const LocaleContext = React.createContext<
   | {
