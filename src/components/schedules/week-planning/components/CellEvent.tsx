@@ -6,6 +6,7 @@ import useGetEventTypeController from "../../hooks/useGetEventTypeController";
 import { EventTypes } from "../../types";
 import useColorByEventController from "../hooks/useColorByEventController";
 import useDispatchColorsByEvent from "../../hooks/useDispatchColorsByEvent";
+import { extractNumbers } from "../utils/helpers";
 
 const CellEvent = ({
   timeEvent: event,
@@ -22,12 +23,13 @@ const CellEvent = ({
   scheduleIdentifier,
   eventArray,
   colorCellByEvents,
-  eventsTextColor
+  eventsTextColor,
 }: CellEventProps) => {
   const { eventInstructionNameFr, eventInstructionNameUs } =
     useColorByEventController();
   const { colorCellByTemp, textEventColorInCell } = useDispatchColorsByEvent({
-    colorCellByEvents,eventsTextColor
+    colorCellByEvents,
+    eventsTextColor,
   });
   const ModalRef = useRef<HTMLDivElement>(null);
 
@@ -86,17 +88,6 @@ const CellEvent = ({
       });
     }
   };
-
-  function extractNumbers(str: string) {
-    let numbers = "0";
-    const matches = str.match(/[-+]?[0-9]*\.?[0-9]*/);
-
-    if (matches) {
-      numbers = matches[0];
-    }
-
-    return numbers;
-  }
 
   const stringToExtract: string =
     currentEventType !== undefined ? (currentEventType.value as string) : "";

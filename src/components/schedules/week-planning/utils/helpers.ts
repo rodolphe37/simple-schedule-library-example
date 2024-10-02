@@ -81,3 +81,14 @@ enum daysOfWeekNamesUs {
 export const daysOfWeekNameUs = (str: string) => {
   return daysOfWeekNamesUs[str as keyof typeof daysOfWeekNamesUs];
 };
+
+export function extractNumbers(str: string) {
+  let numbers = "0";
+  const matches = str.match(/[-+]?[0-9]*\.?[0-9]*/);
+
+  if (matches) {
+    numbers = matches[0];
+  }
+
+  return numbers;
+}
