@@ -4,10 +4,9 @@ import {
   formatTime,
   daysOfWeekNameFr,
   daysOfWeekNameUs,
-  eventInstructionNameFr,
-  eventInstructionNameUs,
 } from "../utils/helpers";
 import CrossIcon from "../../../../ui/icons/CrossIcon";
+import useColorByEventController from "../hooks/useColorByEventController";
 
 type TCellEventsInfoModalProps = {
   numbersForCalendarType: string;
@@ -36,7 +35,7 @@ type TCellEventsInfoModalProps = {
       }
     | undefined;
   eventByEventType: string | undefined;
-  isFrenchDegree: " °C" | " °F"
+  isFrenchDegree: " °C" | " °F";
 };
 
 const CellEventsInfosModal = ({
@@ -55,6 +54,8 @@ const CellEventsInfosModal = ({
   eventByEventType,
 }: TCellEventsInfoModalProps) => {
   const daySelected = capitalizeFirstLetter(Days[day]);
+  const { eventInstructionNameFr, eventInstructionNameUs } =
+    useColorByEventController();
 
   return (
     <div
@@ -102,7 +103,9 @@ const CellEventsInfosModal = ({
             <p className={`${isInDarkMode ? "text-white" : "text-black"}`}>
               {eventByEventType === "event"
                 ? currentEventType?.value
-                : eventByEventType === "temp" ? numbersForCalendarType + isFrenchDegree : currentEventType?.value }
+                : eventByEventType === "temp"
+                ? numbersForCalendarType + isFrenchDegree
+                : currentEventType?.value}
             </p>
           </div>
           <div className="flex flex-row gap-4 items-center w-[65%] justify-between">

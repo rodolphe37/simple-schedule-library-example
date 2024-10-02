@@ -1,11 +1,6 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import ScheduleView from "./week-planning/ScheduleView";
-import {
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useState,
-} from "react";
+import { useEffect, useLayoutEffect, useMemo, useState } from "react";
 import { SelectOption } from "../../ui/selectBox";
 import useWindowDimensions from "../../hooks/useGetWindowDimensions";
 import BackArrowIcon from "../../ui/icons/BackArrowIcon";
@@ -22,7 +17,9 @@ const ScheduleViewWrapper = ({
   eventTypeData,
   locale,
   modalContent,
-  withDays
+  withDays,
+  colorCellByEvents,
+  eventsTextColor,
 }: {
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
   weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
@@ -30,11 +27,12 @@ const ScheduleViewWrapper = ({
   withList?: boolean;
   eventTypeData: TeventTypeData;
   locale: string;
-  modalContent?: TContentForModal
-  withDays?:boolean
+  modalContent?: TContentForModal;
+  withDays?: boolean;
+  colorCellByEvents: string[];
+  eventsTextColor: string[];
 }) => {
   const navigate = useNavigate();
-
   const { scheduleId } = useParams<"scheduleId">();
   const location = useLocation();
   const schedulesList = useMemo(
@@ -109,9 +107,7 @@ const ScheduleViewWrapper = ({
 
   return (
     <div className="pr-0 pl-2 w-full" style={{ padding: "1em 4em 4em 4em" }}>
-     
       <div>
-   
         <button
           className="flex text-blue-600 hover:text-blue-800 dark:bg-gray-400 dark:text-white p-2 mb-2 mt-1 appearance-none outline-none focus:outline-none border-none active:border-none focus:border-none hover:border-none"
           onClick={() => (withList ? navigate(-1) : navigate("/"))}
@@ -145,7 +141,9 @@ const ScheduleViewWrapper = ({
         />
       </div>
       <ScheduleView
-      withDays={withDays}
+        eventsTextColor={eventsTextColor}
+        colorCellByEvents={colorCellByEvents}
+        withDays={withDays}
         locale={locale}
         eventTypeData={eventTypeData}
         isInDarkMode={isInDarkMode!}
@@ -154,7 +152,6 @@ const ScheduleViewWrapper = ({
         scheduleId={scheduleId}
         modalContent={modalContent}
       />
-     
     </div>
   );
 };

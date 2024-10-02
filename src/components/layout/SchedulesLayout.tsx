@@ -7,7 +7,6 @@ import { ErrorBoundary } from "react-error-boundary";
 import { Loader } from "../../ui/components/Loader";
 import ErrorFallback from "../../ui/components/ErrorFallBack";
 import { RecoilRoot } from "recoil";
-import { TContentForModal } from "../schedules/types";
 import ParametersDetails from "../legende-color/ParametersDetails";
 
 export const SchedulesLayout = ({
@@ -20,6 +19,8 @@ export const SchedulesLayout = ({
   locale,
   modalContent,
   withDays,
+  colorCellByEvents,
+  eventsTextColor,
 }: {
   scheduleByEventPlace: {
     schedules: {
@@ -37,21 +38,32 @@ export const SchedulesLayout = ({
   };
   weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
   isInDarkMode: boolean;
+  colorCellByEvents: string[];
+  eventsTextColor: string[];
+  locale: string;
+
+  eventTypeData: {
+    eventPlace_id?: string;
+    eventType_1: number | string;
+    eventType_2?: number | string;
+    eventType_3?: number | string;
+    eventType_4?: number | string;
+    eventType_5?: number | string;
+    eventType_6?: number | string;
+    eventType_7?: number | string;
+  };
+
+  modalContent?: {
+    id: string;
+    day: number;
+    eventType: string;
+    startTime: number;
+    eventTitle: string;
+    contentModal: JSX.Element;
+  }[];
+  withDays?: boolean;
   withList?: boolean;
   withLegend?: boolean;
-  eventTypeData: {
-    eventPlace_id: string;
-    eventType_1: number | string;
-    eventType_2: number | string;
-    eventType_3: number | string;
-    eventType_4: number | string;
-    eventType_5: number | string;
-    eventType_6: number | string;
-    eventType_7: number | string;
-  };
-  locale: string;
-  modalContent?: TContentForModal;
-  withDays?: boolean;
 }) => {
   useLayoutEffect(() => {
     window.scrollTo({
@@ -84,6 +96,8 @@ export const SchedulesLayout = ({
                   />
                 ) : (
                   <ScheduleViewWrapper
+                    eventsTextColor={eventsTextColor}
+                    colorCellByEvents={colorCellByEvents}
                     withDays={withDays}
                     locale={locale}
                     eventTypeData={eventTypeData}
@@ -113,25 +127,31 @@ export const SchedulesLayout = ({
             >
               <ErrorBoundary FallbackComponent={ErrorFallback}>
                 {withLegend ? (
-                 <Fragment>
-                   <ParametersDetails
-                    locale={locale}
-                    isInDarkMode={isInDarkMode}
-                    eventTypeData={eventTypeData}
-                  />
-                  <ScheduleViewWrapper
-                  withDays={withDays}
-                  locale={locale}
-                  eventTypeData={eventTypeData}
-                  withList={withList}
-                  isInDarkMode={isInDarkMode}
-                  weekStartsOn={weekStartsOn}
-                  scheduleByEventPlace={scheduleByEventPlace}
-                  modalContent={modalContent}
-                />
-                 </Fragment>
+                  <Fragment>
+                    <ParametersDetails
+                      eventsTextColor={eventsTextColor}
+                      colorCellByEvents={colorCellByEvents}
+                      locale={locale}
+                      isInDarkMode={isInDarkMode}
+                      eventTypeData={eventTypeData}
+                    />
+                    <ScheduleViewWrapper
+                      eventsTextColor={eventsTextColor}
+                      colorCellByEvents={colorCellByEvents}
+                      withDays={withDays}
+                      locale={locale}
+                      eventTypeData={eventTypeData}
+                      withList={withList}
+                      isInDarkMode={isInDarkMode}
+                      weekStartsOn={weekStartsOn}
+                      scheduleByEventPlace={scheduleByEventPlace}
+                      modalContent={modalContent}
+                    />
+                  </Fragment>
                 ) : (
                   <ScheduleViewWrapper
+                    eventsTextColor={eventsTextColor}
+                    colorCellByEvents={colorCellByEvents}
                     withDays={withDays}
                     locale={locale}
                     eventTypeData={eventTypeData}

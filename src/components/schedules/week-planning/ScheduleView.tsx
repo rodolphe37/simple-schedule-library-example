@@ -11,6 +11,8 @@ const ScheduleView = ({
   locale,
   modalContent,
   withDays,
+  colorCellByEvents,
+  eventsTextColor,
 }: {
   scheduleId: string | undefined;
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
@@ -20,10 +22,14 @@ const ScheduleView = ({
   locale: string;
   modalContent?: TContentForModal;
   withDays?: boolean;
+  colorCellByEvents: string[];
+  eventsTextColor: string[];
 }) => {
   return (
     <div className="w-full">
       <WeekPlanning
+        eventsTextColor={eventsTextColor}
+        colorCellByEvents={colorCellByEvents}
         withDays={withDays}
         modalContent={modalContent}
         locale={locale}

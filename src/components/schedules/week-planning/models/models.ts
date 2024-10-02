@@ -36,6 +36,8 @@ export interface CellEventProps {
   modalContent?: TContentForModal
   scheduleIdentifier: string
   eventArray: EventType[] | undefined
+  colorCellByEvents:string[],
+  eventsTextColor: string[]
 }
 
 export interface CellProps {
@@ -57,6 +59,8 @@ export interface CellProps {
   modalContent?: TContentForModal
   scheduleIdentifier: string
   events: EventType[] | undefined
+  colorCellByEvents:string[];
+  eventsTextColor: string[]
 }
 
 export type TEventToDisplay = {

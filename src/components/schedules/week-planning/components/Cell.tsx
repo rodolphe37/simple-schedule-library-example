@@ -17,18 +17,18 @@ const Cell = ({
   modalContent,
   scheduleIdentifier,
   events,
+  colorCellByEvents,
+  eventsTextColor,
 }: CellProps) => {
   const [eventIdToDisplay, setEventIdToDisplay] =
     useRecoilState<TEventToDisplay>(eventIdToDIsplayAtom);
 
+  const eventTypesByScheduleId = events?.filter(
+    (res) => res.id === scheduleIdentifier
+  );
 
-    const eventTypesByScheduleId = events?.filter(
-      (res) => res.id === scheduleIdentifier
-    );
-
- 
   return (
-    <div 
+    <div
       className={`  flex flex-col gap-1 min-h-[120px] ${className} relative`}
     >
       <div>
@@ -63,6 +63,8 @@ const Cell = ({
                               : null}
                           </p>
                           <CellEvent
+                            eventsTextColor={eventsTextColor}
+                            colorCellByEvents={colorCellByEvents}
                             eventArray={eventTypesByScheduleId}
                             scheduleIdentifier={scheduleIdentifier}
                             modalContent={modalContent}

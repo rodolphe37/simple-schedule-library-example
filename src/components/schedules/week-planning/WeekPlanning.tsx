@@ -14,7 +14,9 @@ const WeekPlanning = ({
   eventTypeData,
   locale,
   modalContent,
-  withDays
+  withDays,
+  colorCellByEvents,
+  eventsTextColor,
 }: {
   scheduleIdentifier?: string;
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
@@ -22,8 +24,10 @@ const WeekPlanning = ({
   isInDarkMode?: boolean;
   eventTypeData: TeventTypeData;
   locale: string;
-  modalContent?: TContentForModal
-  withDays?: boolean
+  modalContent?: TContentForModal;
+  withDays?: boolean;
+  colorCellByEvents: string[];
+  eventsTextColor: string[];
 }) => {
   const [, setEventIdToDisplay] =
     useRecoilState<TEventToDisplay>(eventIdToDIsplayAtom);
@@ -48,7 +52,9 @@ const WeekPlanning = ({
       }`}
     >
       <Calendar
-      withDays={withDays}
+        eventsTextColor={eventsTextColor}
+        colorCellByEvents={colorCellByEvents}
+        withDays={withDays}
         modalContent={modalContent}
         locale={locale}
         eventTypeData={eventTypeData}

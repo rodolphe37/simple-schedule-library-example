@@ -1,11 +1,9 @@
-import {
-  colorCellByTemp,
-  textEventColorInCell,
-} from "../schedules/week-planning/utils/helpers";
+import useDispatchColorsByEvent from "../schedules/hooks/useDispatchColorsByEvent";
 
 const InstructionsList = ({
   instruction,
-  isInDarkMode,
+  colorCellByEvents,
+  eventsTextColor,
 }: {
   instruction: {
     id: number;
@@ -13,8 +11,13 @@ const InstructionsList = ({
     originalKey: string;
     value: string | number | null;
   };
-  isInDarkMode: boolean;
+  colorCellByEvents: string[];
+  eventsTextColor: string[];
 }) => {
+  const { colorCellByTemp, textEventColorInCell } = useDispatchColorsByEvent({
+    colorCellByEvents,
+    eventsTextColor,
+  });
   return (
     <div
       style={{ textAlign: "left" }}
@@ -24,10 +27,7 @@ const InstructionsList = ({
         <li
           className=" mb-2 text-sm flex justify-between items-center p-2 shadow-md rounded-md"
           style={{
-            backgroundColor: colorCellByTemp(
-              instruction.originalKey,
-              isInDarkMode
-            ),
+            backgroundColor: colorCellByTemp(instruction.originalKey),
             color: textEventColorInCell(instruction.originalKey),
             fontWeight: "bold",
           }}

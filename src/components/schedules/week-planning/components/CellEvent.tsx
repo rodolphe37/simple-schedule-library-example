@@ -1,15 +1,11 @@
 import { Fragment, useRef, useState } from "react";
 import useClickOutside from "../hooks/useClickOutside";
-import {
-  colorCellByTemp,
-  textEventColorInCell,
-  eventInstructionNameFr,
-  eventInstructionNameUs,
-} from "../utils/helpers";
 import { CellEventProps } from "../models/models";
 import CellEventsInfosModal from "./CellEventsInfosModal";
 import useGetEventTypeController from "../../hooks/useGetEventTypeController";
 import { EventTypes } from "../../types";
+import useColorByEventController from "../hooks/useColorByEventController";
+import useDispatchColorsByEvent from "../../hooks/useDispatchColorsByEvent";
 
 const CellEvent = ({
   timeEvent: event,
@@ -25,7 +21,14 @@ const CellEvent = ({
   modalContent,
   scheduleIdentifier,
   eventArray,
+  colorCellByEvents,
+  eventsTextColor
 }: CellEventProps) => {
+  const { eventInstructionNameFr, eventInstructionNameUs } =
+    useColorByEventController();
+  const { colorCellByTemp, textEventColorInCell } = useDispatchColorsByEvent({
+    colorCellByEvents,eventsTextColor
+  });
   const ModalRef = useRef<HTMLDivElement>(null);
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>();
@@ -133,8 +136,7 @@ const CellEvent = ({
           style={{
             height: heightSize(),
             backgroundColor: colorCellByTemp(
-              eventInstructionTextWithoutWhiteSpace,
-              isInDarkMode!
+              eventInstructionTextWithoutWhiteSpace
             ),
             color: textEventColorInCell(eventInstructionTextWithoutWhiteSpace),
             fontSize:

@@ -24,6 +24,8 @@ interface ICalendarProps {
   locale: string;
   modalContent?: TContentForModal;
   withDays?: boolean;
+  colorCellByEvents: string[];
+  eventsTextColor: string[];
 }
 
 const Calendar = ({
@@ -35,6 +37,8 @@ const Calendar = ({
   locale,
   modalContent,
   withDays,
+  colorCellByEvents,
+  eventsTextColor,
 }: ICalendarProps) => {
   const {
     updateScroll,
@@ -45,7 +49,8 @@ const Calendar = ({
     sortedEventsDaySlotArray,
   } = useCalendarController({ weekStartsOn, scheduleIdentifier, events });
   const { height } = useWindowDimensions();
-  const {  calendarWithDaysUS, calendarWithDaysFrench } = useGetDaysController(calendarData);
+  const { calendarWithDaysUS, calendarWithDaysFrench } =
+    useGetDaysController(calendarData);
 
   return (
     <ScrollProvider
@@ -64,21 +69,23 @@ const Calendar = ({
                 />
               </div>
               {withDays
-                ? locale === "fr" ? calendarWithDaysFrench?.map((day) => (
-                  <div
-                    key={day}
-                    className={`p-2 text-xs truncate md:text-base text-blue-600 dark:text-white -ml-6`}
-                  >
-                    {day}
-                  </div>
-                )) : calendarWithDaysUS?.map((day) => (
-                  <div
-                    key={day}
-                    className={`p-2 text-xs truncate md:text-base text-blue-600 dark:text-white -ml-6`}
-                  >
-                    {day}
-                  </div>
-                ))
+                ? locale === "fr"
+                  ? calendarWithDaysFrench?.map((day) => (
+                      <div
+                        key={day}
+                        className={`p-2 text-xs truncate md:text-base text-blue-600 dark:text-white -ml-6`}
+                      >
+                        {day}
+                      </div>
+                    ))
+                  : calendarWithDaysUS?.map((day) => (
+                      <div
+                        key={day}
+                        className={`p-2 text-xs truncate md:text-base text-blue-600 dark:text-white -ml-6`}
+                      >
+                        {day}
+                      </div>
+                    ))
                 : calendarData.weekDayNames.map((day) => (
                     <div
                       key={day}
@@ -105,6 +112,8 @@ const Calendar = ({
               {sortedEventsDaySlotArray?.map((res, i) => (
                 <Fragment key={i}>
                   <Cell
+                    eventsTextColor={eventsTextColor}
+                    colorCellByEvents={colorCellByEvents}
                     events={events}
                     scheduleIdentifier={scheduleIdentifier}
                     modalContent={modalContent}
