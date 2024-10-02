@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import SchedulesDetails from "../../components/schedules/SchedulesDetails";
-import { Suspense, useLayoutEffect } from "react";
+import { Fragment, Suspense, useLayoutEffect } from "react";
 import { bgGray200_700Color } from "../../utils/style";
 import ScheduleViewWrapper from "../schedules/ScheduleViewWrapper";
 import { ErrorBoundary } from "react-error-boundary";
@@ -8,6 +8,7 @@ import { Loader } from "../../ui/components/Loader";
 import ErrorFallback from "../../ui/components/ErrorFallBack";
 import { RecoilRoot } from "recoil";
 import { TContentForModal } from "../schedules/types";
+import ParametersDetails from "../legende-color/ParametersDetails";
 
 export const SchedulesLayout = ({
   scheduleByEventPlace,
@@ -111,17 +112,36 @@ export const SchedulesLayout = ({
               }
             >
               <ErrorBoundary FallbackComponent={ErrorFallback}>
-                <ScheduleViewWrapper
+                {withLegend ? (
+                 <Fragment>
+                   <ParametersDetails
+                    locale={locale}
+                    isInDarkMode={isInDarkMode}
+                    eventTypeData={eventTypeData}
+                  />
+                  <ScheduleViewWrapper
                   withDays={withDays}
                   locale={locale}
                   eventTypeData={eventTypeData}
-                  withLegend={withLegend}
                   withList={withList}
                   isInDarkMode={isInDarkMode}
                   weekStartsOn={weekStartsOn}
                   scheduleByEventPlace={scheduleByEventPlace}
                   modalContent={modalContent}
                 />
+                 </Fragment>
+                ) : (
+                  <ScheduleViewWrapper
+                    withDays={withDays}
+                    locale={locale}
+                    eventTypeData={eventTypeData}
+                    withList={withList}
+                    isInDarkMode={isInDarkMode}
+                    weekStartsOn={weekStartsOn}
+                    scheduleByEventPlace={scheduleByEventPlace}
+                    modalContent={modalContent}
+                  />
+                )}
               </ErrorBoundary>
             </Suspense>
           }

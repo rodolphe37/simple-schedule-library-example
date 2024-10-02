@@ -42,41 +42,43 @@ function App() {
   };
 
   return (
-    <div className="App flex-col pt-24 justify-evenly bg-gray-300 pb-24">
-      {!location.pathname.includes("schedule") ? (
-        <TestButtons {...params} />
-      ) : null}
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route
-          path="/schedule/*"
-          element={
-            <Suspense
-              fallback={
-                <div
-                  className={`w-full flex flex-col justify-center items-center h-screen overflow-y-hidden ${bgGray200_700Color}`}
-                  style={{ transform: "scale(3)" }}
-                >
-                  <Loader />
-                </div>
-              }
-            >
-              <SchedulesLayout
-                withDays={withDays}
-                withList={withList}
-                withLegend={withLegend}
-                locale={locale}
-                isInDarkMode={isDarkMode}
-                eventTypeData={eventTypeData}
-                weekStartsOn={weekStartsOn}
-                scheduleByEventPlace={scheduleByEventPlace}
-                modalContent={contentForModal}
-              />
-            </Suspense>
-          }
-        />
-        <Route path="*" element={<Navigate replace to="/" />} />
-      </Routes>
+    <div className="App flex-col pt-24 align-middle justify-start bg-gray-300 dark:bg-gray-600 pb-24">
+      <div className="w-full h-[80vh] items-center justify-between flex flex-col">
+        {!location.pathname.includes("schedule") ? (
+          <TestButtons {...params} />
+        ) : null}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route
+            path="/schedule/*"
+            element={
+              <Suspense
+                fallback={
+                  <div
+                    className={`w-full flex flex-col justify-center items-center h-screen overflow-y-hidden ${bgGray200_700Color}`}
+                    style={{ transform: "scale(3)" }}
+                  >
+                    <Loader />
+                  </div>
+                }
+              >
+                <SchedulesLayout
+                  withDays={withDays}
+                  withList={withList}
+                  withLegend={withLegend}
+                  locale={locale}
+                  isInDarkMode={isDarkMode}
+                  eventTypeData={eventTypeData}
+                  weekStartsOn={weekStartsOn}
+                  scheduleByEventPlace={scheduleByEventPlace}
+                  modalContent={contentForModal}
+                />
+              </Suspense>
+            }
+          />
+          <Route path="*" element={<Navigate replace to="/" />} />
+        </Routes>
+      </div>
     </div>
   );
 }

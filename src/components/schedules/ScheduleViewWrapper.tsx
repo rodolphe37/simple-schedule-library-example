@@ -12,7 +12,6 @@ import BackArrowIcon from "../../ui/icons/BackArrowIcon";
 import CustomSelect from "../../ui/customSelectComponent/CustomSelect";
 import { TSelectedValueProps } from "../../ui/customSelectComponent/types";
 import { getSchedulesByEventPlaceIdResponse } from "../../entities/schedules";
-import ParametersDetails from "../legende-color/ParametersDetails";
 import { TContentForModal, TeventTypeData } from "./types";
 
 const ScheduleViewWrapper = ({
@@ -20,7 +19,6 @@ const ScheduleViewWrapper = ({
   weekStartsOn,
   isInDarkMode,
   withList,
-  withLegend,
   eventTypeData,
   locale,
   modalContent,
@@ -30,7 +28,6 @@ const ScheduleViewWrapper = ({
   weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
   isInDarkMode: boolean;
   withList?: boolean;
-  withLegend?: boolean;
   eventTypeData: TeventTypeData;
   locale: string;
   modalContent?: TContentForModal
@@ -111,10 +108,12 @@ const ScheduleViewWrapper = ({
   }, [height, location, scheduleId]);
 
   return (
-    <div className="pr-0 pl-2 w-full" style={{ padding: "4em" }}>
+    <div className="pr-0 pl-2 w-full" style={{ padding: "1em 4em 4em 4em" }}>
+     
       <div>
+   
         <button
-          className="flex text-blue-600 hover:text-blue-800 dark:text-white p-2 mb-2 mt-1 appearance-none outline-none focus:outline-none border-none active:border-none focus:border-none hover:border-none"
+          className="flex text-blue-600 hover:text-blue-800 dark:bg-gray-400 dark:text-white p-2 mb-2 mt-1 appearance-none outline-none focus:outline-none border-none active:border-none focus:border-none hover:border-none"
           onClick={() => (withList ? navigate(-1) : navigate("/"))}
         >
           <BackArrowIcon />
@@ -155,13 +154,7 @@ const ScheduleViewWrapper = ({
         scheduleId={scheduleId}
         modalContent={modalContent}
       />
-      {withLegend ? (
-        <ParametersDetails
-          locale={locale}
-          isInDarkMode={isInDarkMode}
-          eventTypeData={eventTypeData}
-        />
-      ) : null}
+     
     </div>
   );
 };

@@ -22,7 +22,7 @@ const InstructionsList = ({
     >
       <ul className="flex flex-row ">
         <li
-          className=" mb-2 text-sm flex justify-between items-center p-4 shadow-md rounded-md"
+          className=" mb-2 text-sm flex justify-between items-center p-2 shadow-md rounded-md"
           style={{
             backgroundColor: colorCellByTemp(
               instruction.originalKey,

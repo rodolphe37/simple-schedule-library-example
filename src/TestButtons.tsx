@@ -13,6 +13,8 @@ type params = {
 };
 
 const TestButtons = (props: params) => {
+
+
   return (
     <Fragment>
       <div
@@ -25,26 +27,26 @@ const TestButtons = (props: params) => {
           gap:"1.2em"
         }}
       >
-        <button
-          style={{ background: props.withDays ? "#aaaaaa" : "#f9f9f9" }}
+        <button className={`${props.isDarkMode ? "bg-gray-600" : "bg-gray-300"}`}
+          style={{ background: props.withDays ? "#aaaaaa" : "#f9f9f9", color:"#000"}}
           onClick={() => props.setWithDays((prevState) => !prevState)}
         >
-          {props.withDays ? "Without " : "With "}days of week example
+          {props.withDays ? "Without " : "With "}days of week number example
         </button>
         <button
-          style={{ background: props.withList ? "#aaaaaa" : "#f9f9f9" }}
+          style={{ background: props.withList ? "#aaaaaa" : "#f9f9f9", color:"#000" }}
           onClick={() => props.setWithList((prevState) => !prevState)}
         >
           {props.withList ? "Without " : "With "}list example
         </button>
         <button
-          style={{ background: props.withLegend ? "#aaaaaa" : "#f9f9f9" }}
+          style={{ background: props.withLegend ? "#aaaaaa" : "#f9f9f9" , color:"#000"}}
           onClick={() => props.setWithLegend((prevState) => !prevState)}
         >
           {props.withLegend ? "Without " : "With "}legend example
         </button>
         <button
-          style={{ background: props.isDarkMode ? "#aaaaaa" : "#f9f9f9" }}
+          style={{ background: props.isDarkMode ? "#aaaaaa" : "#f9f9f9" , color:"#000"}}
           onClick={() => props.setIsDarkMode((prevState) => !prevState)}
         >
           {props.isDarkMode ? "Light " : "Dark "} mode example
