@@ -17,13 +17,12 @@ import TestButtons from "./TestButtons";
 import { scheduleByEventPlace, eventTypeData } from "./data";
 import { contentForModal } from "./dataCards";
 
-// types for app elements 
+// types for app elements
 import { TcolorCellByEvents, TeventsTextColor } from "./dataTypes";
 
 // IMPORT FROM NPM LIBRARY -  it will be = import {SchedulesLayout} from "react-simple-schedules-viewer"
 import { SchedulesLayout } from "./components/layout/SchedulesLayout";
 import { useTheme } from "./appComponents/context/useTheme";
-
 
 function App() {
   const { locale, setLocale } = useLocale();
@@ -34,19 +33,17 @@ function App() {
   const [withList, setWithList] = useState(false);
   const [withDays, setWithDays] = useState(false);
 
-  const { theme ,setTheme} = useTheme();
+  const { theme, setTheme } = useTheme();
 
-  const [isDarkMode, setIsDarkMode] =useState(theme ==="dark" ? true : false)
+  const [isDarkMode, setIsDarkMode] = useState(theme === "dark" ? true : false);
 
-  useEffect(()=> {
-    if(isDarkMode){
-      setTheme("dark")
+  useEffect(() => {
+    if (isDarkMode) {
+      setTheme("dark");
+    } else if (!isDarkMode) {
+      setTheme("light");
     }
-    else if( !isDarkMode){
-      setTheme("light")
-    }
-  })
-
+  });
 
   // the default order of colors in the array is: [eventType_1, eventType_2 , eventType_3", eventType_4",
   //  eventType_5, eventType_6, eventType_7]
@@ -56,7 +53,7 @@ function App() {
     "#DBFFE2",
     "#F6D1FF",
     "#A0ABC0",
-    isDarkMode ? "#2D3648" : "#EDF0F7",
+    isDarkMode ? "#2D3648" : "#EDF0F7", // eventType_6 is always the away, closed or absent event
     "#B0DCFF",
   ];
   // the default order of colors in the array is: [eventType_1, eventType_2 , eventType_3", eventType_4",
@@ -67,7 +64,7 @@ function App() {
     "#00B51E",
     "#F134F7",
     "#FFFFFF",
-    "#a0abc0",
+    "#a0abc0", // eventType_6 is always the away, closed or absent event
     "#0196EC",
   ];
 

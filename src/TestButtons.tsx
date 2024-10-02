@@ -9,7 +9,7 @@ type params = {
   setWithLegend: React.Dispatch<React.SetStateAction<boolean>>;
   isDarkMode: boolean;
   setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
-  locale: string;
+  locale: LanguageKeys;
   setLocale: React.Dispatch<React.SetStateAction<LanguageKeys>>
   withDays: boolean;
   setWithDays:React.Dispatch<React.SetStateAction<boolean>>
