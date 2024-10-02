@@ -1,4 +1,9 @@
-import { getSchedulesByEventPlaceIdResponse } from "./entities/schedules";
+import {
+  getSchedulesByEventPlaceIdResponse,
+  TcolorCellByEvents,
+  TeventsTextColor,
+  TeventTypeData,
+} from "./dataTypes";
 
 export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
   schedules: [
@@ -218,7 +223,7 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
   ],
 };
 
-export const eventTypeData = {
+export const eventTypeData: TeventTypeData = {
   eventPlace_id: "e2076d6a-9d6d-4b93-9ce0-a41f04c38c40",
   eventType_1: "12.5 Euros",
   eventType_2: "20 Euros",
@@ -228,3 +233,26 @@ export const eventTypeData = {
   eventType_6: "17 Euros",
   eventType_7: "15 Euros",
 };
+
+// the default order of colors in the array is: [eventType_1, eventType_2 , eventType_3", eventType_4",
+//  eventType_5, eventType_6, eventType_7]
+export const colorCellByEvents: TcolorCellByEvents = [
+  "#FFF2C4",
+  "#FED7AD",
+  "#DBFFE2",
+  "#F6D1FF",
+  "#A0ABC0",
+  "#EDF0F7",
+  "#B0DCFF",
+];
+// the default order of colors in the array is: [eventType_1, eventType_2 , eventType_3", eventType_4",
+//  eventType_5, eventType_6, eventType_7]
+export const eventsTextColor: TeventsTextColor = [
+  "#B99100",
+  "#D46E00",
+  "#00B51E",
+  "#F134F7",
+  "#FFFFFF",
+  "#a0abc0",
+  "#0196EC",
+];

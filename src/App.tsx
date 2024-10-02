@@ -9,16 +9,22 @@ import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { useLocale } from "./context/useLocale";
 
 // Import components
-import { Loader } from "./ui/components/Loader";
+import { Loader } from "./appComponents/Loader";
 import HomePage from "./HomePage";
 import TestButtons from "./TestButtons";
 
 // Import Fake data for demo
-import { scheduleByEventPlace, eventTypeData } from "./data";
+import {
+  scheduleByEventPlace,
+  eventTypeData,
+  eventsTextColor,
+  colorCellByEvents,
+} from "./data";
 import { contentForModal } from "./dataCards";
 
 // IMPORT FROM NPM LIBRARY -  it will be = import {SchedulesLayout} from "react-simple-schedules-viewer"
 import { SchedulesLayout } from "./components/layout/SchedulesLayout";
+
 
 function App() {
   const { locale } = useLocale();
@@ -28,29 +34,6 @@ function App() {
   const [withLegend, setWithLegend] = useState(false);
   const [withList, setWithList] = useState(false);
   const [withDays, setWithDays] = useState(false);
-
-  // the default order of colors in the array is: [eventType_1, eventType_2 , eventType_3", eventType_4", 
-  //  eventType_5, eventType_6, eventType_7]
-  const colorCellByEvents = [
-    "#FFF2C4",
-    "#FED7AD",
-    "#DBFFE2",
-    "#F6D1FF",
-    "#A0ABC0",
-    "#EDF0F7",
-    "#B0DCFF",
-  ];
- // the default order of colors in the array is: [eventType_1, eventType_2 , eventType_3", eventType_4", 
-  //  eventType_5, eventType_6, eventType_7]
-  const eventsTextColor = [
-    "#B99100",
-    "#D46E00",
-    "#00B51E",
-    "#F134F7",
-    "#FFFFFF",
-    "#a0abc0",
-    "#0196EC",
-  ];
 
   const params = {
     withList,
@@ -86,17 +69,17 @@ function App() {
                 }
               >
                 <SchedulesLayout
-                  eventsTextColor={eventsTextColor}
+                  scheduleByEventPlace={scheduleByEventPlace}
+                  weekStartsOn={weekStartsOn}
+                  isInDarkMode={isDarkMode}
                   colorCellByEvents={colorCellByEvents}
+                  eventsTextColor={eventsTextColor}
+                  locale={locale}
+                  eventTypeData={eventTypeData}
+                  modalContent={contentForModal}
                   withDays={withDays}
                   withList={withList}
                   withLegend={withLegend}
-                  locale={locale}
-                  isInDarkMode={isDarkMode}
-                  eventTypeData={eventTypeData}
-                  weekStartsOn={weekStartsOn}
-                  scheduleByEventPlace={scheduleByEventPlace}
-                  modalContent={contentForModal}
                 />
               </Suspense>
             }
