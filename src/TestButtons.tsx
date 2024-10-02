@@ -66,7 +66,7 @@ const TestButtons = (props: params) => {
           style={{ background: props.locale === "en" ? "#aaaaaa" : "#f9f9f9", color:"#000"}}
           onClick={() => handleChangeLocale()}
         >
-          {props.locale === "fr" ? "in French " : "in English "} example
+          {props.locale === "en" ? "in French " : "in English "} example
         </button>
       </div>
       <p>
