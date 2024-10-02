@@ -10,6 +10,7 @@ const ScheduleView = ({
   eventTypeData,
   locale,
   modalContent,
+  withDays,
 }: {
   scheduleId: string | undefined;
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
@@ -18,10 +19,12 @@ const ScheduleView = ({
   eventTypeData: TeventTypeData;
   locale: string;
   modalContent?: TContentForModal;
+  withDays?: boolean;
 }) => {
   return (
     <div className="w-full">
       <WeekPlanning
+        withDays={withDays}
         modalContent={modalContent}
         locale={locale}
         eventTypeData={eventTypeData}

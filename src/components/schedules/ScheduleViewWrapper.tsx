@@ -24,6 +24,7 @@ const ScheduleViewWrapper = ({
   eventTypeData,
   locale,
   modalContent,
+  withDays
 }: {
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
   weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
@@ -33,6 +34,7 @@ const ScheduleViewWrapper = ({
   eventTypeData: TeventTypeData;
   locale: string;
   modalContent?: TContentForModal
+  withDays?:boolean
 }) => {
   const navigate = useNavigate();
 
@@ -144,6 +146,7 @@ const ScheduleViewWrapper = ({
         />
       </div>
       <ScheduleView
+      withDays={withDays}
         locale={locale}
         eventTypeData={eventTypeData}
         isInDarkMode={isInDarkMode!}

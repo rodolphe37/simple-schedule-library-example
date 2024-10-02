@@ -10,6 +10,7 @@ import {
 import CrossIcon from "../../../../ui/icons/CrossIcon";
 
 type TCellEventsInfoModalProps = {
+  numbersForCalendarType: string;
   ModalRef: React.RefObject<HTMLDivElement>;
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean | undefined>>;
   currentEventType:
@@ -35,9 +36,12 @@ type TCellEventsInfoModalProps = {
       }
     | undefined;
   eventByEventType: string | undefined;
+  isFrenchDegree: " °C" | " °F"
 };
 
 const CellEventsInfosModal = ({
+  isFrenchDegree,
+  numbersForCalendarType,
   ModalRef,
   setIsModalOpen,
   currentEventType,
@@ -97,8 +101,8 @@ const CellEventsInfosModal = ({
             </h4>
             <p className={`${isInDarkMode ? "text-white" : "text-black"}`}>
               {eventByEventType === "event"
-                ? currentEventType?.value + ` Euros`
-                : currentEventType?.value + `°C`}
+                ? currentEventType?.value
+                : eventByEventType === "temp" ? numbersForCalendarType + isFrenchDegree : currentEventType?.value }
             </p>
           </div>
           <div className="flex flex-row gap-4 items-center w-[65%] justify-between">

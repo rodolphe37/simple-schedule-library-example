@@ -84,6 +84,23 @@ const CellEvent = ({
     }
   };
 
+  function extractNumbers(str: string) {
+    let numbers = "0";
+    const matches = str.match(/[-+]?[0-9]*\.?[0-9]*/);
+
+    if (matches) {
+      numbers = matches[0];
+    }
+
+    return numbers;
+  }
+
+  const stringToExtract: string =
+    currentEventType !== undefined ? (currentEventType.value as string) : "";
+
+  const numbersForCalendarType = extractNumbers(stringToExtract);
+
+  const isFrenchDegree = locale == "fr" ? ` °C` : ` °F`;
 
   return (
     <>
@@ -92,6 +109,8 @@ const CellEvent = ({
         ? null
         : isModalOpen && (
             <CellEventsInfosModal
+              isFrenchDegree={isFrenchDegree}
+              numbersForCalendarType={numbersForCalendarType}
               eventByEventType={eventByEventType}
               modalContentForDisplaying={modalContentForDisplaying}
               locale={locale}
@@ -135,16 +154,19 @@ const CellEvent = ({
                 {eventByEventType === "event" &&
                 modalContentForDisplaying?.eventTitle &&
                 modalContentForDisplaying.eventTitle.length > 0
-                  ? currentEventType?.value + ` Euros`
+                  ? currentEventType?.value
+                  : null}
+                {eventByEventType === "temp"
+                  ? numbersForCalendarType + isFrenchDegree
                   : null}
                 {eventByEventType === "calendar"
-                  ? currentEventType?.value + ` °C`
+                  ? currentEventType?.value
                   : null}
               </p>
               {currentEventType?.key === EventTypes.EVENT_TYPE_6 &&
               eventByEventType === "event" ? (
                 <p style={{ fontSize: "14px" }}>
-                  {locale === "fr" ? "Pas d'évennement" : "No events"}
+                  {locale === "fr" ? "Pas d'événements" : "No events"}
                 </p>
               ) : (
                 <p

@@ -16,7 +16,7 @@ const MarvelEvent2 = () => {
               <span>GROUP</span>
             </div>
             <div>
-              <span>12</span>
+              <span>6.5</span>
               <span>&euro;</span>
             </div>
           </div>

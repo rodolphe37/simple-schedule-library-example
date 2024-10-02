@@ -13,6 +13,7 @@ import CalendarScrollToBottomButton from "./CalendarScrollToBottomButton";
 import useWindowDimensions from "../../../../hooks/useGetWindowDimensions";
 import HoursRangeIndicator from "./HoursRangeIndicator";
 import { TContentForModal, TeventTypeData } from "../../types";
+import useGetDaysController from "../../hooks/useGetDaysController";
 
 interface ICalendarProps {
   weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
@@ -22,6 +23,7 @@ interface ICalendarProps {
   eventTypeData: TeventTypeData;
   locale: string;
   modalContent?: TContentForModal;
+  withDays?: boolean;
 }
 
 const Calendar = ({
@@ -32,6 +34,7 @@ const Calendar = ({
   eventTypeData,
   locale,
   modalContent,
+  withDays,
 }: ICalendarProps) => {
   const {
     updateScroll,
@@ -42,7 +45,7 @@ const Calendar = ({
     sortedEventsDaySlotArray,
   } = useCalendarController({ weekStartsOn, scheduleIdentifier, events });
   const { height } = useWindowDimensions();
-
+  const {  calendarWithDaysUS, calendarWithDaysFrench } = useGetDaysController(calendarData);
 
   return (
     <ScrollProvider
@@ -60,16 +63,32 @@ const Calendar = ({
                   scrollRef={scrollRef}
                 />
               </div>
-              {calendarData.weekDayNames.map((day) => (
-                <div
-                  key={day}
-                  className={`p-2 text-xs truncate md:text-base text-blue-600 dark:text-white -ml-6`}
-                >
-                  {locale === "fr"
-                    ? daysOfWeekNameFr(day)
-                    : daysOfWeekNameUs(day)}
-                </div>
-              ))}
+              {withDays
+                ? locale === "fr" ? calendarWithDaysFrench?.map((day) => (
+                  <div
+                    key={day}
+                    className={`p-2 text-xs truncate md:text-base text-blue-600 dark:text-white -ml-6`}
+                  >
+                    {day}
+                  </div>
+                )) : calendarWithDaysUS?.map((day) => (
+                  <div
+                    key={day}
+                    className={`p-2 text-xs truncate md:text-base text-blue-600 dark:text-white -ml-6`}
+                  >
+                    {day}
+                  </div>
+                ))
+                : calendarData.weekDayNames.map((day) => (
+                    <div
+                      key={day}
+                      className={`p-2 text-xs truncate md:text-base text-blue-600 dark:text-white -ml-6`}
+                    >
+                      {locale === "fr"
+                        ? daysOfWeekNameFr(day)
+                        : daysOfWeekNameUs(day)}
+                    </div>
+                  ))}
             </div>
 
             <div

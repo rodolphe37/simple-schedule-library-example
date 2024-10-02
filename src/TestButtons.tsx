@@ -8,6 +8,8 @@ type params = {
   isDarkMode: boolean;
   setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
   locale: string;
+  withDays: boolean;
+  setWithDays:React.Dispatch<React.SetStateAction<boolean>>
 };
 
 const TestButtons = (props: params) => {
@@ -18,9 +20,17 @@ const TestButtons = (props: params) => {
           width: "50%",
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-evenly",
+          justifyContent: "flex-start",
+          flexWrap:"wrap",
+          gap:"1.2em"
         }}
       >
+        <button
+          style={{ background: props.withDays ? "#aaaaaa" : "#f9f9f9" }}
+          onClick={() => props.setWithDays((prevState) => !prevState)}
+        >
+          {props.withDays ? "Without " : "With "}days of week example
+        </button>
         <button
           style={{ background: props.withList ? "#aaaaaa" : "#f9f9f9" }}
           onClick={() => props.setWithList((prevState) => !prevState)}

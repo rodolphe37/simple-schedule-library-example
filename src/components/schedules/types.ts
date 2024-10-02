@@ -38,14 +38,14 @@ export interface DaySlotSet {
 }
 
 export type TeventTypeData = {
-  eventPlace_id: string;
+  eventPlace_id?: string;
   eventType_1: number | string;
-  eventType_2: number | string;
-  eventType_3: number | string;
-  eventType_4: number | string;
-  eventType_5: number | string;
-  eventType_6: number | string;
-  eventType_7: number | string;
+  eventType_2?: number | string;
+  eventType_3?: number | string;
+  eventType_4?: number | string;
+  eventType_5?: number | string;
+  eventType_6?: number | string;
+  eventType_7?: number | string;
 };
 
 export type TContentForModal = {
