@@ -44,7 +44,7 @@
 
 # Live demo
 
-- [Link to live demo](https://singular-unicorn-ecb308.netlify.app/)
+- [Link to live demo](https://amazing-fenglisu-e4a203.netlify.app/)
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
