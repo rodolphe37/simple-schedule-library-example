@@ -13,7 +13,7 @@ const CalendarScrollToBottomButton = ({
       className={` ${isInDarkMode ? "bg-gray-800" : "bg-white"} cursor-pointer`}
       id="bottomChevron"
       style={{
-        width: "12.1%",
+        width: "12.34%",
         height: "6%",
         position: "absolute",
         zIndex: 5,
