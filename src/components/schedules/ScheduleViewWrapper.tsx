@@ -98,7 +98,6 @@ const ScheduleViewWrapper = ({
     (res) => res.id === scheduleId
   )?.type;
 
-  console.log("isInCalendarType", isInCalendarType);
 
   useEffect(() => {
     const body = document.getElementsByTagName("body")[0];
@@ -149,7 +148,6 @@ const ScheduleViewWrapper = ({
   const month = today.getMonth();
   const year = today.getFullYear();
 
-  console.log("CURRENT MONTH", MONTHS[month]);
 
   return (
     <div className="pr-0 pl-2 w-full" style={{ padding: "1em 4em 4em 4em" }}>
