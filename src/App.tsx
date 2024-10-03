@@ -5,8 +5,9 @@ import { bgGray200_700Color } from "./utils/style";
 import { Suspense, useEffect, useState } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 
-// Import necessary for language (fr or en)- (for the example)
+// Import necessary for language (fr or en) & for theme (dark or light) - (for the example)
 import { useLocale } from "./appComponents/context/useLocale";
+import { useTheme } from "./appComponents/context/useTheme";
 
 // Import components
 import { Loader } from "./appComponents/Loader";
@@ -22,20 +23,10 @@ import { TcolorCellByEvents, TeventsName, TeventsTextColor } from "./dataTypes";
 
 // IMPORT FROM NPM LIBRARY -  it will be = import {SchedulesLayout} from "react-simple-schedules-viewer"
 import { SchedulesLayout } from "./components/layout/SchedulesLayout";
-import { useTheme } from "./appComponents/context/useTheme";
 
 function App() {
   const { locale, setLocale } = useLocale();
-  const location = useLocation();
-  const weekStartsOn = 0;
-
-  const [withLegend, setWithLegend] = useState(false);
-  const [withList, setWithList] = useState(false);
-  const [withDays, setWithDays] = useState(false);
-
   const { theme, setTheme } = useTheme();
-
-  const [isDarkMode, setIsDarkMode] = useState(theme === "dark" ? true : false);
 
   useEffect(() => {
     if (isDarkMode) {
@@ -45,19 +36,26 @@ function App() {
     }
   });
 
-  // the default order of colors in the array is: [eventType_1, eventType_2 , eventType_3", eventType_4",
-  //  eventType_5, eventType_6, eventType_7]
+
+  const location = useLocation();
+//  Variables for the ScheduleLayout component
+  const weekStartsOn = 0;
+  const [withLegend, setWithLegend] = useState(false);
+  const [withList, setWithList] = useState(false);
+  const [withDays, setWithDays] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(theme === "dark" ? true : false);
+
+  // the default order of background colors in the array is
   const colorCellByEvents: TcolorCellByEvents = {
-    eventType_1: "#FFF2C4",
-    eventType_2: "#FED7AD",
-    eventType_3: "#DBFFE2",
-    eventType_4: "#F6D1FF",
-    eventType_5: "#A0ABC0",
-    eventType_6: isDarkMode ? "#2D3648" : "#EDF0F7", // eventType_6 is always the away, closed or absent event
-    eventType_7: "#B0DCFF",
+    eventType_1: "#FFF2C4", // eventType_1 - required
+    eventType_2: "#FED7AD", // eventType_2 - optional
+    eventType_3: "#DBFFE2", // eventType_3 - optional
+    eventType_4: "#F6D1FF", // eventType_4 - optional
+    eventType_5: "#A0ABC0", // eventType_5 - optional
+    eventType_6: isDarkMode ? "#2D3648" : "#EDF0F7", // eventType_6 - required - is always the away, closed or absent event
+    eventType_7: "#B0DCFF", // eventType_7 - optional
   };
-  // the default order of colors in the array is: [eventType_1, eventType_2 , eventType_3", eventType_4",
-  //  eventType_5, eventType_6, eventType_7]
+  // the default order of text colors in the array is
   const eventsTextColor: TeventsTextColor = {
     eventType_1: "#B99100", // eventType_1 - required
     eventType_2: "#D46E00", // eventType_2 - optional
@@ -68,7 +66,8 @@ function App() {
     eventType_7: "#0196EC", // eventType_7 - optional
   };
 
-  // This is for temp type of schedule, the names of all eventTypes.
+  // This is for TEMP & CALENDAR type of schedule, the names of all eventTypes.
+  // (for the EVENT type, the name of the event is on the contentForModal - eventTitle)
   const eventsName: TeventsName = {
     eventType_1: "Présence 1",
     eventType_2: "Présence 2",
@@ -78,6 +77,7 @@ function App() {
     eventType_6: "Absence",
     eventType_7: "Hors gel",
   };
+  //  For french/English support both at the same time
   const eventsNameUs: TeventsName = {
     eventType_1: "Presence 1",
     eventType_2: "Presence 2",

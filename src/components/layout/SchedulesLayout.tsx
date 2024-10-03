@@ -44,7 +44,7 @@ export const SchedulesLayout = ({
   colorCellByEvents: Omit<typeof eventTypeData, "eventPlace_id">;
   eventsTextColor: Omit<typeof eventTypeData, "eventPlace_id">;
   locale: string;
-  eventsName: TeventsName;
+  eventsName?: TeventsName;
   eventsNameUs?: TeventsName;
   eventTypeData: {
     eventPlace_id?: string;

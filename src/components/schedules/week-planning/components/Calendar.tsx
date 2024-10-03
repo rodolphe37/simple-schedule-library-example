@@ -26,7 +26,7 @@ interface ICalendarProps {
   withDays?: boolean;
   colorCellByEvents: Omit<TeventTypeData, "eventPlace_id">;
   eventsTextColor: Omit<TeventTypeData, "eventPlace_id">;
-  eventsName: TeventsName;
+  eventsName?: TeventsName;
   eventsNameUs?: TeventsName;
 }
 

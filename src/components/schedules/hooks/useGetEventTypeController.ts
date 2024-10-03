@@ -21,7 +21,7 @@ type eventWithNewNamesProps = {
 const useGetEventTypeController = (
   eventTypeData: TeventTypeData,
   locale: string,
-  eventsName: TeventsName,
+  eventsName?: TeventsName,
   eventsNameUs?: TeventsName
 ) => {
   const error = eventTypeData === undefined;

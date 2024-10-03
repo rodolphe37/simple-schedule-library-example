@@ -30,7 +30,7 @@ const WeekPlanning = ({
   withDays?: boolean;
   colorCellByEvents: Omit<typeof eventTypeData, "eventPlace_id">;
   eventsTextColor: Omit<typeof eventTypeData, "eventPlace_id">;
-  eventsName: TeventsName;
+  eventsName?: TeventsName;
   eventsNameUs?: TeventsName;
 }) => {
   const [, setEventIdToDisplay] =

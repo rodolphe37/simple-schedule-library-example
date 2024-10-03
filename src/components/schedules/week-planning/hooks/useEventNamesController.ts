@@ -4,17 +4,17 @@ const useEventNamesController = ({
   eventsName,
   eventsNameUs,
 }: {
-  eventsName: TeventsName;
+  eventsName?: TeventsName;
   eventsNameUs?: TeventsName;
 }) => {
   const eventInstructionNamesFr = {
-    eventType_1: `${eventsName.eventType_1}`,
-    eventType_2: `${eventsName.eventType_2}`,
-    eventType_3: `${eventsName.eventType_3}`,
-    eventType_4: `${eventsName.eventType_4}`,
-    eventType_5: `${eventsName.eventType_5}`,
-    eventType_6: `${eventsName.eventType_6}`,
-    eventType_7: `${eventsName.eventType_7}`,
+    eventType_1: `${eventsName?.eventType_1}`,
+    eventType_2: `${eventsName?.eventType_2}`,
+    eventType_3: `${eventsName?.eventType_3}`,
+    eventType_4: `${eventsName?.eventType_4}`,
+    eventType_5: `${eventsName?.eventType_5}`,
+    eventType_6: `${eventsName?.eventType_6}`,
+    eventType_7: `${eventsName?.eventType_7}`,
   };
 
   const eventInstructionNameFr = (str: string) => {

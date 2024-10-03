@@ -36,7 +36,7 @@ type TCellEventsInfoModalProps = {
     | undefined;
   eventByEventType: string | undefined;
   isFrenchDegree: " °C" | " °F";
-  eventsName: TeventsName;
+  eventsName?: TeventsName;
   eventsNameUs?: TeventsName;
 };
 

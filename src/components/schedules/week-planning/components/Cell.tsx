@@ -61,7 +61,7 @@ const Cell = ({
                           <p>
                             {idx === 1 &&
                             timeEvent.instruction !== EventTypes.EVENT_TYPE_6
-                              ? "it's a ref"
+                              ? "There is a problem with you events, check your event array"
                               : null}
                           </p>
                           <CellEvent

@@ -1,15 +1,7 @@
-export type EventInstruction =
-  | "presence_1"
-  | "presence_2"
-  | "presence_3"
-  | "presence_4"
-  | "away"
-  | "frost_protection"
-  | "night";
 
 export interface TimeSlot {
   start: number;
-  instruction: EventInstruction;
+  instruction: string | number;
 }
 
 export enum Days {

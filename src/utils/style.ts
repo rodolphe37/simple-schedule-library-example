@@ -1,47 +1,5 @@
 import breakpoints from "./breakpoints";
-import { CommunicationStatus } from "./types";
 
-export const getColorFromObjectCommunicationStatus = (
-  status: CommunicationStatus
-) => {
-  switch (status) {
-    case CommunicationStatus.OK:
-      return "text-green-600";
-    case CommunicationStatus.WARNING:
-      return "text-yellow-500";
-    case CommunicationStatus.CRITICAL:
-    case CommunicationStatus.NO_TRANSMISSION:
-    default:
-      return "text-red-500";
-  }
-};
-
-export const hrStyle: React.CSSProperties | undefined = {
-  marginTop: "5px",
-  border: "0.5px dotted lightgray",
-  borderRadius: "5px",
-  width: "100%",
-  marginBottom: "10px",
-  opacity: 0.35,
-};
-
-export const projectDetailResponsiveStyle = (width: number) =>
-  width < breakpoints.xs
-    ? { paddingTop: "0rem" }
-    : width < breakpoints.sm
-    ? { paddingTop: "3rem" }
-    : width > breakpoints.md
-    ? { paddingTop: "4rem" }
-    : {};
-
-export const gridResponsiveStyle = (width: number) =>
-  width < breakpoints.xs
-    ? { gridTemplateColumns: "repeat(1,1fr)", paddingTop: "10rem" }
-    : width < breakpoints.md
-    ? { gridTemplateColumns: "repeat(2,1fr)", paddingTop: "6rem" }
-    : width > breakpoints.md
-    ? { gridTemplateColumns: "repeat(3,1fr)" }
-    : {};
 
 export const ParametersContainerStyle = (width: number) =>
   width < breakpoints.xs
@@ -52,14 +10,6 @@ export const ParametersContainerStyle = (width: number) =>
     ? { paddingTop: "2rem" }
     : { paddingTop: "6rem" };
 
-export const programmationContainerStyle = (width: number) =>
-  width < breakpoints.xs
-    ? { paddingTop: "8rem" }
-    : width < breakpoints.sm
-    ? { paddingTop: "4rem" }
-    : width > breakpoints.md
-    ? { paddingTop: "1rem" }
-    : { paddingTop: "6rem" };
 
 export const schedulesContainerStyle = (width: number) =>
   width < breakpoints.xs
@@ -70,12 +20,6 @@ export const schedulesContainerStyle = (width: number) =>
     ? { marginTop: "1rem", padding: "4em 6em" }
     : { marginTop: "2rem", padding: "4em' 6em" };
 
-export const housingContainerStyle = (width: number) =>
-  width > breakpoints.xs && width < breakpoints.sm
-    ? { paddingTop: "8rem" }
-    : width < breakpoints.xs
-    ? { paddingTop: "8rem" }
-    : { paddingTop: "6rem" };
 
 export const bgGray200_700Color = "bg-gray-200 dark:bg-gray-700";
 

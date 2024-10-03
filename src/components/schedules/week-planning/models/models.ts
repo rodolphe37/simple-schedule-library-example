@@ -38,7 +38,7 @@ export interface CellEventProps {
   eventArray: EventType[] | undefined;
   colorCellByEvents: Omit<TeventTypeData, "eventPlace_id">;
   eventsTextColor: Omit<TeventTypeData, "eventPlace_id">;
-  eventsName: TeventsName;
+  eventsName?: TeventsName;
   eventsNameUs?: TeventsName;
 }
 
@@ -63,7 +63,7 @@ export interface CellProps {
   events: EventType[] | undefined;
   colorCellByEvents: Omit<TeventTypeData, "eventPlace_id">;
   eventsTextColor: Omit<TeventTypeData, "eventPlace_id">;
-  eventsName: TeventsName;
+  eventsName?: TeventsName;
   eventsNameUs?: TeventsName;
 }
 
