@@ -19,6 +19,8 @@ const Cell = ({
   events,
   colorCellByEvents,
   eventsTextColor,
+  eventsName,
+  eventsNameUs,
 }: CellProps) => {
   const [eventIdToDisplay, setEventIdToDisplay] =
     useRecoilState<TEventToDisplay>(eventIdToDIsplayAtom);
@@ -63,6 +65,8 @@ const Cell = ({
                               : null}
                           </p>
                           <CellEvent
+                            eventsNameUs={eventsNameUs}
+                            eventsName={eventsName}
                             eventsTextColor={eventsTextColor}
                             colorCellByEvents={colorCellByEvents}
                             eventArray={eventTypesByScheduleId}

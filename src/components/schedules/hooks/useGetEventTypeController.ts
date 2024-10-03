@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
-import { EventTypes, TeventTypeData } from "../types";
+import { EventTypes, TeventsName, TeventTypeData } from "../types";
+import useEventNamesController from "../week-planning/hooks/useEventNamesController";
 
 type ErrorResponse = {
   error_code: number | null;
@@ -19,7 +20,9 @@ type eventWithNewNamesProps = {
 
 const useGetEventTypeController = (
   eventTypeData: TeventTypeData,
-  locale: string
+  locale: string,
+  eventsName: TeventsName,
+  eventsNameUs?: TeventsName
 ) => {
   const error = eventTypeData === undefined;
 
@@ -41,7 +44,8 @@ const useGetEventTypeController = (
           : "No library of event types exists",
     };
   }
-
+  const { eventInstructionNamesFr, eventInstructionNamesUs } =
+    useEventNamesController({ eventsName, eventsNameUs });
   const [eventWithNewNames] = useState<eventWithNewNamesProps>([]);
   const numberOfTemperatures = 7;
 
@@ -52,7 +56,10 @@ const useGetEventTypeController = (
           case EventTypes.EVENT_TYPE_1:
             eventWithNewNames.push({
               id: 0,
-              key: locale === "fr" ? "Présence 1" : "Presence 1",
+              key:
+                locale === "fr"
+                  ? eventInstructionNamesFr.eventType_1
+                  : eventInstructionNamesUs.eventType_1,
               originalKey: res.key,
               value: res.value,
             });
@@ -60,7 +67,10 @@ const useGetEventTypeController = (
           case EventTypes.EVENT_TYPE_2:
             eventWithNewNames.push({
               id: 1,
-              key: locale === "fr" ? "Présence 2" : "Presence 2",
+              key:
+                locale === "fr"
+                  ? eventInstructionNamesFr.eventType_2
+                  : eventInstructionNamesUs.eventType_2,
               originalKey: res.key,
               value: res.value,
             });
@@ -68,7 +78,10 @@ const useGetEventTypeController = (
           case EventTypes.EVENT_TYPE_3:
             eventWithNewNames.push({
               id: 2,
-              key: locale === "fr" ? "Présence 3" : "Presence 3",
+              key:
+                locale === "fr"
+                  ? eventInstructionNamesFr.eventType_3
+                  : eventInstructionNamesUs.eventType_3,
               originalKey: res.key,
               value: res.value,
             });
@@ -76,7 +89,10 @@ const useGetEventTypeController = (
           case EventTypes.EVENT_TYPE_4:
             eventWithNewNames.push({
               id: 3,
-              key: locale === "fr" ? "Présence 4" : "Presence 4",
+              key:
+                locale === "fr"
+                  ? eventInstructionNamesFr.eventType_4
+                  : eventInstructionNamesUs.eventType_4,
               originalKey: res.key,
               value: res.value,
             });
@@ -84,7 +100,10 @@ const useGetEventTypeController = (
           case EventTypes.EVENT_TYPE_5:
             eventWithNewNames.push({
               id: 4,
-              key: locale === "fr" ? "Èco" : "Eco",
+              key:
+                locale === "fr"
+                  ? eventInstructionNamesFr.eventType_5
+                  : eventInstructionNamesUs.eventType_5,
               originalKey: res.key,
               value: res.value,
             });
@@ -92,7 +111,10 @@ const useGetEventTypeController = (
           case EventTypes.EVENT_TYPE_6:
             eventWithNewNames.push({
               id: 5,
-              key: locale === "fr" ? "Asbence" : "Away",
+              key:
+                locale === "fr"
+                  ? eventInstructionNamesFr.eventType_6
+                  : eventInstructionNamesUs.eventType_6,
               originalKey: res.key,
               value: res.value,
             });
@@ -100,7 +122,10 @@ const useGetEventTypeController = (
           case EventTypes.EVENT_TYPE_7:
             eventWithNewNames.push({
               id: 6,
-              key: locale === "fr" ? "Hors gel" : "frost protection",
+              key:
+                locale === "fr"
+                  ? eventInstructionNamesFr.eventType_7
+                  : eventInstructionNamesUs.eventType_7,
               originalKey: res.key,
               value: res.value,
             });
@@ -115,7 +140,13 @@ const useGetEventTypeController = (
         });
       });
     },
-    [eventType, eventWithNewNames, locale]
+    [
+      eventType,
+      eventWithNewNames,
+      locale,
+      eventInstructionNamesFr,
+      eventInstructionNamesUs,
+    ]
   );
 
   if (eventWithNewNames?.length < numberOfTemperatures) {

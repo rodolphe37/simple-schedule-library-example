@@ -1,5 +1,5 @@
 import { SetterOrUpdater } from "recoil";
-import { TContentForModal, TeventTypeData } from "../../types";
+import { TContentForModal, TeventsName, TeventTypeData } from "../../types";
 
 export interface EventType {
   id: string;
@@ -33,11 +33,13 @@ export interface CellEventProps {
   isInDarkMode?: boolean;
   eventTypeData: TeventTypeData;
   locale: string;
-  modalContent?: TContentForModal
-  scheduleIdentifier: string
-  eventArray: EventType[] | undefined
-  colorCellByEvents:string[],
-  eventsTextColor: string[]
+  modalContent?: TContentForModal;
+  scheduleIdentifier: string;
+  eventArray: EventType[] | undefined;
+  colorCellByEvents: Omit<TeventTypeData, "eventPlace_id">;
+  eventsTextColor: Omit<TeventTypeData, "eventPlace_id">;
+  eventsName: TeventsName;
+  eventsNameUs?: TeventsName;
 }
 
 export interface CellProps {
@@ -56,11 +58,13 @@ export interface CellProps {
   isInDarkMode?: boolean;
   eventTypeData: TeventTypeData;
   locale: string;
-  modalContent?: TContentForModal
-  scheduleIdentifier: string
-  events: EventType[] | undefined
-  colorCellByEvents:string[];
-  eventsTextColor: string[]
+  modalContent?: TContentForModal;
+  scheduleIdentifier: string;
+  events: EventType[] | undefined;
+  colorCellByEvents: Omit<TeventTypeData, "eventPlace_id">;
+  eventsTextColor: Omit<TeventTypeData, "eventPlace_id">;
+  eventsName: TeventsName;
+  eventsNameUs?: TeventsName;
 }
 
 export type TEventToDisplay = {

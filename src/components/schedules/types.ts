@@ -44,7 +44,7 @@ export type TeventTypeData = {
   eventType_3?: number | string;
   eventType_4?: number | string;
   eventType_5?: number | string;
-  eventType_6?: number | string;
+  eventType_6: number | string;
   eventType_7?: number | string;
 };
 
@@ -56,3 +56,13 @@ export type TContentForModal = {
   eventTitle: string;
   contentModal: JSX.Element;
 }[];
+
+export type TeventsName = {
+  eventType_1: string;
+  eventType_2?: string;
+  eventType_3?: string;
+  eventType_4?: string;
+  eventType_5?: string;
+  eventType_6: string;
+  eventType_7?: string;
+};

@@ -12,7 +12,7 @@ import CalendarScrollToTopButton from "./CalendarScrollToTopButton";
 import CalendarScrollToBottomButton from "./CalendarScrollToBottomButton";
 import useWindowDimensions from "../../../../hooks/useGetWindowDimensions";
 import HoursRangeIndicator from "./HoursRangeIndicator";
-import { TContentForModal, TeventTypeData } from "../../types";
+import { TContentForModal, TeventsName, TeventTypeData } from "../../types";
 import useGetDaysController from "../../hooks/useGetDaysController";
 
 interface ICalendarProps {
@@ -24,8 +24,10 @@ interface ICalendarProps {
   locale: string;
   modalContent?: TContentForModal;
   withDays?: boolean;
-  colorCellByEvents: string[];
-  eventsTextColor: string[];
+  colorCellByEvents: Omit<TeventTypeData, "eventPlace_id">;
+  eventsTextColor: Omit<TeventTypeData, "eventPlace_id">;
+  eventsName: TeventsName;
+  eventsNameUs?: TeventsName;
 }
 
 const Calendar = ({
@@ -39,6 +41,8 @@ const Calendar = ({
   withDays,
   colorCellByEvents,
   eventsTextColor,
+  eventsName,
+  eventsNameUs,
 }: ICalendarProps) => {
   const {
     updateScroll,
@@ -112,6 +116,8 @@ const Calendar = ({
               {sortedEventsDaySlotArray?.map((res, i) => (
                 <Fragment key={i}>
                   <Cell
+                    eventsNameUs={eventsNameUs}
+                    eventsName={eventsName}
                     eventsTextColor={eventsTextColor}
                     colorCellByEvents={colorCellByEvents}
                     events={events}

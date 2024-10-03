@@ -1,5 +1,5 @@
 import { getSchedulesByEventPlaceIdResponse } from "../../../entities/schedules";
-import { TContentForModal, TeventTypeData } from "../types";
+import { TContentForModal, TeventsName, TeventTypeData } from "../types";
 import WeekPlanning from "./WeekPlanning";
 
 const ScheduleView = ({
@@ -13,6 +13,8 @@ const ScheduleView = ({
   withDays,
   colorCellByEvents,
   eventsTextColor,
+  eventsName,
+  eventsNameUs,
 }: {
   scheduleId: string | undefined;
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
@@ -22,12 +24,16 @@ const ScheduleView = ({
   locale: string;
   modalContent?: TContentForModal;
   withDays?: boolean;
-  colorCellByEvents: string[];
-  eventsTextColor: string[];
+  colorCellByEvents: Omit<typeof eventTypeData, "eventPlace_id">;
+  eventsTextColor: Omit<typeof eventTypeData, "eventPlace_id">;
+  eventsName: TeventsName;
+  eventsNameUs?: TeventsName;
 }) => {
   return (
     <div className="w-full">
       <WeekPlanning
+        eventsNameUs={eventsNameUs}
+        eventsName={eventsName}
         eventsTextColor={eventsTextColor}
         colorCellByEvents={colorCellByEvents}
         withDays={withDays}

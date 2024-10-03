@@ -2,7 +2,9 @@ import { ParametersContainerStyle } from "../../utils/style";
 import useWindowDimensions from "../../hooks/useGetWindowDimensions";
 import useGetEventTypeController from "../schedules/hooks/useGetEventTypeController";
 import InstructionsList from "./InstructionsList";
-import { TeventTypeData } from "../schedules/types";
+import { TeventsName, TeventTypeData } from "../schedules/types";
+import { getSchedulesByEventPlaceIdResponse } from "../../entities/schedules";
+import { useParams } from "react-router-dom";
 
 const ParametersDetails = ({
   eventTypeData,
@@ -10,18 +12,31 @@ const ParametersDetails = ({
   locale,
   colorCellByEvents,
   eventsTextColor,
+  eventsName,
+  eventsNameUs,
+  scheduleByEventPlace,
 }: {
   eventTypeData: TeventTypeData;
   isInDarkMode: boolean;
   locale: string;
-  colorCellByEvents: string[];
-  eventsTextColor: string[];
+  colorCellByEvents: Omit<typeof eventTypeData, "eventPlace_id">;
+  eventsTextColor: Omit<typeof eventTypeData, "eventPlace_id">;
+  eventsName: TeventsName;
+  eventsNameUs?: TeventsName;
+  scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
 }) => {
   const { width } = useWindowDimensions();
+  const { scheduleId } = useParams<"scheduleId">();
   const { errorResponse, eventWithNewNames } = useGetEventTypeController(
     eventTypeData!,
-    locale
+    locale,
+    eventsName,
+    eventsNameUs
   );
+
+  const scheduleTypeByScheduleId = scheduleByEventPlace.schedules.find(
+    (res) => res.id === scheduleId
+  )?.type;
 
   return (
     <div
@@ -40,6 +55,8 @@ const ParametersDetails = ({
             {eventWithNewNames.map((result) => {
               return (
                 <InstructionsList
+                  scheduleTypeByScheduleId={scheduleTypeByScheduleId}
+                  locale={locale}
                   eventsTextColor={eventsTextColor}
                   colorCellByEvents={colorCellByEvents}
                   key={result.id}

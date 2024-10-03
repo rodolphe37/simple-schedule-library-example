@@ -7,7 +7,7 @@ import BackArrowIcon from "../../ui/icons/BackArrowIcon";
 import CustomSelect from "../../ui/customSelectComponent/CustomSelect";
 import { TSelectedValueProps } from "../../ui/customSelectComponent/types";
 import { getSchedulesByEventPlaceIdResponse } from "../../entities/schedules";
-import { TContentForModal, TeventTypeData } from "./types";
+import { TContentForModal, TeventsName, TeventTypeData } from "./types";
 
 const ScheduleViewWrapper = ({
   scheduleByEventPlace,
@@ -20,6 +20,8 @@ const ScheduleViewWrapper = ({
   withDays,
   colorCellByEvents,
   eventsTextColor,
+  eventsName,
+  eventsNameUs,
 }: {
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
   weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
@@ -29,8 +31,10 @@ const ScheduleViewWrapper = ({
   locale: string;
   modalContent?: TContentForModal;
   withDays?: boolean;
-  colorCellByEvents: string[];
-  eventsTextColor: string[];
+  colorCellByEvents: Omit<typeof eventTypeData, "eventPlace_id">;
+  eventsTextColor: Omit<typeof eventTypeData, "eventPlace_id">;
+  eventsName: TeventsName;
+  eventsNameUs?: TeventsName;
 }) => {
   const navigate = useNavigate();
   const { scheduleId } = useParams<"scheduleId">();
@@ -141,6 +145,8 @@ const ScheduleViewWrapper = ({
         />
       </div>
       <ScheduleView
+        eventsNameUs={eventsNameUs}
+        eventsName={eventsName}
         eventsTextColor={eventsTextColor}
         colorCellByEvents={colorCellByEvents}
         withDays={withDays}

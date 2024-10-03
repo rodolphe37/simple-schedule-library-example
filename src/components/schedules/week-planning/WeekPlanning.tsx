@@ -4,7 +4,7 @@ import Calendar from "./components/Calendar";
 import eventIdToDIsplayAtom from "../../../globalStates/atoms/eventIdToDisplayAtom";
 import { useRecoilState } from "recoil";
 import { getSchedulesByEventPlaceIdResponse } from "../../../entities/schedules";
-import { TContentForModal, TeventTypeData } from "../types";
+import { TContentForModal, TeventsName, TeventTypeData } from "../types";
 
 const WeekPlanning = ({
   scheduleIdentifier,
@@ -17,6 +17,8 @@ const WeekPlanning = ({
   withDays,
   colorCellByEvents,
   eventsTextColor,
+  eventsName,
+  eventsNameUs,
 }: {
   scheduleIdentifier?: string;
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
@@ -26,8 +28,10 @@ const WeekPlanning = ({
   locale: string;
   modalContent?: TContentForModal;
   withDays?: boolean;
-  colorCellByEvents: string[];
-  eventsTextColor: string[];
+  colorCellByEvents: Omit<typeof eventTypeData, "eventPlace_id">;
+  eventsTextColor: Omit<typeof eventTypeData, "eventPlace_id">;
+  eventsName: TeventsName;
+  eventsNameUs?: TeventsName;
 }) => {
   const [, setEventIdToDisplay] =
     useRecoilState<TEventToDisplay>(eventIdToDIsplayAtom);
@@ -52,6 +56,8 @@ const WeekPlanning = ({
       }`}
     >
       <Calendar
+        eventsNameUs={eventsNameUs}
+        eventsName={eventsName}
         eventsTextColor={eventsTextColor}
         colorCellByEvents={colorCellByEvents}
         withDays={withDays}

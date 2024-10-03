@@ -4,9 +4,9 @@ import { CellEventProps } from "../models/models";
 import CellEventsInfosModal from "./CellEventsInfosModal";
 import useGetEventTypeController from "../../hooks/useGetEventTypeController";
 import { EventTypes } from "../../types";
-import useColorByEventController from "../hooks/useColorByEventController";
 import useDispatchColorsByEvent from "../../hooks/useDispatchColorsByEvent";
 import { extractNumbers } from "../utils/helpers";
+import useEventNamesController from "../hooks/useEventNamesController";
 
 const CellEvent = ({
   timeEvent: event,
@@ -24,9 +24,11 @@ const CellEvent = ({
   eventArray,
   colorCellByEvents,
   eventsTextColor,
+  eventsName,
+  eventsNameUs,
 }: CellEventProps) => {
   const { eventInstructionNameFr, eventInstructionNameUs } =
-    useColorByEventController();
+    useEventNamesController({ eventsName, eventsNameUs });
   const { colorCellByTemp, textEventColorInCell } = useDispatchColorsByEvent({
     colorCellByEvents,
     eventsTextColor,
@@ -35,7 +37,11 @@ const CellEvent = ({
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>();
 
-  const { eventType } = useGetEventTypeController(eventTypeData!, locale);
+  const { eventType } = useGetEventTypeController(
+    eventTypeData!,
+    locale,
+    eventsName
+  );
 
   const eventInstructionTextWithoutWhiteSpace = event.instruction.trim();
 
@@ -103,6 +109,8 @@ const CellEvent = ({
         ? null
         : isModalOpen && (
             <CellEventsInfosModal
+              eventsNameUs={eventsNameUs}
+              eventsName={eventsName}
               isFrenchDegree={isFrenchDegree}
               numbersForCalendarType={numbersForCalendarType}
               eventByEventType={eventByEventType}
@@ -128,8 +136,10 @@ const CellEvent = ({
             height: heightSize(),
             backgroundColor: colorCellByTemp(
               eventInstructionTextWithoutWhiteSpace
-            ),
-            color: textEventColorInCell(eventInstructionTextWithoutWhiteSpace),
+            ) as string,
+            color: textEventColorInCell(
+              eventInstructionTextWithoutWhiteSpace
+            ) as string,
             fontSize:
               eventInstructionTextWithoutWhiteSpace.length > 6
                 ? "0.55rem"

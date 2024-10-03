@@ -8,6 +8,7 @@ import { Loader } from "../../ui/components/Loader";
 import ErrorFallback from "../../ui/components/ErrorFallBack";
 import { RecoilRoot } from "recoil";
 import ParametersDetails from "../legende-color/ParametersDetails";
+import { TeventsName } from "../schedules/types";
 
 export const SchedulesLayout = ({
   scheduleByEventPlace,
@@ -21,6 +22,8 @@ export const SchedulesLayout = ({
   withDays,
   colorCellByEvents,
   eventsTextColor,
+  eventsName,
+  eventsNameUs,
 }: {
   scheduleByEventPlace: {
     schedules: {
@@ -38,10 +41,11 @@ export const SchedulesLayout = ({
   };
   weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
   isInDarkMode: boolean;
-  colorCellByEvents: string[];
-  eventsTextColor: string[];
+  colorCellByEvents: Omit<typeof eventTypeData, "eventPlace_id">;
+  eventsTextColor: Omit<typeof eventTypeData, "eventPlace_id">;
   locale: string;
-
+  eventsName: TeventsName;
+  eventsNameUs?: TeventsName;
   eventTypeData: {
     eventPlace_id?: string;
     eventType_1: number | string;
@@ -49,7 +53,7 @@ export const SchedulesLayout = ({
     eventType_3?: number | string;
     eventType_4?: number | string;
     eventType_5?: number | string;
-    eventType_6?: number | string;
+    eventType_6: number | string;
     eventType_7?: number | string;
   };
 
@@ -96,6 +100,8 @@ export const SchedulesLayout = ({
                   />
                 ) : (
                   <ScheduleViewWrapper
+                    eventsNameUs={eventsNameUs}
+                    eventsName={eventsName}
                     eventsTextColor={eventsTextColor}
                     colorCellByEvents={colorCellByEvents}
                     withDays={withDays}
@@ -129,13 +135,18 @@ export const SchedulesLayout = ({
                 {withLegend ? (
                   <Fragment>
                     <ParametersDetails
+                      eventsNameUs={eventsNameUs}
+                      eventsName={eventsName}
                       eventsTextColor={eventsTextColor}
                       colorCellByEvents={colorCellByEvents}
                       locale={locale}
                       isInDarkMode={isInDarkMode}
                       eventTypeData={eventTypeData}
+                      scheduleByEventPlace={scheduleByEventPlace}
                     />
                     <ScheduleViewWrapper
+                      eventsNameUs={eventsNameUs}
+                      eventsName={eventsName}
                       eventsTextColor={eventsTextColor}
                       colorCellByEvents={colorCellByEvents}
                       withDays={withDays}
@@ -150,6 +161,8 @@ export const SchedulesLayout = ({
                   </Fragment>
                 ) : (
                   <ScheduleViewWrapper
+                    eventsNameUs={eventsNameUs}
+                    eventsName={eventsName}
                     eventsTextColor={eventsTextColor}
                     colorCellByEvents={colorCellByEvents}
                     withDays={withDays}

@@ -1,4 +1,4 @@
-import { Days } from "../../types";
+import { Days, TeventsName } from "../../types";
 import {
   capitalizeFirstLetter,
   formatTime,
@@ -6,7 +6,7 @@ import {
   daysOfWeekNameUs,
 } from "../utils/helpers";
 import CrossIcon from "../../../../ui/icons/CrossIcon";
-import useColorByEventController from "../hooks/useColorByEventController";
+import useEventNamesController from "../hooks/useEventNamesController";
 
 type TCellEventsInfoModalProps = {
   numbersForCalendarType: string;
@@ -36,6 +36,8 @@ type TCellEventsInfoModalProps = {
     | undefined;
   eventByEventType: string | undefined;
   isFrenchDegree: " °C" | " °F";
+  eventsName: TeventsName;
+  eventsNameUs?: TeventsName;
 };
 
 const CellEventsInfosModal = ({
@@ -52,10 +54,12 @@ const CellEventsInfosModal = ({
   locale,
   modalContentForDisplaying,
   eventByEventType,
+  eventsName,
+  eventsNameUs,
 }: TCellEventsInfoModalProps) => {
   const daySelected = capitalizeFirstLetter(Days[day]);
   const { eventInstructionNameFr, eventInstructionNameUs } =
-    useColorByEventController();
+    useEventNamesController({ eventsName, eventsNameUs });
 
   return (
     <div

@@ -18,7 +18,7 @@ import { scheduleByEventPlace, eventTypeData } from "./data";
 import { contentForModal } from "./dataCards";
 
 // types for app elements
-import { TcolorCellByEvents, TeventsTextColor } from "./dataTypes";
+import { TcolorCellByEvents, TeventsName, TeventsTextColor } from "./dataTypes";
 
 // IMPORT FROM NPM LIBRARY -  it will be = import {SchedulesLayout} from "react-simple-schedules-viewer"
 import { SchedulesLayout } from "./components/layout/SchedulesLayout";
@@ -47,26 +47,46 @@ function App() {
 
   // the default order of colors in the array is: [eventType_1, eventType_2 , eventType_3", eventType_4",
   //  eventType_5, eventType_6, eventType_7]
-  const colorCellByEvents: TcolorCellByEvents = [
-    "#FFF2C4",
-    "#FED7AD",
-    "#DBFFE2",
-    "#F6D1FF",
-    "#A0ABC0",
-    isDarkMode ? "#2D3648" : "#EDF0F7", // eventType_6 is always the away, closed or absent event
-    "#B0DCFF",
-  ];
+  const colorCellByEvents: TcolorCellByEvents = {
+    eventType_1: "#FFF2C4",
+    eventType_2: "#FED7AD",
+    eventType_3: "#DBFFE2",
+    eventType_4: "#F6D1FF",
+    eventType_5: "#A0ABC0",
+    eventType_6: isDarkMode ? "#2D3648" : "#EDF0F7", // eventType_6 is always the away, closed or absent event
+    eventType_7: "#B0DCFF",
+  };
   // the default order of colors in the array is: [eventType_1, eventType_2 , eventType_3", eventType_4",
   //  eventType_5, eventType_6, eventType_7]
-  const eventsTextColor: TeventsTextColor = [
-    "#B99100",
-    "#D46E00",
-    "#00B51E",
-    "#F134F7",
-    "#FFFFFF",
-    "#a0abc0", // eventType_6 is always the away, closed or absent event
-    "#0196EC",
-  ];
+  const eventsTextColor: TeventsTextColor = {
+    eventType_1: "#B99100", // eventType_1 - required
+    eventType_2: "#D46E00", // eventType_2 - optional
+    eventType_3: "#00B51E", // eventType_3 - optional
+    eventType_4: "#F134F7", // eventType_4 - optional
+    eventType_5: "#FFFFFF", // eventType_5 - optional
+    eventType_6: "#a0abc0", // eventType_6 - required - is always the away, closed or absent event
+    eventType_7: "#0196EC", // eventType_7 - optional
+  };
+
+  // This is for temp type of schedule, the names of all eventTypes.
+  const eventsName: TeventsName = {
+    eventType_1: "Présence 1",
+    eventType_2: "Présence 2",
+    eventType_3: "Présence 3",
+    eventType_4: "Présence 4",
+    eventType_5: "Éco",
+    eventType_6: "Absence",
+    eventType_7: "Hors gel",
+  };
+  const eventsNameUs: TeventsName = {
+    eventType_1: "Presence 1",
+    eventType_2: "Presence 2",
+    eventType_3: "Presence 3",
+    eventType_4: "Presence 4",
+    eventType_5: "Eco",
+    eventType_6: "Away",
+    eventType_7: "Frost protection",
+  };
 
   const params = {
     withList,
@@ -103,6 +123,8 @@ function App() {
                 }
               >
                 <SchedulesLayout
+                  eventsNameUs={eventsNameUs}
+                  eventsName={eventsName}
                   scheduleByEventPlace={scheduleByEventPlace}
                   weekStartsOn={weekStartsOn}
                   isInDarkMode={isDarkMode}

@@ -15,18 +15,29 @@ export interface getSchedulesByEventPlaceIdResponse {
 export type TeventTypeData = {
   eventPlace_id: string;
   eventType_1: string;
-  eventType_2: string;
-  eventType_3: string;
-  eventType_4: string;
-  eventType_5: string;
+  eventType_2?: string;
+  eventType_3?: string;
+  eventType_4?: string;
+  eventType_5?: string;
   eventType_6: string;
-  eventType_7: string;
+  eventType_7?: string;
 };
-export type TcolorCellByEvents = string[];
+export type TcolorCellByEvents = Omit<TeventTypeData, "eventPlace_id">;
 
-export type TeventsTextColor = string[];
+export type TeventsTextColor = Omit<TeventTypeData, "eventPlace_id">;
 
 export enum LanguageKeys {
-    en = "en",
-    fr = "fr",
-  }
+  en = "en",
+  fr = "fr",
+}
+
+
+export type TeventsName = {
+  eventType_1: string;
+  eventType_2?: string;
+  eventType_3?: string;
+  eventType_4?: string;
+  eventType_5?: string;
+  eventType_6: string;
+  eventType_7?: string;
+}
