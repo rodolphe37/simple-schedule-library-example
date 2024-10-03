@@ -1,13 +1,13 @@
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes} from "react-router-dom";
 import SchedulesDetails from "../../components/schedules/SchedulesDetails";
-import { Fragment, Suspense, useLayoutEffect } from "react";
+import {Suspense, useLayoutEffect } from "react";
 import { bgGray200_700Color } from "../../utils/style";
 import ScheduleViewWrapper from "../schedules/ScheduleViewWrapper";
 import { ErrorBoundary } from "react-error-boundary";
 import { Loader } from "../../ui/components/Loader";
 import ErrorFallback from "../../ui/components/ErrorFallBack";
 import { RecoilRoot } from "recoil";
-import ParametersDetails from "../legende-color/ParametersDetails";
+// import ParametersDetails from "../legende-color/ParametersDetails";
 import { TeventsName } from "../schedules/types";
 
 export const SchedulesLayout = ({
@@ -15,7 +15,7 @@ export const SchedulesLayout = ({
   weekStartsOn,
   isInDarkMode,
   withList,
-  withLegend,
+  // withLegend = false,
   eventTypeData,
   locale,
   modalContent,
@@ -70,7 +70,7 @@ export const SchedulesLayout = ({
   }[];
   withDays?: boolean;
   withList?: boolean;
-  withLegend?: boolean;
+  // withLegend?: boolean;
   withListButtonName?: string;
   withListButtonNameUs?: string;
   withListReturnButton?: boolean;
@@ -142,9 +142,10 @@ export const SchedulesLayout = ({
               }
             >
               <ErrorBoundary FallbackComponent={ErrorFallback}>
-                {withLegend ? (
+                {/* {withLegend ? (
                   <Fragment>
                     <ParametersDetails
+                      modalContent={modalContent}
                       eventsNameUs={eventsNameUs}
                       eventsName={eventsName}
                       eventsTextColor={eventsTextColor}
@@ -169,7 +170,7 @@ export const SchedulesLayout = ({
                       modalContent={modalContent}
                     />
                   </Fragment>
-                ) : (
+                ) : ( */}
                   <ScheduleViewWrapper
                     eventsNameUs={eventsNameUs}
                     eventsName={eventsName}
@@ -184,7 +185,7 @@ export const SchedulesLayout = ({
                     scheduleByEventPlace={scheduleByEventPlace}
                     modalContent={modalContent}
                   />
-                )}
+                {/* )} */}
               </ErrorBoundary>
             </Suspense>
           }

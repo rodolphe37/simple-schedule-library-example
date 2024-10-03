@@ -5,8 +5,8 @@ import { LanguageKeys } from "./dataTypes";
 type params = {
   withList: boolean;
   setWithList: React.Dispatch<React.SetStateAction<boolean>>;
-  withLegend: boolean;
-  setWithLegend: React.Dispatch<React.SetStateAction<boolean>>;
+  // withLegend: boolean;
+  // setWithLegend: React.Dispatch<React.SetStateAction<boolean>>;
   isDarkMode: boolean;
   setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
   locale: LanguageKeys;
@@ -50,12 +50,12 @@ const TestButtons = (props: params) => {
         >
           {props.withList ? "Without " : "With "}list example
         </button>
-        <button
+        {/* <button
           style={{ background: props.withLegend ? "#aaaaaa" : "#f9f9f9" , color:"#000"}}
           onClick={() => props.setWithLegend((prevState) => !prevState)}
         >
           {props.withLegend ? "Without " : "With "}legend example
-        </button>
+        </button> */}
         <button
           style={{ background: props.isDarkMode ? "#aaaaaa" : "#f9f9f9" , color:"#000"}}
           onClick={() => props.setIsDarkMode((prevState) => !prevState)}

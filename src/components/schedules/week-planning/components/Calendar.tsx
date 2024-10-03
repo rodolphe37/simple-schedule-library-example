@@ -120,7 +120,7 @@ const Calendar = ({
                         style={
                           currentDayOfWeek === day
                             ? {
-                                color: "#4d57ff",
+                                color: isInDarkMode ? "#fff" : "#4d57ff",
                                 fontSize: "1.12rem",
                                 position: "relative",
                               }

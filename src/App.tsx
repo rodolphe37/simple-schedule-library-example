@@ -46,11 +46,11 @@ function App() {
   const location = useLocation();
   //  Variables for the ScheduleLayout component
   const weekStartsOn = 0;
-  const [withLegend, setWithLegend] = useState(false);
   const [withList, setWithList] = useState(false);
   const [withDays, setWithDays] = useState(false);
   const withListReturnButton = true;
   const [isDarkMode, setIsDarkMode] = useState(theme === "dark" ? true : false);
+
 
   // the default order of background colors in the array is
   const colorCellByEvents: TcolorCellByEvents = {
@@ -98,8 +98,6 @@ function App() {
   const params = {
     withList,
     setWithList,
-    withLegend,
-    setWithLegend,
     isDarkMode,
     setIsDarkMode,
     locale,
@@ -131,9 +129,6 @@ function App() {
                 }
               >
                 <SchedulesLayout
-                  withListReturnButton={withListReturnButton}
-                  withListButtonName="Retourner à la page d'acceuil"
-                  withListButtonNameUs="Go to HomePage"
                   scheduleByEventPlace={scheduleByEventPlace}
                   weekStartsOn={weekStartsOn}
                   isInDarkMode={isDarkMode}
@@ -146,7 +141,9 @@ function App() {
                   modalContent={contentForModal}
                   withDays={withDays}
                   withList={withList}
-                  withLegend={withLegend}
+                  withListButtonName="Retourner à la page d'acceuil"
+                  withListButtonNameUs="Go to HomePage"
+                  withListReturnButton={withListReturnButton}
                 />
               </Suspense>
             }
@@ -157,7 +154,7 @@ function App() {
       {withList &&
       !withListReturnButton &&
       location.pathname.includes("schedule") ? (
-        <button style={{marginTop:"7vh"}} onClick={() => navigate("/")}>
+        <button style={{ marginTop: "7vh" }} onClick={() => navigate("/")}>
           Revenir à la liste des options
         </button>
       ) : null}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import useDispatchColorsByEvent from "../schedules/hooks/useDispatchColorsByEvent";
 import { TeventTypeData } from "../schedules/types";
 import { extractNumbers } from "../schedules/week-planning/utils/helpers";
@@ -32,15 +32,17 @@ const InstructionsList = ({
   const numbersForCalendarType = extractNumbers(stringToExtract);
 
   const [valueFromType, setValueFromType] = useState<string | number>("");
+  const isFrenchDegree = locale == "fr" ? ` °C` : ` °F`;
+
   useEffect(() => {
-    const isFrenchDegree = locale == "fr" ? ` °C` : ` °F`;
+   
 
     if (scheduleTypeByScheduleId === "temps") {
       setValueFromType(numbersForCalendarType + isFrenchDegree);
     } else {
       setValueFromType(instruction.value!);
     }
-  }, [instruction, locale, numbersForCalendarType, scheduleTypeByScheduleId]);
+  }, [instruction, locale, numbersForCalendarType, scheduleTypeByScheduleId, isFrenchDegree]);
 
   return (
     <div
@@ -56,8 +58,14 @@ const InstructionsList = ({
             fontWeight: "bold",
           }}
         >
-          <p>{instruction.key} :</p>
-          <p>{valueFromType}</p>
+          {scheduleTypeByScheduleId === "calendar" ? (
+            ""
+          ) : (
+            <Fragment>
+              <p>{instruction.key}{scheduleTypeByScheduleId == "event" ? "" : " :"}</p>
+              <p>{scheduleTypeByScheduleId == "temp" ? `${extractNumbers(valueFromType.toString()) + isFrenchDegree}` : valueFromType}</p>
+            </Fragment>
+          )}
         </li>
       </ul>
     </div>
