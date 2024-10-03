@@ -24,6 +24,9 @@ export const SchedulesLayout = ({
   eventsTextColor,
   eventsName,
   eventsNameUs,
+  withListButtonName,
+  withListButtonNameUs,
+  withListReturnButton,
 }: {
   scheduleByEventPlace: {
     schedules: {
@@ -68,6 +71,9 @@ export const SchedulesLayout = ({
   withDays?: boolean;
   withList?: boolean;
   withLegend?: boolean;
+  withListButtonName?: string;
+  withListButtonNameUs?: string;
+  withListReturnButton?: boolean;
 }) => {
   useLayoutEffect(() => {
     window.scrollTo({
@@ -95,6 +101,10 @@ export const SchedulesLayout = ({
               <ErrorBoundary FallbackComponent={ErrorFallback}>
                 {withList ? (
                   <SchedulesDetails
+                    withListReturnButton={withListReturnButton}
+                    withListButtonNameUs={withListButtonNameUs}
+                    withListButtonName={withListButtonName}
+                    isDarkMode={isInDarkMode}
                     locale={locale}
                     scheduleByEventPlace={scheduleByEventPlace}
                   />

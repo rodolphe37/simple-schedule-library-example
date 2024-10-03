@@ -3,7 +3,13 @@ import "./App.css";
 import { bgGray200_700Color } from "./utils/style";
 // Per dependencies
 import { Suspense, useEffect, useState } from "react";
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import {
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 
 // Import necessary for language (fr or en) & for theme (dark or light) - (for the example)
 import { useLocale } from "./appComponents/context/useLocale";
@@ -27,6 +33,7 @@ import { SchedulesLayout } from "./components/layout/SchedulesLayout";
 function App() {
   const { locale, setLocale } = useLocale();
   const { theme, setTheme } = useTheme();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isDarkMode) {
@@ -42,6 +49,7 @@ function App() {
   const [withLegend, setWithLegend] = useState(false);
   const [withList, setWithList] = useState(false);
   const [withDays, setWithDays] = useState(false);
+  const withListReturnButton = true;
   const [isDarkMode, setIsDarkMode] = useState(theme === "dark" ? true : false);
 
   // the default order of background colors in the array is
@@ -74,7 +82,7 @@ function App() {
     eventType_4: "Présence 4",
     eventType_5: "Éco",
     eventType_6: "Absence",
-    eventType_7: "Hors gel",
+    eventType_7: "rendez-vous quotidien",
   };
   //  For french/English support both at the same time
   const eventsNameUs: TeventsName = {
@@ -84,7 +92,7 @@ function App() {
     eventType_4: "Presence 4",
     eventType_5: "Eco",
     eventType_6: "Away",
-    eventType_7: "Frost protection",
+    eventType_7: "daily appointment",
   };
 
   const params = {
@@ -106,6 +114,7 @@ function App() {
         {!location.pathname.includes("schedule") ? (
           <TestButtons {...params} />
         ) : null}
+
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route
@@ -122,6 +131,9 @@ function App() {
                 }
               >
                 <SchedulesLayout
+                  withListReturnButton={withListReturnButton}
+                  withListButtonName="Retourner à la page d'acceuil"
+                  withListButtonNameUs="Go to HomePage"
                   scheduleByEventPlace={scheduleByEventPlace}
                   weekStartsOn={weekStartsOn}
                   isInDarkMode={isDarkMode}
@@ -142,6 +154,13 @@ function App() {
           <Route path="*" element={<Navigate replace to="/" />} />
         </Routes>
       </div>
+      {withList &&
+      !withListReturnButton &&
+      location.pathname.includes("schedule") ? (
+        <button style={{marginTop:"7vh"}} onClick={() => navigate("/")}>
+          Revenir à la liste des options
+        </button>
+      ) : null}
     </div>
   );
 }

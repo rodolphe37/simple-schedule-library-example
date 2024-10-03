@@ -162,9 +162,7 @@ const CellEvent = ({
                 {eventByEventType === "temp"
                   ? numbersForCalendarType + isFrenchDegree
                   : null}
-                {eventByEventType === "calendar"
-                  ? null
-                  : null}
+                {eventByEventType === "calendar" ? null : null}
               </p>
               {currentEventType?.key === EventTypes.EVENT_TYPE_6 &&
               eventByEventType === "event" ? (
@@ -176,8 +174,8 @@ const CellEvent = ({
                   style={
                     modalContentForDisplaying?.eventTitle &&
                     modalContentForDisplaying.eventTitle.length > 0
-                      ? { fontSize: "12px" }
-                      : { fontSize: "14px" }
+                      ? { fontSize: "12px", whiteSpace: "pre-line" }
+                      : { fontSize: "14px", whiteSpace: "pre-line" }
                   }
                 >
                   {modalContentForDisplaying?.day === day &&
@@ -185,12 +183,8 @@ const CellEvent = ({
                   modalContentForDisplaying.eventTitle.length > 0
                     ? modalContentForDisplaying.eventTitle
                     : locale === "fr"
-                    ? eventInstructionNameFr(
-                        eventInstructionTextWithoutWhiteSpace
-                      )
-                    : eventInstructionNameUs(
-                        eventInstructionTextWithoutWhiteSpace
-                      )}
+                    ? eventInstructionNameFr(event.instruction)
+                    : eventInstructionNameUs(event.instruction)}
                 </p>
               )}
             </span>

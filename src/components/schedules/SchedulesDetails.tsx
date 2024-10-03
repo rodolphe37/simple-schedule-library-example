@@ -7,9 +7,17 @@ import { getSchedulesByEventPlaceIdResponse } from "../../entities/schedules";
 const SchedulesDetails = ({
   scheduleByEventPlace,
   locale,
+  isDarkMode,
+  withListButtonName,
+  withListButtonNameUs,
+  withListReturnButton
 }: {
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
   locale: string;
+  isDarkMode?: boolean;
+  withListButtonName?: string;
+  withListButtonNameUs?: string;
+  withListReturnButton?: boolean
 }) => {
   const [openCardId, setOpenCardId] = useState<string>("");
   const { width } = useWindowDimensions();
@@ -34,15 +42,23 @@ const SchedulesDetails = ({
     <div
       data-testid="schedulesCard"
       style={schedulesContainerStyle(width)}
-      className={" w-full min-w-80  min-h-28 mr-10 pr-8 "}
+      className={" w-full min-w-80  min-h-28 mr-10 pr-8 flex flex-col"}
     >
-      <Link
-        data-testid="forget-password"
-        className={`${textWhite_blue500} text-xs underline`}
-        to={`/`}
+      {withListReturnButton ? <button
+        style={{
+          background: isDarkMode ? "#9ca3af" : "#f9f9f9",
+          width: "25%",
+          marginBottom: "1vh",
+        }}
       >
-        Go to HomePage
-      </Link>
+        <Link
+          data-testid="forget-password"
+          className={`${textWhite_blue500} text-l `}
+          to={`/`}
+        >
+          {locale === "fr" ? withListButtonName : withListButtonNameUs}
+        </Link>
+      </button> : null}
       <div className="text-left pb-2 text-blue-600 dark:text-white font-semibold">
         <p>{locale === "fr" ? "Liste des plannings" : "List of schedules"}</p>
       </div>

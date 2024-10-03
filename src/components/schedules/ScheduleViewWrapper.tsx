@@ -170,7 +170,7 @@ const ScheduleViewWrapper = ({
           </h1>
         ) : null}
         <button
-          className="flex text-blue-600 hover:text-blue-800 dark:bg-gray-400 dark:text-white p-2 mb-2 mt-1 appearance-none outline-none focus:outline-none border-none active:border-none focus:border-none hover:border-none"
+          className="flex text-blue-600 hover:text-blue-800 dark:bg-gray-400 dark:text-white p-23 mb-2 mt-1 appearance-none outline-none focus:outline-none border-none active:border-none focus:border-none hover:border-none"
           onClick={() => (withList ? navigate(-1) : navigate("/"))}
         >
           <BackArrowIcon />
@@ -181,7 +181,7 @@ const ScheduleViewWrapper = ({
             </p>
           ) : (
             <p className="ml-2">
-              {locale === "fr" ? "Retour à l'accueil" : "Back to the home page"}
+              {locale === "fr" ? "Retour " : "Back "}
             </p>
           )}
         </button>
