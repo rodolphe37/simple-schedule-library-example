@@ -13,7 +13,7 @@ export interface getSchedulesByEventPlaceIdResponse {
   }[];
 }
 export type TeventTypeData = {
-  eventPlace_id: string;
+  eventPlace_id?: string;
   eventType_1: string;
   eventType_2?: string;
   eventType_3?: string;
