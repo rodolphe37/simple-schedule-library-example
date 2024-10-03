@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/22c381df-6ded-4edd-bc9c-b59b5e12f678/deploy-status)](https://app.netlify.com/sites/dynamic-yeot-d49838/deploys)
 # React-simple-schedule-viewer
 
 ![First render](demo/demo.png)
@@ -44,7 +45,7 @@
 
 # Live demo
 
-- [Link to live demo](https://endearing-sundae-c7a8c3.netlify.app/)
+- [Link to live demo](https://dynamic-yeot-d49838.netlify.app/)
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
