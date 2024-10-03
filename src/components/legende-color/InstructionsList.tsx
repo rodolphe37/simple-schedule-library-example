@@ -35,8 +35,6 @@ const InstructionsList = ({
   const isFrenchDegree = locale == "fr" ? ` °C` : ` °F`;
 
   useEffect(() => {
-   
-
     if (scheduleTypeByScheduleId === "temps") {
       setValueFromType(numbersForCalendarType + isFrenchDegree);
     } else {
