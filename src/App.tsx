@@ -36,9 +36,8 @@ function App() {
     }
   });
 
-
   const location = useLocation();
-//  Variables for the ScheduleLayout component
+  //  Variables for the ScheduleLayout component
   const weekStartsOn = 0;
   const [withLegend, setWithLegend] = useState(false);
   const [withList, setWithList] = useState(false);
@@ -123,14 +122,14 @@ function App() {
                 }
               >
                 <SchedulesLayout
-                  eventsNameUs={eventsNameUs}
-                  eventsName={eventsName}
                   scheduleByEventPlace={scheduleByEventPlace}
                   weekStartsOn={weekStartsOn}
                   isInDarkMode={isDarkMode}
                   colorCellByEvents={colorCellByEvents}
                   eventsTextColor={eventsTextColor}
                   locale={locale}
+                  eventsNameUs={eventsNameUs}
+                  eventsName={eventsName}
                   eventTypeData={eventTypeData}
                   modalContent={contentForModal}
                   withDays={withDays}
