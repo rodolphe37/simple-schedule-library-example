@@ -116,7 +116,7 @@ const ScheduleViewWrapper = ({
     };
   }, [height, location, scheduleId]);
 
-  const MONTHS = [
+  const MONTHS = locale === "fr" ? [
     "Janvier",
     "Fevrier",
     "Mars",
@@ -129,6 +129,19 @@ const ScheduleViewWrapper = ({
     "Octobre",
     "Novembre",
     "Décembre",
+  ] : [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "Décember",
   ];
 
 

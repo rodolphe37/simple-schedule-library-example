@@ -158,6 +158,22 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
       ],
     },
     {
+      id: "89d07045-095f-4e15-b03c-6450a8ab4264",
+      title: "Exemple de calendrier de type 'event' vide",
+      type: "event",
+      day_slot_set: [
+        {
+          days: [0, 1, 2, 3, 4, 5, 6],
+          time_slot: [
+            {
+              start: 0,
+              instruction: "eventType_6",
+            },
+          ],
+        },
+      ],
+    },
+    {
       id: "48a39d16-4acf-496c-a14d-106666dfd740",
       title: "Exemple de calendrier  de type 'temp'",
       type: "temp",
@@ -203,6 +219,22 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
       ],
     },
     {
+      id: "c81458c3-a4d5-4702-8b3f-09e2fd0fe17b",
+      title: "Exemple de calendrier de type 'temp' vide",
+      type: "temp",
+      day_slot_set: [
+        {
+          days: [0, 1, 2, 3, 4, 5, 6],
+          time_slot: [
+            {
+              start: 0,
+              instruction: "eventType_6",
+            },
+          ],
+        },
+      ],
+    },
+    {
       id: "5bfaefe7-a189-40de-bd8c-468bd4ff0e77",
       title: "Exemple de calendrier de type 'calendar'",
       type: "calendar",
@@ -226,6 +258,22 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
         },
       ],
     },
+    {
+      id: "47cdbc5a-74a9-47c6-a5ca-4c285748889b",
+      title: "Exemple de calendrier de type 'calendar' vide",
+      type: "calendar",
+      day_slot_set: [
+        {
+          days: [0, 1, 2, 3, 4, 5, 6],
+          time_slot: [
+            {
+              start: 0,
+              instruction: "eventType_6",
+            },
+          ],
+        },
+      ],
+    },
   ],
 };
 
@@ -239,5 +287,3 @@ export const eventTypeData: TeventTypeData = {
   eventType_6: "17 Euros",
   eventType_7: "15 Euros",
 };
-
-
