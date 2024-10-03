@@ -109,7 +109,7 @@ const CellEventsInfosModal = ({
                 ? currentEventType?.value
                 : eventByEventType === "temp"
                 ? numbersForCalendarType + isFrenchDegree
-                : currentEventType?.value}
+                : null}
             </p>
           </div>
           <div className="flex flex-row gap-4 items-center w-[65%] justify-between">

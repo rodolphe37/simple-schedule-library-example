@@ -161,7 +161,7 @@ const ScheduleViewWrapper = ({
               marginTop: "2vh",
               position: "absolute",
               left: "46%",
-              color: isInDarkMode ? "#fff" : "#2563eb"
+              color: isInDarkMode ? "#fff" : "#185ef6"
             }}
           >
             {MONTHS[month]} {year}

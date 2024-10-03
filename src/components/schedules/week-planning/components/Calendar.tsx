@@ -86,23 +86,65 @@ const Calendar = ({
                   ? calendarWithDaysFrench?.map((day) => (
                       <div
                         style={
-                          currentDayOfWeek === day ? { color: "#884dff" } : {}
+                          currentDayOfWeek === day
+                            ? {
+                                color: isInDarkMode ? "#fff" : "#4d57ff",
+                                fontSize: "1.12rem",
+                                position: "relative",
+                              }
+                            : {}
                         }
                         key={day}
                         className={`p-2 text-xs truncate md:text-base text-blue-600 dark:text-white -ml-6`}
                       >
                         {day}
+                        {currentDayOfWeek === day ? (
+                          <span
+                            title="Jour actuel"
+                            style={{
+                              cursor: "pointer",
+                              width: 7,
+                              height: 7,
+                              background: "red",
+                              position: "absolute",
+                              top: "30px",
+                              right: "50%",
+                              borderRadius: "100px",
+                            }}
+                          />
+                        ) : null}
                       </div>
                     ))
                   : calendarWithDaysUS?.map((day) => (
                       <div
                         style={
-                          currentDayOfWeek === day ? { color: "#884dff" } : {}
+                          currentDayOfWeek === day
+                            ? {
+                                color: "#4d57ff",
+                                fontSize: "1.12rem",
+                                position: "relative",
+                              }
+                            : {}
                         }
                         key={day}
                         className={`p-2 text-xs truncate md:text-base text-blue-600 dark:text-white -ml-6`}
                       >
                         {day}
+                        {currentDayOfWeek === day ? (
+                          <span
+                            title="Current day"
+                            style={{
+                              cursor: "pointer",
+                              width: 7,
+                              height: 7,
+                              background: "red",
+                              position: "absolute",
+                              top: "30px",
+                              right: "50%",
+                              borderRadius: "100px",
+                            }}
+                          />
+                        ) : null}
                       </div>
                     ))
                 : calendarData.weekDayNames.map((day) => (

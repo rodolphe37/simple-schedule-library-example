@@ -5,10 +5,12 @@ const HoursCell = ({
   hour,
   eventIdToDisplay,
   isInDarkMode,
+  isInFrench,
 }: {
   hour: string;
   eventIdToDisplay: TEventToDisplay;
   isInDarkMode?: boolean;
+  isInFrench: boolean;
 }) => {
   return (
     <div
@@ -29,6 +31,7 @@ const HoursCell = ({
                 color: "#4E80EE",
                 fontWeight: "bold",
                 left: 0,
+                opacity: isInFrench ? 1 : 0,
               }}
             >
               {formatTime(eventIdToDisplay.startTime)}
@@ -42,6 +45,7 @@ const HoursCell = ({
                 zIndex: 4,
                 left: 0,
                 top: 0,
+                opacity: isInFrench ? 1 : 0,
               }}
             />
           </>
@@ -57,6 +61,7 @@ const HoursCell = ({
                 top: "0.2rem",
                 color: "#4E80EE",
                 left: 0,
+                opacity: isInFrench ? 1 : 0,
               }}
             >
               {formatTime(eventIdToDisplay.endTime)}
@@ -69,6 +74,7 @@ const HoursCell = ({
                 position: "absolute",
                 left: 0,
                 top: 0,
+                opacity: isInFrench ? 1 : 0,
                 zIndex: 4,
               }}
             />
