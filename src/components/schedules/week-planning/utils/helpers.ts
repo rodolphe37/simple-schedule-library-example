@@ -1,3 +1,5 @@
+import { today } from "./dateUtils";
+
 // CODE FOR FIFTEEN MINUTES RANGE
 const byFifteenMinutesitems = [];
 for (let hour = 0; hour < 24; hour++) {
@@ -7,7 +9,7 @@ for (let hour = 0; hour < 24; hour++) {
   byFifteenMinutesitems.push([hour, 45]);
 }
 
-const forMinutesdate = new Date();
+const forMinutesdate = today;
 const formatterMinutes = new Intl.DateTimeFormat("fr-FR", {
   hour: "numeric",
   minute: "numeric",

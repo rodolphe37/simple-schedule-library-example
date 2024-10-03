@@ -163,7 +163,7 @@ const CellEvent = ({
                   ? numbersForCalendarType + isFrenchDegree
                   : null}
                 {eventByEventType === "calendar"
-                  ? currentEventType?.value
+                  ? null
                   : null}
               </p>
               {currentEventType?.key === EventTypes.EVENT_TYPE_6 &&

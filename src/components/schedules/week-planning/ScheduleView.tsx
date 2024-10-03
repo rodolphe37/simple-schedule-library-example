@@ -3,6 +3,7 @@ import { TContentForModal, TeventsName, TeventTypeData } from "../types";
 import WeekPlanning from "./WeekPlanning";
 
 const ScheduleView = ({
+  isInCalendarType,
   scheduleId,
   scheduleByEventPlace,
   weekStartsOn,
@@ -16,6 +17,7 @@ const ScheduleView = ({
   eventsName,
   eventsNameUs,
 }: {
+  isInCalendarType: string | undefined;
   scheduleId: string | undefined;
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
   weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
@@ -32,6 +34,7 @@ const ScheduleView = ({
   return (
     <div className="w-full">
       <WeekPlanning
+        isInCalendarType={isInCalendarType}
         eventsNameUs={eventsNameUs}
         eventsName={eventsName}
         eventsTextColor={eventsTextColor}

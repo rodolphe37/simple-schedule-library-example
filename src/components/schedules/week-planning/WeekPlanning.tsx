@@ -19,6 +19,7 @@ const WeekPlanning = ({
   eventsTextColor,
   eventsName,
   eventsNameUs,
+  isInCalendarType,
 }: {
   scheduleIdentifier?: string;
   scheduleByEventPlace: getSchedulesByEventPlaceIdResponse;
@@ -32,6 +33,7 @@ const WeekPlanning = ({
   eventsTextColor: Omit<typeof eventTypeData, "eventPlace_id">;
   eventsName?: TeventsName;
   eventsNameUs?: TeventsName;
+  isInCalendarType: string | undefined;
 }) => {
   const [, setEventIdToDisplay] =
     useRecoilState<TEventToDisplay>(eventIdToDIsplayAtom);
@@ -56,6 +58,7 @@ const WeekPlanning = ({
       }`}
     >
       <Calendar
+        isInCalendarType={isInCalendarType}
         eventsNameUs={eventsNameUs}
         eventsName={eventsName}
         eventsTextColor={eventsTextColor}

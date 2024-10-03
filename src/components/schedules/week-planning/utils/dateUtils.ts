@@ -23,3 +23,5 @@ export function generateWeekDaysData({
     weekDayNames,
   };
 }
+
+export const today = new Date();

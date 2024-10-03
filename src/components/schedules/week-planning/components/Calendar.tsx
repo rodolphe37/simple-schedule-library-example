@@ -14,6 +14,7 @@ import useWindowDimensions from "../../../../hooks/useGetWindowDimensions";
 import HoursRangeIndicator from "./HoursRangeIndicator";
 import { TContentForModal, TeventsName, TeventTypeData } from "../../types";
 import useGetDaysController from "../../hooks/useGetDaysController";
+import { today } from "../utils/dateUtils";
 
 interface ICalendarProps {
   weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
@@ -28,6 +29,7 @@ interface ICalendarProps {
   eventsTextColor: Omit<TeventTypeData, "eventPlace_id">;
   eventsName?: TeventsName;
   eventsNameUs?: TeventsName;
+  isInCalendarType: string | undefined;
 }
 
 const Calendar = ({
@@ -43,6 +45,7 @@ const Calendar = ({
   eventsTextColor,
   eventsName,
   eventsNameUs,
+  isInCalendarType,
 }: ICalendarProps) => {
   const {
     updateScroll,
@@ -55,6 +58,12 @@ const Calendar = ({
   const { height } = useWindowDimensions();
   const { calendarWithDaysUS, calendarWithDaysFrench } =
     useGetDaysController(calendarData);
+
+  const currentDay = today.getDay() - 1;
+  const currentDayOfWeek =
+    locale === "fr"
+      ? calendarWithDaysFrench[currentDay]
+      : calendarWithDaysUS[currentDay];
 
   return (
     <ScrollProvider
@@ -72,10 +81,13 @@ const Calendar = ({
                   scrollRef={scrollRef}
                 />
               </div>
-              {withDays
+              {withDays || isInCalendarType === "calendar"
                 ? locale === "fr"
                   ? calendarWithDaysFrench?.map((day) => (
                       <div
+                        style={
+                          currentDayOfWeek === day ? { color: "#884dff" } : {}
+                        }
                         key={day}
                         className={`p-2 text-xs truncate md:text-base text-blue-600 dark:text-white -ml-6`}
                       >
@@ -84,6 +96,9 @@ const Calendar = ({
                     ))
                   : calendarWithDaysUS?.map((day) => (
                       <div
+                        style={
+                          currentDayOfWeek === day ? { color: "#884dff" } : {}
+                        }
                         key={day}
                         className={`p-2 text-xs truncate md:text-base text-blue-600 dark:text-white -ml-6`}
                       >

@@ -7,7 +7,7 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
   schedules: [
     {
       id: "a397f1fe-14bf-4ca3-af8c-e497b98451f7",
-      title: "Exemple de calendrier d'évènements",
+      title: "Exemple de calendrier de type 'event'",
       type: "event",
       day_slot_set: [
         {
@@ -159,7 +159,7 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
     },
     {
       id: "48a39d16-4acf-496c-a14d-106666dfd740",
-      title: "Exemple de calendrier  de températures",
+      title: "Exemple de calendrier  de type 'temp'",
       type: "temp",
       day_slot_set: [
         {
@@ -204,7 +204,7 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
     },
     {
       id: "5bfaefe7-a189-40de-bd8c-468bd4ff0e77",
-      title: "Vacances – fermeture complète",
+      title: "Exemple de calendrier de type 'calendar'",
       type: "calendar",
       day_slot_set: [
         {
@@ -212,7 +212,15 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
           time_slot: [
             {
               start: 0,
+              instruction: "eventType_6",
+            },
+            {
+              start: 600,
               instruction: "eventType_7",
+            },
+            {
+              start: 960,
+              instruction: "eventType_6",
             },
           ],
         },

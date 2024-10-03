@@ -8,6 +8,7 @@ import CustomSelect from "../../ui/customSelectComponent/CustomSelect";
 import { TSelectedValueProps } from "../../ui/customSelectComponent/types";
 import { getSchedulesByEventPlaceIdResponse } from "../../entities/schedules";
 import { TContentForModal, TeventsName, TeventTypeData } from "./types";
+import { today } from "./week-planning/utils/dateUtils";
 
 const ScheduleViewWrapper = ({
   scheduleByEventPlace,
@@ -93,6 +94,12 @@ const ScheduleViewWrapper = ({
     }
   }, [scheduleId, selectedScheduleId, selectedScheduleTitle]);
 
+  const isInCalendarType = scheduleByEventPlace.schedules.find(
+    (res) => res.id === scheduleId
+  )?.type;
+
+  console.log("isInCalendarType", isInCalendarType);
+
   useEffect(() => {
     const body = document.getElementsByTagName("body")[0];
 
@@ -109,14 +116,52 @@ const ScheduleViewWrapper = ({
     };
   }, [height, location, scheduleId]);
 
+  const MONTHS = [
+    "Janvier",
+    "Fevrier",
+    "Mars",
+    "Avril",
+    "Mai",
+    "Juin",
+    "Juillet",
+    "Août",
+    "Septembre",
+    "Octobre",
+    "Novembre",
+    "Décembre",
+  ];
+
+
+
+  const month = today.getMonth();
+  const year = today.getFullYear();
+
+  console.log("CURRENT MONTH", MONTHS[month]);
+
   return (
     <div className="pr-0 pl-2 w-full" style={{ padding: "1em 4em 4em 4em" }}>
       <div>
+        {isInCalendarType === "calendar" ? (
+          <h1
+            style={{
+              fontSize: 18,
+              fontWeight: "bold",
+              padding: 0,
+              marginTop: "2vh",
+              position: "absolute",
+              left: "46%",
+              color: isInDarkMode ? "#fff" : "#2563eb"
+            }}
+          >
+            {MONTHS[month]} {year}
+          </h1>
+        ) : null}
         <button
           className="flex text-blue-600 hover:text-blue-800 dark:bg-gray-400 dark:text-white p-2 mb-2 mt-1 appearance-none outline-none focus:outline-none border-none active:border-none focus:border-none hover:border-none"
           onClick={() => (withList ? navigate(-1) : navigate("/"))}
         >
           <BackArrowIcon />
+
           {withList ? (
             <p className="ml-2">
               {locale === "fr" ? "Retour à la liste" : "Back to the list"}
@@ -145,6 +190,7 @@ const ScheduleViewWrapper = ({
         />
       </div>
       <ScheduleView
+        isInCalendarType={isInCalendarType}
         eventsNameUs={eventsNameUs}
         eventsName={eventsName}
         eventsTextColor={eventsTextColor}
