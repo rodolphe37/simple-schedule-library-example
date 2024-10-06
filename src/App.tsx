@@ -27,8 +27,8 @@ import { contentForModal } from "./dataCards";
 // types for app elements
 import { TcolorCellByEvents, TeventsName, TeventsTextColor } from "./dataTypes";
 
-// IMPORT FROM NPM LIBRARY -  it will be = import {SchedulesLayout} from "react-simple-schedules-viewer"
-import { SchedulesLayout } from "./components/layout/SchedulesLayout";
+// IMPORT FROM NPM LIBRARY 
+import Schedule from "react-simple-schedule-viewer";
 
 function App() {
   const { locale, setLocale } = useLocale();
@@ -128,7 +128,7 @@ function App() {
                   </div>
                 }
               >
-                <SchedulesLayout
+                <Schedule
                   scheduleByEventPlace={scheduleByEventPlace}
                   weekStartsOn={weekStartsOn}
                   isInDarkMode={isDarkMode}
