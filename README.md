@@ -1,7 +1,7 @@
 
 # React-simple-schedule-viewer
 
-## complex example
+## complex example repository
 
 ![First render](demo/demo.png)
 
@@ -55,4 +55,4 @@
 
 # Simple examples folder
 
-[For the more simple expamles you can click here](/Simple-examples/)
+[For more simple examples you can click here](/Simple-examples/)
