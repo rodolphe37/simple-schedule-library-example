@@ -1712,6 +1712,15 @@ react-router@6.26.2:
   dependencies:
     "@remix-run/router" "1.19.2"
 
+react-simple-schedule-viewer@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-simple-schedule-viewer/-/react-simple-schedule-viewer-1.0.0.tgz#ee13a84ff584d85c20f515b7d9255fa053293afd"
+  integrity sha512-xjEOt43DyVegQ0mmy+Wt8H56QWYB4jV4z0oFWasN/5TOjRUgFMGEHUjof/RJJ4eHCKf7s1k4Xo1P8wRK0Wavbw==
+  dependencies:
+    react "^18.3.1"
+    react-dom "^18.3.1"
+    react-router-dom "^6.26.2"
+
 react@^18.3.1:
   version "18.3.1"
   resolved "https://registry.yarnpkg.com/react/-/react-18.3.1.tgz#49ab892009c53933625bd16b2533fc754cab2891"
