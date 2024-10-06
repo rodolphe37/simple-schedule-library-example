@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { textWhite_blue500 } from "./utils/style";
+
 
 const HomePage = () => {
   return (
     <div>
        <Link style={{fontSize:18}}
         data-testid="forget-password"
-        className={`${textWhite_blue500} text-xs underline`}
+        className={`dark:text-white text-blue-600 text-xs underline`}
         to={`/schedule/`}
       >
         Go to demo...

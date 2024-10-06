@@ -1,6 +1,5 @@
 // style imports
 import "./App.css";
-import { bgGray200_700Color } from "./utils/style";
 // Per dependencies
 import { Suspense, useEffect, useState } from "react";
 import {
@@ -121,7 +120,7 @@ function App() {
               <Suspense
                 fallback={
                   <div
-                    className={`w-full flex flex-col justify-center items-center h-screen overflow-y-hidden ${bgGray200_700Color}`}
+                    className={`w-full flex flex-col justify-center items-center h-screen overflow-y-hidden bg-gray-200 dark:bg-gray-700`}
                     style={{ transform: "scale(3)" }}
                   >
                     <Loader />
