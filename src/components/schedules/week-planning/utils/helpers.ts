@@ -56,7 +56,7 @@ export const capitalizeFirstLetter = (str: string) => {
   return `${str.charAt(0).toUpperCase()}${str.slice(1).toLowerCase()}`;
 };
 
-enum daysOfWeekNamesFr {
+export enum daysOfWeekNamesFr {
   Monday = "Lundi",
   Tuesday = "Mardi",
   Wednesday = "Mercredi",

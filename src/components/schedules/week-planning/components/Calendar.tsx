@@ -59,7 +59,7 @@ const Calendar = ({
   const { calendarWithDaysUS, calendarWithDaysFrench } =
     useGetDaysController(calendarData);
 
-  const currentDay = today.getDay() - 1;
+  const currentDay = today.getDate();
   const currentDayOfWeek =
     locale === "fr"
       ? calendarWithDaysFrench[currentDay]
@@ -107,7 +107,7 @@ const Calendar = ({
                               height: 7,
                               background: "red",
                               position: "absolute",
-                              top: "30px",
+                              top: "3px",
                               right: "50%",
                               borderRadius: "100px",
                             }}
@@ -139,7 +139,7 @@ const Calendar = ({
                               height: 7,
                               background: "red",
                               position: "absolute",
-                              top: "30px",
+                              top: "3px",
                               right: "50%",
                               borderRadius: "100px",
                             }}
