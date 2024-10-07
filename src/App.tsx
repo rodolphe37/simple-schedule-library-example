@@ -50,23 +50,23 @@ function App() {
 
   // the default order of background colors in the array is
   const colorCellByEvents: TcolorCellByEvents = {
-    eventType_1: "#FFF2C4", // eventType_1 - required
-    eventType_2: "#FED7AD", // eventType_2 - optional
-    eventType_3: "#DBFFE2", // eventType_3 - optional
-    eventType_4: "#F6D1FF", // eventType_4 - optional
-    eventType_5: "#A0ABC0", // eventType_5 - optional
-    eventType_6: isDarkMode ? "#2D3648" : "#EDF0F7", // eventType_6 - required - is always the away, closed or absent event
-    eventType_7: "#B0DCFF", // eventType_7 - optional
+    eventType_1: "#FFECC8", // eventType_1 - required
+    eventType_2: "#FFAACF", // eventType_2 - optional
+    eventType_3: "#BFF6C3", // eventType_3 - optional
+    eventType_4: "#CDC1FF", // eventType_4 - optional
+    eventType_5: "#7BD3EA", // eventType_5 - optional
+    eventType_6: isDarkMode ? "#2D3648" : "#f3f3f3", // eventType_6 - required - is always the away, closed or absent event
+    eventType_7: "#FFDEFA", // eventType_7 - optional
   };
   // the default order of text colors in the array is
   const eventsTextColor: TeventsTextColor = {
-    eventType_1: "#B99100", // eventType_1 - required
-    eventType_2: "#D46E00", // eventType_2 - optional
-    eventType_3: "#00B51E", // eventType_3 - optional
-    eventType_4: "#F134F7", // eventType_4 - optional
-    eventType_5: "#FFFFFF", // eventType_5 - optional
-    eventType_6: "#a0abc0", // eventType_6 - required - is always the away, closed or absent event
-    eventType_7: "#0196EC", // eventType_7 - optional
+    eventType_1: "#c8a026", // eventType_1 - required
+    eventType_2: "#7b2e7b", // eventType_2 - optional
+    eventType_3: "#0eb318", // eventType_3 - optional
+    eventType_4: "#756AB6", // eventType_4 - optional
+    eventType_5: "#1e646e", // eventType_5 - optional
+    eventType_6: "#84878a", // eventType_6 - required - is always the away, closed or absent event
+    eventType_7: "#B97A95", // eventType_7 - optional
   };
 
   // This is for TEMP & CALENDAR type of schedule, the names of all eventTypes.
