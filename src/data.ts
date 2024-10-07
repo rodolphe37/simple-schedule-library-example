@@ -6,7 +6,7 @@ import {
 export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
   schedules: [
     {
-      id: "a397f1fe-14bf-4ca3-af8c-e497b98451f7",
+      id: "56a2bd7c-a898-4502-8414-fa4ace79e749",
       title: "Exemple de calendrier de type 'event'",
       type: "event",
       day_slot_set: [
@@ -158,7 +158,7 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
       ],
     },
     {
-      id: "89d07045-095f-4e15-b03c-6450a8ab4264",
+      id: "40f80dba-ab6c-4f71-8a4d-51ce439e9b44",
       title: "Exemple de calendrier de type 'event' vide",
       type: "event",
       day_slot_set: [
@@ -174,7 +174,7 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
       ],
     },
     {
-      id: "48a39d16-4acf-496c-a14d-106666dfd740",
+      id: "f00b3838-4906-4549-a299-0ed334937ab3",
       title: "Exemple de calendrier  de type 'temp'",
       type: "temp",
       day_slot_set: [
@@ -219,7 +219,7 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
       ],
     },
     {
-      id: "c81458c3-a4d5-4702-8b3f-09e2fd0fe17b",
+      id: "0dabee1d-0d06-4245-9c2c-235d28817cd0",
       title: "Exemple de calendrier de type 'temp' vide",
       type: "temp",
       day_slot_set: [
@@ -235,7 +235,7 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
       ],
     },
     {
-      id: "5bfaefe7-a189-40de-bd8c-468bd4ff0e77",
+      id: "d86ae448-012e-4f87-a7e5-d8e667346ea6",
       title: "Exemple de calendrier de type 'calendar'",
       type: "calendar",
       day_slot_set: [
@@ -259,7 +259,7 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
       ],
     },
     {
-      id: "47cdbc5a-74a9-47c6-a5ca-4c285748889b",
+      id: "61d6024f-8d18-43dc-8cdc-9c38c796b93b",
       title: "Exemple de calendrier de type 'calendar' vide",
       type: "calendar",
       day_slot_set: [
@@ -278,7 +278,7 @@ export const scheduleByEventPlace: getSchedulesByEventPlaceIdResponse = {
 };
 
 export const eventTypeData: TeventTypeData = {
-  eventPlace_id: "e2076d6a-9d6d-4b93-9ce0-a41f04c38c40",
+  eventPlace_id: "b4514cca-bd0f-4876-a3c3-b77444c047b4",
   eventType_1: "12.5 Euros",
   eventType_2: "20 Euros",
   eventType_3: "21 Euros",

@@ -17,7 +17,7 @@ enum EeventTypes {
 
 export const contentForModal = [
   {
-    id: "a397f1fe-14bf-4ca3-af8c-e497b98451f7",
+    id: "56a2bd7c-a898-4502-8414-fa4ace79e749",
     day: 0,
     eventType: EeventTypes.concert,
     startTime: 1230,
@@ -32,7 +32,7 @@ export const contentForModal = [
     ),
   },
   {
-    id: "a397f1fe-14bf-4ca3-af8c-e497b98451f7",
+    id: "56a2bd7c-a898-4502-8414-fa4ace79e749",
     day: 3,
     eventType: EeventTypes.concert,
     startTime: 450,
@@ -47,7 +47,7 @@ export const contentForModal = [
     ),
   },
   {
-    id: "a397f1fe-14bf-4ca3-af8c-e497b98451f7",
+    id: "56a2bd7c-a898-4502-8414-fa4ace79e749",
     day: 1,
     eventType: EeventTypes.concert,
     startTime: 1020,
@@ -62,7 +62,7 @@ export const contentForModal = [
     ),
   },
   {
-    id: "a397f1fe-14bf-4ca3-af8c-e497b98451f7",
+    id: "56a2bd7c-a898-4502-8414-fa4ace79e749",
     day: 1,
     eventType: EeventTypes.game_force,
     startTime: 900,
@@ -77,7 +77,7 @@ export const contentForModal = [
     ),
   },
   {
-    id: "a397f1fe-14bf-4ca3-af8c-e497b98451f7",
+    id: "56a2bd7c-a898-4502-8414-fa4ace79e749",
     day: 4,
     eventType: EeventTypes.game_force,
     startTime: 480,
@@ -92,7 +92,7 @@ export const contentForModal = [
     ),
   },
   {
-    id: "a397f1fe-14bf-4ca3-af8c-e497b98451f7",
+    id: "56a2bd7c-a898-4502-8414-fa4ace79e749",
     day: 5,
     eventType: EeventTypes.game_dark,
     startTime: 450,
@@ -107,7 +107,7 @@ export const contentForModal = [
     ),
   },
   {
-    id: "a397f1fe-14bf-4ca3-af8c-e497b98451f7",
+    id: "56a2bd7c-a898-4502-8414-fa4ace79e749",
     day: 2,
     eventType: EeventTypes.game_dark,
     startTime: 495,
@@ -122,7 +122,7 @@ export const contentForModal = [
     ),
   },
   {
-    id: "a397f1fe-14bf-4ca3-af8c-e497b98451f7",
+    id: "56a2bd7c-a898-4502-8414-fa4ace79e749",
     day: 2,
     eventType: EeventTypes.game_dark,
     startTime: 900,
@@ -137,7 +137,7 @@ export const contentForModal = [
     ),
   },
   {
-    id: "a397f1fe-14bf-4ca3-af8c-e497b98451f7",
+    id: "56a2bd7c-a898-4502-8414-fa4ace79e749",
     day: 0,
     eventType: EeventTypes.lecture,
     eventTitle: "Marvel Conf",
@@ -152,7 +152,7 @@ export const contentForModal = [
     ),
   },
   {
-    id: "a397f1fe-14bf-4ca3-af8c-e497b98451f7",
+    id: "56a2bd7c-a898-4502-8414-fa4ace79e749",
     day: 0,
     eventType: EeventTypes.game_dark,
     startTime: 900,
@@ -167,7 +167,7 @@ export const contentForModal = [
     ),
   },
   {
-    id: "a397f1fe-14bf-4ca3-af8c-e497b98451f7",
+    id: "56a2bd7c-a898-4502-8414-fa4ace79e749",
     day: 1,
     eventType: EeventTypes.lecture,
     eventTitle: "Marvel Conf",
@@ -182,7 +182,7 @@ export const contentForModal = [
     ),
   },
   {
-    id: "a397f1fe-14bf-4ca3-af8c-e497b98451f7",
+    id: "56a2bd7c-a898-4502-8414-fa4ace79e749",
     day: 0,
     eventType: EeventTypes.food,
     eventTitle: "Food Party",
@@ -197,7 +197,7 @@ export const contentForModal = [
     ),
   },
   {
-    id: "a397f1fe-14bf-4ca3-af8c-e497b98451f7",
+    id: "56a2bd7c-a898-4502-8414-fa4ace79e749",
     day: 1,
     eventType: EeventTypes.food,
     eventTitle: "Food Party",
@@ -212,7 +212,7 @@ export const contentForModal = [
     ),
   },
   {
-    id: "a397f1fe-14bf-4ca3-af8c-e497b98451f7",
+    id: "56a2bd7c-a898-4502-8414-fa4ace79e749",
     day: 2,
     eventType: EeventTypes.food,
     eventTitle: "Food Party",
