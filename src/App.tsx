@@ -1,13 +1,11 @@
 // style imports
 import "./App.css";
-// Per dependencies
 import { Suspense, useEffect, useState } from "react";
 import {
   Navigate,
   Route,
   Routes,
   useLocation,
-  useNavigate,
 } from "react-router-dom";
 
 // Import necessary for language (fr or en) & for theme (dark or light) - (for the example)
@@ -32,7 +30,6 @@ import Schedule from "react-simple-schedule-viewer";
 function App() {
   const { locale, setLocale } = useLocale();
   const { theme, setTheme } = useTheme();
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (isDarkMode) {
@@ -105,7 +102,9 @@ function App() {
     setWithDays,
   };
 
-  return (
+  return ( 
+    // This project uses tailwindcss classes - if you want to see an example without tailwindcss, 
+    // let's look at the documentation (npm package description) for most simple examples.
     <div className="App flex-col pt-24 align-middle justify-start bg-gray-300 dark:bg-gray-600 pb-24">
       <div className="w-full h-[80vh] items-center justify-between flex flex-col">
         {!location.pathname.includes("schedule") ? (
@@ -150,13 +149,6 @@ function App() {
           <Route path="*" element={<Navigate replace to="/" />} />
         </Routes>
       </div>
-      {withList &&
-      !withListReturnButton &&
-      location.pathname.includes("schedule") ? (
-        <button style={{ marginTop: "7vh" }} onClick={() => navigate("/")}>
-          Revenir à la liste des options
-        </button>
-      ) : null}
     </div>
   );
 }
