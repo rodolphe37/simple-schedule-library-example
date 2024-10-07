@@ -1,3 +1,7 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/24d299dd-6b1e-49b0-965d-c0d103af4b75/deploy-status)](https://app.netlify.com/sites/steady-hamster-02673e/deploys)
+
+[![npm](https://img.shields.io/npm/v/react-simple-schedule-viewer)](https://www.npmjs.com/package/react-simple-schedule-viewer) ![downloads](https://img.shields.io/npm/dt/react-simple-schedule-viewer?color=blue&logo=npm&logoColor=blue)
+
 
 # React-simple-schedule-viewer
 
