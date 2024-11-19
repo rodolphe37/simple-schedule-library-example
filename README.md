@@ -51,7 +51,7 @@
 
 # Live demo
 
-- [Link to live demo](https://steady-hamster-02673e.netlify.app/)
+- [Link to live demo](https://verdant-mandazi-690985.netlify.app/)
 
 
 # Link to the npm registry package:
